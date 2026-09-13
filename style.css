@@ -1,31 +1,27 @@
 ```css
 :root {
+    /* Fondos */
+    --bg: #071a1c;
+    --bg-secondary: #0a2426;
+    --panel: #0d3032;
+    --panel-light: #124043;
 
-    --bg: #06110d;
-    --bg-secondary: #091914;
+    /* Bordes */
+    --border: #216467;
 
-    --panel: #0d2119;
-    --panel-light: #122a20;
+    /* Texto */
+    --text: #efffff;
+    --muted: #a8d4d5;
 
-    --border: #1d4435;
-    --border-light: #2c624c;
+    /* Aguamarina principal */
+    --accent: #35e0d0;
+    --accent-dark: #159b99;
 
-    --text: #edf8f2;
-    --muted: #96afa3;
+    /* Estados */
+    --danger: #ff7676;
 
-    --accent: #55d99a;
-    --accent-light: #8af0bd;
-    --accent-dark: #167b4e;
-
-    --blue: #62c9e8;
-
-    --warning: #f1c75b;
-    --danger: #ff7474;
-
-    --radius: 16px;
-
-    --shadow:
-        0 18px 50px rgba(0,0,0,.28);
+    /* Diseño */
+    --radius: 14px;
 }
 
 
