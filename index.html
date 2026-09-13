@@ -1,399 +1,1990 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Identificador Taxonómico</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sistema digital para identificación taxonómica de insectos y artrópodos mediante caracteres morfológicos y reconocimiento de imágenes."
+    >
+
+    <meta
+        name="author"
+        content="Proyecto de Identificación Taxonómica"
+    >
+
+    <title>
+        TaxoID | Sistema de Identificación Taxonómica
+    </title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f5f3;
+
+        /* =====================================================
+           VARIABLES DEL SISTEMA
+        ===================================================== */
+
+        :root {
+
+            --primary: #173f2a;
+            --secondary: #2e7d52;
+            --accent: #65b891;
+
+            --background: #eef2ef;
+            --panel: #ffffff;
+
+            --text: #1d2922;
+            --muted: #68746d;
+
+            --border: #d9e1dc;
+
+            --success: #2e7d32;
+            --warning: #c58a00;
+
+            --shadow:
+                0 8px 30px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
+        body {
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--text);
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
         header {
-            background: #245c35;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #102d1d,
+                    #23613d
+                );
+
             color: white;
-            text-align: center;
-            padding: 25px;
+
+            padding: 22px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0,0,0,0.15);
+
         }
 
-        .contenedor {
-            max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            padding: 30px;
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .brand-icon {
+
+            width: 48px;
+
+            height: 48px;
+
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+            background:
+                rgba(255,255,255,0.12);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 25px;
+
         }
 
-        h2 {
-            color: #245c35;
+
+        .brand h1 {
+
+            font-size: 23px;
+
+            letter-spacing: 1px;
+
         }
 
-        .seccion {
-            margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+
+        .brand span {
+
+            font-size: 12px;
+
+            opacity: 0.7;
+
         }
 
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
+
+        .status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 13px;
+
         }
 
-        select,
-        input[type="file"],
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border-radius: 6px;
-            border: 1px solid #bbb;
-            box-sizing: border-box;
+
+        .status-dot {
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #67d58b;
+
+            box-shadow:
+                0 0 10px #67d58b;
+
         }
 
-        button {
-            background: #245c35;
-            color: white;
-            border: none;
-            cursor: pointer;
+
+        /* =====================================================
+           NAVEGACIÓN
+        ===================================================== */
+
+        nav {
+
+            background: white;
+
+            border-bottom:
+                1px solid var(--border);
+
+            padding:
+                0 5%;
+
+            display: flex;
+
+            gap: 30px;
+
+        }
+
+
+        nav a {
+
+            padding: 16px 5px;
+
+            color: var(--muted);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            border-bottom:
+                2px solid transparent;
+
+        }
+
+
+        nav a:hover {
+
+            color: var(--primary);
+
+            border-bottom:
+                2px solid var(--secondary);
+
+        }
+
+
+        /* =====================================================
+           CONTENEDOR
+        ===================================================== */
+
+        .container {
+
+            max-width: 1400px;
+
+            margin:
+                35px auto;
+
+            padding:
+                0 25px;
+
+        }
+
+
+        .page-title {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .page-title h2 {
+
+            font-size: 28px;
+
+            color: var(--primary);
+
+        }
+
+
+        .page-title p {
+
+            margin-top: 6px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           GRID PRINCIPAL
+        ===================================================== */
+
+        .workspace {
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr 0.9fr;
+
+            gap: 25px;
+
+        }
+
+
+        /* =====================================================
+           PANELES
+        ===================================================== */
+
+        .panel {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            box-shadow:
+                var(--shadow);
+
+            overflow: hidden;
+
+        }
+
+
+        .panel-header {
+
+            padding:
+                18px 22px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+        }
+
+
+        .panel-header h3 {
+
             font-size: 16px;
+
+            color: var(--primary);
+
         }
 
-        button:hover {
-            background: #194527;
+
+        .panel-header small {
+
+            color: var(--muted);
+
         }
+
+
+        .panel-body {
+
+            padding: 22px;
+
+        }
+
+
+        /* =====================================================
+           UPLOAD
+        ===================================================== */
+
+        .upload-zone {
+
+            border:
+                2px dashed
+                #b9c9bf;
+
+            border-radius:
+                12px;
+
+            min-height:
+                300px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            cursor: pointer;
+
+            transition:
+                0.25s;
+
+            background:
+                #f8faf9;
+
+        }
+
+
+        .upload-zone:hover {
+
+            border-color:
+                var(--secondary);
+
+            background:
+                #f1f8f4;
+
+        }
+
+
+        .upload-icon {
+
+            font-size: 50px;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .upload-zone h4 {
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .upload-zone p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            max-width:
+                400px;
+
+        }
+
+
+        #imageInput {
+
+            display: none;
+
+        }
+
 
         #preview {
-            max-width: 300px;
-            max-height: 300px;
-            display: none;
-            margin: 20px auto;
-            border-radius: 10px;
+
+            max-width:
+                100%;
+
+            max-height:
+                280px;
+
+            border-radius:
+                10px;
+
+            display:
+                none;
+
+            margin-bottom:
+                15px;
+
         }
 
-        #resultado {
-            display: none;
-            background: #e8f5e9;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 25px;
+
+        /* =====================================================
+           TAXONOMÍA
+        ===================================================== */
+
+        .taxonomy {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                15px;
+
         }
 
-        .especie {
-            font-size: 24px;
-            font-weight: bold;
-            color: #245c35;
+
+        .field {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                6px;
+
         }
 
-        .probabilidad {
-            margin-top: 10px;
+
+        .field.full {
+
+            grid-column:
+                1 / -1;
+
         }
+
+
+        .field label {
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
+
+            color:
+                var(--muted);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.5px;
+
+        }
+
+
+        select {
+
+            padding:
+                11px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                7px;
+
+            background:
+                white;
+
+            color:
+                var(--text);
+
+            outline:
+                none;
+
+        }
+
+
+        select:focus {
+
+            border-color:
+                var(--secondary);
+
+        }
+
+
+        /* =====================================================
+           CARACTERES MORFOLÓGICOS
+        ===================================================== */
+
+        .character-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                12px;
+
+        }
+
+
+        .character {
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                9px;
+
+            padding:
+                12px;
+
+            background:
+                #fafcfb;
+
+        }
+
+
+        .character label {
+
+            font-size:
+                12px;
+
+            color:
+                var(--muted);
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .character select {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =====================================================
+           BOTÓN
+        ===================================================== */
+
+        .identify-button {
+
+            margin-top:
+                20px;
+
+            width:
+                100%;
+
+            padding:
+                15px;
+
+            border:
+                none;
+
+            border-radius:
+                8px;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            font-size:
+                15px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .identify-button:hover {
+
+            background:
+                var(--secondary);
+
+        }
+
+
+        /* =====================================================
+           RESULTADO
+        ===================================================== */
+
+        .result-empty {
+
+            text-align:
+                center;
+
+            padding:
+                60px 20px;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .result-empty div {
+
+            font-size:
+                45px;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        #result {
+
+            display:
+                none;
+
+        }
+
+
+        .result-species {
+
+            background:
+                #f1f8f4;
+
+            border:
+                1px solid
+                #c8ded0;
+
+            border-radius:
+                12px;
+
+            padding:
+                20px;
+
+        }
+
+
+        .result-label {
+
+            font-size:
+                11px;
+
+            color:
+                var(--muted);
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .species-name {
+
+            font-size:
+                25px;
+
+            color:
+                var(--primary);
+
+            font-weight:
+                700;
+
+            margin:
+                5px 0;
+
+        }
+
+
+        .common-name {
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+
+        }
+
+
+        /* =====================================================
+           CONFIANZA
+        ===================================================== */
+
+        .confidence {
+
+            margin-top:
+                20px;
+
+        }
+
+
+        .confidence-header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            font-size:
+                13px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .confidence-bar {
+
+            height:
+                8px;
+
+            background:
+                #e1e8e3;
+
+            border-radius:
+                10px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .confidence-value {
+
+            height:
+                100%;
+
+            width:
+                0%;
+
+            background:
+                var(--secondary);
+
+            transition:
+                width 1s;
+
+        }
+
+
+        /* =====================================================
+           JERARQUÍA
+        ===================================================== */
+
+        .hierarchy {
+
+            margin-top:
+                20px;
+
+        }
+
+
+        .taxon {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            padding:
+                10px 0;
+
+            border-bottom:
+                1px solid
+                #edf1ee;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .taxon span:first-child {
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .taxon span:last-child {
+
+            font-weight:
+                600;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            padding:
+                30px;
+
+            font-size:
+                12px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:900px) {
+
+            .workspace {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media(max-width:600px) {
+
+            .taxonomy {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .character-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            nav {
+
+                overflow-x:
+                    auto;
+
+            }
+
+            header {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    15px;
+
+                align-items:
+                    flex-start;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-    <h1>🔬 Identificador Taxonómico</h1>
-    <p>Reconocimiento de insectos y artrópodos</p>
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🧬
+        </div>
+
+        <div>
+
+            <h1>
+                TaxoID
+            </h1>
+
+            <span>
+                Sistema de Identificación Taxonómica
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="status">
+
+        <span class="status-dot"></span>
+
+        Sistema operativo
+
+    </div>
+
 </header>
 
-<div class="contenedor">
 
-    <!-- IMAGEN -->
-    <div class="seccion">
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
 
-        <h2>1. Cargar imagen</h2>
+<nav>
 
-        <p>
-            Carga una fotografía del insecto o artrópodo.
-        </p>
+    <a href="#">
+        Identificación
+    </a>
 
-        <input
-            type="file"
-            id="imagen"
-            accept="image/*"
-        >
+    <a href="#">
+        Base de datos
+    </a>
 
-        <img id="preview" alt="Vista previa">
+    <a href="#">
+        Taxonomía
+    </a>
 
-    </div>
+    <a href="#">
+        Metodología
+    </a>
 
+    <a href="#">
+        Acerca del proyecto
+    </a>
 
-    <!-- CLASIFICACIÓN -->
-    <div class="seccion">
-
-        <h2>2. Características</h2>
-
-        <label for="grupo">
-            Grupo
-        </label>
-
-        <select id="grupo">
-
-            <option value="">
-                Seleccionar
-            </option>
-
-            <option value="insecta">
-                Insecto
-            </option>
-
-            <option value="arachnida">
-                Arácnido
-            </option>
-
-            <option value="crustacea">
-                Crustáceo
-            </option>
-
-            <option value="myriapoda">
-                Miriápodo
-            </option>
-
-        </select>
+</nav>
 
 
-        <label for="patas">
-            Número de patas
-        </label>
+<!-- =====================================================
+     CONTENIDO
+===================================================== -->
 
-        <select id="patas">
-
-            <option value="">
-                Seleccionar
-            </option>
-
-            <option value="6">
-                6
-            </option>
-
-            <option value="8">
-                8
-            </option>
-
-            <option value="many">
-                Muchas
-            </option>
-
-        </select>
+<main class="container">
 
 
-        <label for="alas">
-            ¿Tiene alas?
-        </label>
+    <div class="page-title">
 
-        <select id="alas">
-
-            <option value="">
-                Seleccionar
-            </option>
-
-            <option value="si">
-                Sí
-            </option>
-
-            <option value="no">
-                No
-            </option>
-
-        </select>
-
-
-        <label for="antenas">
-            ¿Tiene antenas?
-        </label>
-
-        <select id="antenas">
-
-            <option value="">
-                Seleccionar
-            </option>
-
-            <option value="si">
-                Sí
-            </option>
-
-            <option value="no">
-                No
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <!-- BOTÓN -->
-    <button onclick="identificar()">
-        🔎 Identificar organismo
-    </button>
-
-
-    <!-- RESULTADO -->
-    <div id="resultado">
-
-        <h2>Resultado</h2>
+        <h2>
+            Identificación de especímenes
+        </h2>
 
         <p>
-            Posible identificación:
+            Análisis morfológico y clasificación taxonómica
+            de insectos y otros artrópodos.
         </p>
-
-        <div
-            id="especie"
-            class="especie">
-        </div>
-
-        <div
-            id="probabilidad"
-            class="probabilidad">
-        </div>
-
-        <hr>
-
-        <p id="descripcion"></p>
 
     </div>
 
-</div>
 
+    <div class="workspace">
+
+
+        <!-- =================================================
+             PANEL IZQUIERDO
+        ================================================= -->
+
+        <section>
+
+
+            <!-- IMAGEN -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+                        📷 Registro fotográfico
+                    </h3>
+
+                    <small>
+                        Entrada visual
+                    </small>
+
+                </div>
+
+
+                <div class="panel-body">
+
+                    <label
+                        class="upload-zone"
+                        for="imageInput"
+                    >
+
+                        <img
+                            id="preview"
+                            alt="Imagen del espécimen"
+                        >
+
+                        <div
+                            class="upload-icon"
+                            id="uploadIcon"
+                        >
+                            🔬
+                        </div>
+
+                        <h4>
+                            Cargar espécimen
+                        </h4>
+
+                        <p>
+                            Seleccione una fotografía del
+                            organismo para iniciar el proceso
+                            de identificación.
+                        </p>
+
+                        <br>
+
+                        <small>
+                            JPG · PNG · WEBP
+                        </small>
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+
+            <!-- TAXONOMÍA -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+                        🧬 Caracterización taxonómica
+                    </h3>
+
+                    <small>
+                        Clasificación
+                    </small>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div class="taxonomy">
+
+
+                        <div class="field">
+
+                            <label>
+                                Reino
+                            </label>
+
+                            <select id="reino">
+
+                                <option>
+                                    Animalia
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Filo
+                            </label>
+
+                            <select id="filo">
+
+                                <option>
+                                    Arthropoda
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Clase
+                            </label>
+
+                            <select id="clase">
+
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option value="Insecta">
+                                    Insecta
+                                </option>
+
+                                <option value="Arachnida">
+                                    Arachnida
+                                </option>
+
+                                <option value="Chilopoda">
+                                    Chilopoda
+                                </option>
+
+                                <option value="Diplopoda">
+                                    Diplopoda
+                                </option>
+
+                                <option value="Crustacea">
+                                    Crustacea
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Orden
+                            </label>
+
+                            <select id="orden">
+
+                                <option>
+                                    Seleccionar
+                                </option>
+
+                                <option>
+                                    Coleoptera
+                                </option>
+
+                                <option>
+                                    Lepidoptera
+                                </option>
+
+                                <option>
+                                    Diptera
+                                </option>
+
+                                <option>
+                                    Hymenoptera
+                                </option>
+
+                                <option>
+                                    Orthoptera
+                                </option>
+
+                                <option>
+                                    Hemiptera
+                                </option>
+
+                                <option>
+                                    Araneae
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Familia
+                            </label>
+
+                            <select id="familia">
+
+                                <option>
+                                    Seleccionar
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Género
+                            </label>
+
+                            <select id="genero">
+
+                                <option>
+                                    Seleccionar
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+
+            <!-- CARACTERES MORFOLÓGICOS -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+                        🔎 Caracteres diagnósticos
+                    </h3>
+
+                    <small>
+                        Morfología externa
+                    </small>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div class="character-grid">
+
+
+                        <div class="character">
+
+                            <label>
+                                Número de patas
+                            </label>
+
+                            <select id="patas">
+
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option value="6">
+                                    6
+                                </option>
+
+                                <option value="8">
+                                    8
+                                </option>
+
+                                <option value="many">
+                                    Más de 8
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="character">
+
+                            <label>
+                                Alas
+                            </label>
+
+                            <select id="alas">
+
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option value="si">
+                                    Presentes
+                                </option>
+
+                                <option value="no">
+                                    Ausentes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="character">
+
+                            <label>
+                                Antenas
+                            </label>
+
+                            <select id="antenas">
+
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option value="si">
+                                    Presentes
+                                </option>
+
+                                <option value="no">
+                                    Ausentes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="character">
+
+                            <label>
+                                Tipo de aparato bucal
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Seleccionar
+                                </option>
+
+                                <option>
+                                    Masticador
+                                </option>
+
+                                <option>
+                                    Picador-chupador
+                                </option>
+
+                                <option>
+                                    Chupador
+                                </option>
+
+                                <option>
+                                    Lamedor
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="character">
+
+                            <label>
+                                Simetría corporal
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Seleccionar
+                                </option>
+
+                                <option>
+                                    Bilateral
+                                </option>
+
+                                <option>
+                                    Otra
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="character">
+
+                            <label>
+                                Segmentación
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Seleccionar
+                                </option>
+
+                                <option>
+                                    Evidente
+                                </option>
+
+                                <option>
+                                    Reducida
+                                </option>
+
+                                <option>
+                                    No observable
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        class="identify-button"
+                        onclick="identificar()"
+                    >
+
+                        🔬 Ejecutar identificación
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             PANEL DERECHO
+        ================================================= -->
+
+        <section>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+                        📊 Resultado del análisis
+                    </h3>
+
+                    <small>
+                        TaxoID Engine
+                    </small>
+
+                </div>
+
+
+                <div class="panel-body">
+
+
+                    <div
+                        class="result-empty"
+                        id="emptyResult"
+                    >
+
+                        <div>
+                            🧪
+                        </div>
+
+                        <h3>
+                            Sin identificación
+                        </h3>
+
+                        <p>
+                            Introduzca caracteres morfológicos
+                            para generar una identificación
+                            preliminar.
+                        </p>
+
+                    </div>
+
+
+                    <div id="result">
+
+
+                        <div class="result-species">
+
+                            <span class="result-label">
+                                Especie probable
+                            </span>
+
+                            <div
+                                class="species-name"
+                                id="species"
+                            >
+                                —
+                            </div>
+
+                            <div
+                                class="common-name"
+                                id="commonName"
+                            >
+                                —
+                            </div>
+
+
+                            <div class="confidence">
+
+                                <div
+                                    class="confidence-header"
+                                >
+
+                                    <span>
+                                        Confianza del análisis
+                                    </span>
+
+                                    <strong
+                                        id="confidenceText"
+                                    >
+                                        0%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="confidence-bar">
+
+                                    <div
+                                        class="confidence-value"
+                                        id="confidenceBar"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- JERARQUÍA -->
+
+                        <div class="hierarchy">
+
+                            <h3>
+                                Jerarquía taxonómica
+                            </h3>
+
+                            <br>
+
+
+                            <div class="taxon">
+
+                                <span>
+                                    Reino
+                                </span>
+
+                                <span>
+                                    Animalia
+                                </span>
+
+                            </div>
+
+
+                            <div class="taxon">
+
+                                <span>
+                                    Filo
+                                </span>
+
+                                <span>
+                                    Arthropoda
+                                </span>
+
+                            </div>
+
+
+                            <div class="taxon">
+
+                                <span>
+                                    Clase
+                                </span>
+
+                                <span id="resultClase">
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="taxon">
+
+                                <span>
+                                    Orden
+                                </span>
+
+                                <span id="resultOrden">
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="taxon">
+
+                                <span>
+                                    Familia
+                                </span>
+
+                                <span>
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="taxon">
+
+                                <span>
+                                    Género
+                                </span>
+
+                                <span>
+                                    —
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    TaxoID — Plataforma experimental de identificación
+    taxonómica de artrópodos.
+
+    <br><br>
+
+    Sistema preparado para integración con
+    bases de datos y modelos de reconocimiento de imágenes.
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-    // ==========================
-    // VISTA PREVIA DE IMAGEN
-    // ==========================
+
+    /* =====================================================
+       PREVISUALIZACIÓN DE IMAGEN
+    ===================================================== */
 
     document
-        .getElementById("imagen")
-        .addEventListener("change", function(event) {
+        .getElementById("imageInput")
+        .addEventListener(
+            "change",
+            function(event) {
 
-            const archivo = event.target.files[0];
+                const file =
+                    event.target.files[0];
 
-            if (archivo) {
+                if (!file)
+                    return;
 
-                const imagen =
-                    document.getElementById("preview");
 
-                imagen.src =
-                    URL.createObjectURL(archivo);
+                const preview =
+                    document.getElementById(
+                        "preview"
+                    );
 
-                imagen.style.display = "block";
+                const icon =
+                    document.getElementById(
+                        "uploadIcon"
+                    );
+
+
+                preview.src =
+                    URL.createObjectURL(file);
+
+                preview.style.display =
+                    "block";
+
+                icon.style.display =
+                    "none";
+
             }
+        );
 
-        });
 
-
-    // ==========================
-    // IDENTIFICACIÓN
-    // ==========================
+    /* =====================================================
+       MOTOR DE IDENTIFICACIÓN
+    ===================================================== */
 
     function identificar() {
 
-        const grupo =
-            document.getElementById("grupo").value;
+
+        const clase =
+            document.getElementById(
+                "clase"
+            ).value;
+
+
+        const orden =
+            document.getElementById(
+                "orden"
+            ).value;
+
 
         const patas =
-            document.getElementById("patas").value;
+            document.getElementById(
+                "patas"
+            ).value;
+
 
         const alas =
-            document.getElementById("alas").value;
+            document.getElementById(
+                "alas"
+            ).value;
+
 
         const antenas =
-            document.getElementById("antenas").value;
+            document.getElementById(
+                "antenas"
+            ).value;
 
 
-        let especie = "No determinada";
-
-        let probabilidad = "Sin datos suficientes";
-
-        let descripcion =
-            "Agrega más características para obtener una identificación.";
+        let especie =
+            "Identificación no concluyente";
 
 
-        // ==========================
-        // REGLAS DE IDENTIFICACIÓN
-        // ==========================
+        let nombreComun =
+            "Se requieren más caracteres";
+
+
+        let confianza =
+            20;
+
+
+        /* ================================
+           REGLAS TAXONÓMICAS
+        ================================= */
 
         if (
-            grupo === "insecta" &&
-            patas === "6" &&
-            alas === "si" &&
-            antenas === "si"
+            clase === "Insecta" &&
+            patas === "6"
         ) {
 
             especie =
-                "Posible insecto alado";
+                "Insecta sp.";
 
-            probabilidad =
-                "Identificación preliminar";
 
-            descripcion =
-                "El organismo presenta características compatibles con Insecta: seis patas, antenas y alas.";
+            nombreComun =
+                "Insecto no determinado";
+
+
+            confianza =
+                55;
 
         }
 
 
-        else if (
-            grupo === "arachnida" &&
+        if (
+            clase === "Insecta" &&
+            patas === "6" &&
+            alas === "si"
+        ) {
+
+            especie =
+                "Insecta alada sp.";
+
+
+            nombreComun =
+                "Insecto alado";
+
+
+            confianza =
+                68;
+
+        }
+
+
+        if (
+            clase === "Arachnida" &&
             patas === "8"
         ) {
 
             especie =
-                "Posible arácnido";
-
-            probabilidad =
-                "Identificación preliminar";
-
-            descripcion =
-                "El organismo presenta ocho patas, característica típica de los arácnidos.";
-
-        }
+                "Arachnida sp.";
 
 
-        else if (
-            grupo === "insecta" &&
-            patas === "6" &&
-            alas === "no"
-        ) {
+            nombreComun =
+                "Arácnido";
 
-            especie =
-                "Posible insecto áptero";
 
-            probabilidad =
-                "Identificación preliminar";
-
-            descripcion =
-                "El organismo presenta seis patas pero no se observan alas.";
+            confianza =
+                75;
 
         }
 
 
-        // ==========================
-        // MOSTRAR RESULTADO
-        // ==========================
+        /* =================================================
+           MOSTRAR RESULTADO
+        ================================================= */
 
-        document.getElementById("resultado")
-            .style.display = "block";
+        document
+            .getElementById(
+                "emptyResult"
+            )
+            .style.display =
+            "none";
 
-        document.getElementById("especie")
-            .textContent = especie;
 
-        document.getElementById("probabilidad")
-            .textContent = probabilidad;
+        document
+            .getElementById(
+                "result"
+            )
+            .style.display =
+            "block";
 
-        document.getElementById("descripcion")
-            .textContent = descripcion;
+
+        document
+            .getElementById(
+                "species"
+            )
+            .textContent =
+            especie;
+
+
+        document
+            .getElementById(
+                "commonName"
+            )
+            .textContent =
+            nombreComun;
+
+
+        document
+            .getElementById(
+                "confidenceText"
+            )
+            .textContent =
+            confianza + "%";
+
+
+        document
+            .getElementById(
+                "confidenceBar"
+            )
+            .style.width =
+            confianza + "%";
+
+
+        document
+            .getElementById(
+                "resultClase"
+            )
+            .textContent =
+            clase || "No determinada";
+
+
+        document
+            .getElementById(
+                "resultOrden"
+            )
+            .textContent =
+            orden || "No determinado";
 
     }
 
+
 </script>
 
+
 </body>
+
 </html>
+```
