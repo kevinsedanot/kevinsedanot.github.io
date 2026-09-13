@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "nombre_cientifico": "Apis mellifera",
+        "nombre_comun": "Abeja de la miel",
+
+        "reino": "Animalia",
+        "filo": "Arthropoda",
+        "clase": "Insecta",
+        "orden": "Hymenoptera",
+        "familia": "Apidae",
+        "genero": "Apis",
+
+        "patas": 6,
+        "alas": true,
+        "antenas": true,
+
+        "imagen": "imagenes/abeja.jpg",
+
+        "descripcion": "Insecto social perteneciente a la familia Apidae."
+    },
+
+    {
+        "id": 2,
+        "nombre_cientifico": "Latrodectus sp.",
+        "nombre_comun": "Viuda negra",
+
+        "reino": "Animalia",
+        "filo": "Arthropoda",
+        "clase": "Arachnida",
+        "orden": "Araneae",
+        "familia": "Theridiidae",
+        "genero": "Latrodectus",
+
+        "patas": 8,
+        "alas": false,
+        "antenas": false,
+
+        "imagen": "imagenes/arana.jpg",
+
+        "descripcion": "Arácnido perteneciente al orden Araneae."
+    }
+]
