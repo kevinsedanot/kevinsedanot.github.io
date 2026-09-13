@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Identificador Taxonómico</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #245c35;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #245c35;
+        }
+
+        .seccion {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #245c35;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #194527;
+        }
+
+        #preview {
+            max-width: 300px;
+            max-height: 300px;
+            display: none;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        #resultado {
+            display: none;
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        .especie {
+            font-size: 24px;
+            font-weight: bold;
+            color: #245c35;
+        }
+
+        .probabilidad {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔬 Identificador Taxonómico</h1>
+    <p>Reconocimiento de insectos y artrópodos</p>
+</header>
+
+<div class="contenedor">
+
+    <!-- IMAGEN -->
+    <div class="seccion">
+
+        <h2>1. Cargar imagen</h2>
+
+        <p>
+            Carga una fotografía del insecto o artrópodo.
+        </p>
+
+        <input
+            type="file"
+            id="imagen"
+            accept="image/*"
+        >
+
+        <img id="preview" alt="Vista previa">
+
+    </div>
+
+
+    <!-- CLASIFICACIÓN -->
+    <div class="seccion">
+
+        <h2>2. Características</h2>
+
+        <label for="grupo">
+            Grupo
+        </label>
+
+        <select id="grupo">
+
+            <option value="">
+                Seleccionar
+            </option>
+
+            <option value="insecta">
+                Insecto
+            </option>
+
+            <option value="arachnida">
+                Arácnido
+            </option>
+
+            <option value="crustacea">
+                Crustáceo
+            </option>
+
+            <option value="myriapoda">
+                Miriápodo
+            </option>
+
+        </select>
+
+
+        <label for="patas">
+            Número de patas
+        </label>
+
+        <select id="patas">
+
+            <option value="">
+                Seleccionar
+            </option>
+
+            <option value="6">
+                6
+            </option>
+
+            <option value="8">
+                8
+            </option>
+
+            <option value="many">
+                Muchas
+            </option>
+
+        </select>
+
+
+        <label for="alas">
+            ¿Tiene alas?
+        </label>
+
+        <select id="alas">
+
+            <option value="">
+                Seleccionar
+            </option>
+
+            <option value="si">
+                Sí
+            </option>
+
+            <option value="no">
+                No
+            </option>
+
+        </select>
+
+
+        <label for="antenas">
+            ¿Tiene antenas?
+        </label>
+
+        <select id="antenas">
+
+            <option value="">
+                Seleccionar
+            </option>
+
+            <option value="si">
+                Sí
+            </option>
+
+            <option value="no">
+                No
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- BOTÓN -->
+    <button onclick="identificar()">
+        🔎 Identificar organismo
+    </button>
+
+
+    <!-- RESULTADO -->
+    <div id="resultado">
+
+        <h2>Resultado</h2>
+
+        <p>
+            Posible identificación:
+        </p>
+
+        <div
+            id="especie"
+            class="especie">
+        </div>
+
+        <div
+            id="probabilidad"
+            class="probabilidad">
+        </div>
+
+        <hr>
+
+        <p id="descripcion"></p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // ==========================
+    // VISTA PREVIA DE IMAGEN
+    // ==========================
+
+    document
+        .getElementById("imagen")
+        .addEventListener("change", function(event) {
+
+            const archivo = event.target.files[0];
+
+            if (archivo) {
+
+                const imagen =
+                    document.getElementById("preview");
+
+                imagen.src =
+                    URL.createObjectURL(archivo);
+
+                imagen.style.display = "block";
+            }
+
+        });
+
+
+    // ==========================
+    // IDENTIFICACIÓN
+    // ==========================
+
+    function identificar() {
+
+        const grupo =
+            document.getElementById("grupo").value;
+
+        const patas =
+            document.getElementById("patas").value;
+
+        const alas =
+            document.getElementById("alas").value;
+
+        const antenas =
+            document.getElementById("antenas").value;
+
+
+        let especie = "No determinada";
+
+        let probabilidad = "Sin datos suficientes";
+
+        let descripcion =
+            "Agrega más características para obtener una identificación.";
+
+
+        // ==========================
+        // REGLAS DE IDENTIFICACIÓN
+        // ==========================
+
+        if (
+            grupo === "insecta" &&
+            patas === "6" &&
+            alas === "si" &&
+            antenas === "si"
+        ) {
+
+            especie =
+                "Posible insecto alado";
+
+            probabilidad =
+                "Identificación preliminar";
+
+            descripcion =
+                "El organismo presenta características compatibles con Insecta: seis patas, antenas y alas.";
+
+        }
+
+
+        else if (
+            grupo === "arachnida" &&
+            patas === "8"
+        ) {
+
+            especie =
+                "Posible arácnido";
+
+            probabilidad =
+                "Identificación preliminar";
+
+            descripcion =
+                "El organismo presenta ocho patas, característica típica de los arácnidos.";
+
+        }
+
+
+        else if (
+            grupo === "insecta" &&
+            patas === "6" &&
+            alas === "no"
+        ) {
+
+            especie =
+                "Posible insecto áptero";
+
+            probabilidad =
+                "Identificación preliminar";
+
+            descripcion =
+                "El organismo presenta seis patas pero no se observan alas.";
+
+        }
+
+
+        // ==========================
+        // MOSTRAR RESULTADO
+        // ==========================
+
+        document.getElementById("resultado")
+            .style.display = "block";
+
+        document.getElementById("especie")
+            .textContent = especie;
+
+        document.getElementById("probabilidad")
+            .textContent = probabilidad;
+
+        document.getElementById("descripcion")
+            .textContent = descripcion;
+
+    }
+
+</script>
+
+</body>
+</html>
