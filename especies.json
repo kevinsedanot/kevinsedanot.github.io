@@ -1,669 +1,381 @@
+```json
 [
   {
     "id": "ARTH-INSECTA-HYM-APID-APIS-001",
 
-    "identificacion": {
-      "nombre_cientifico": "Apis mellifera",
-      "nombre_autoridad": "Linnaeus, 1758",
-      "nombre_comun": [
+    "identification": {
+      "scientificName": "Apis mellifera",
+      "authority": "Linnaeus, 1758",
+      "commonNames": [
         "Abeja de la miel",
-        "Abeja doméstica"
+        "Abeja europea"
       ],
-      "sinonimos": [],
-      "nivel_identificacion": "especie",
-      "estado_taxonomico": "aceptado"
+      "synonyms": [],
+      "identificationLevel": "species",
+      "taxonomicStatus": "accepted"
     },
 
-    "taxonomia": {
-      "dominio": "Eukaryota",
-      "reino": "Animalia",
-      "subreino": "Eumetazoa",
-      "superfilo": "Ecdysozoa",
-      "filo": "Arthropoda",
-      "subfilo": "Hexapoda",
-      "clase": "Insecta",
-      "subclase": "Pterygota",
-      "infraclase": "Neoptera",
-      "orden": "Hymenoptera",
-      "suborden": "Apocrita",
-      "familia": "Apidae",
-      "subfamilia": "Apinae",
-      "tribu": "Apini",
-      "genero": "Apis",
-      "especie": "Apis mellifera"
+    "taxonomy": {
+      "domain": "Eukaryota",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
+      "class": "Insecta",
+      "order": "Hymenoptera",
+      "family": "Apidae",
+      "genus": "Apis",
+      "species": "Apis mellifera"
     },
 
-    "morfologia": {
-
-      "simetria": "bilateral",
-
-      "segmentacion": "evidente",
-
-      "numero_patas": 6,
-
-      "numero_pares_patas": 3,
-
-      "alas": {
-        "presencia": true,
-        "numero_pares": 2,
-        "tipo": "membranosas",
-        "venacion": "desarrollada"
-      },
-
-      "antenas": {
-        "presencia": true,
-        "numero": 1,
-        "tipo": "geniculadas"
-      },
-
-      "ojos": {
-        "compuestos": true,
-        "ocelos": true
-      },
-
-      "aparato_bucal": {
-        "tipo": "masticador_lamedor",
-        "descripcion": "Adaptado para manipular material vegetal y recolectar néctar."
-      },
-
-      "cuerpo": {
-        "forma": "robusta",
-        "segmentos_principales": [
-          "cabeza",
-          "torax",
-          "abdomen"
-        ]
-      },
-
-      "coloracion": [
-        "amarillo",
-        "negro",
-        "marron"
-      ],
-
-      "pubescencia": "abundante",
-
-      "tamano": {
-        "unidad": "mm",
-        "longitud_minima": 10,
-        "longitud_maxima": 15
-      }
+    "morphology": {
+      "symmetry": "bilateral",
+      "segmentation": "evidente",
+      "legs": 6,
+      "legPairs": 3,
+      "wings": true,
+      "antennae": true,
+      "eyes": "compuestos",
+      "mouthparts": "lamedor",
+      "body": "segmentado",
+      "coloration": "amarillo y negro",
+      "pubescence": "presente",
+      "size": "10-15 mm"
     },
 
-    "caracteres_diagnosticos": [
-
+    "diagnosticCharacters": [
       "Tres pares de patas",
-
-      "Dos pares de alas membranosas",
-
-      "Antenas geniculadas",
-
-      "Ojos compuestos desarrollados",
-
-      "Abdomen con bandas contrastantes",
-
-      "Presencia de estructuras especializadas para transporte de polen"
-
+      "Dos pares de alas",
+      "Antenas",
+      "Cuerpo con abundante pilosidad",
+      "Patrón de coloración amarillo-negro",
+      "Aparato bucal lamedor"
     ],
 
-    "clave_identificacion": {
-
-      "patas": 6,
-
-      "alas": true,
-
-      "antenas": true,
-
-      "aparato_bucal": "masticador_lamedor",
-
-      "orden_compatible": [
-        "Hymenoptera"
-      ],
-
-      "familias_compatibles": [
-        "Apidae"
-      ]
-    },
-
-    "biologia": {
-
-      "tipo_desarrollo": "holometabolo",
-
-      "metamorfosis": true,
-
-      "etapas": [
+    "biology": {
+      "developmentType": "holometábolo",
+      "metamorphosis": "completa",
+      "stages": [
         "huevo",
         "larva",
         "pupa",
         "adulto"
       ],
-
-      "reproduccion": "sexual",
-
-      "organizacion_social": "eusocial",
-
-      "longevidad": {
-        "descripcion": "Variable según la casta y las condiciones ambientales."
-      }
+      "reproduction": "sexual",
+      "socialOrganization": "eusocial",
+      "longevity": "variable según la casta"
     },
 
-    "ecologia": {
-
-      "habitat": [
-        "bosques",
-        "zonas rurales",
-        "zonas agrícolas",
-        "áreas urbanas"
-      ],
-
-      "alimentacion": [
-        "nectar",
-        "polen"
-      ],
-
-      "rol_ecologico": [
-        "polinizador"
-      ],
-
-      "nivel_trofico": "consumidor primario"
+    "ecology": {
+      "habitat": "ambientes terrestres con disponibilidad de flores",
+      "diet": "néctar y polen",
+      "ecologicalRole": "polinizador",
+      "trophicLevel": "consumidor primario"
     },
 
-    "distribucion": {
-
-      "tipo": "ampliamente_distribuida",
-
-      "regiones": [
+    "distribution": {
+      "type": "ampliamente distribuida",
+      "regions": [
         "Europa",
+        "África",
         "Asia",
-        "Africa",
-        "America",
-        "Oceania"
+        "América",
+        "Oceanía"
       ],
-
-      "colombia": {
-        "presencia": true,
-        "observaciones": "Especie ampliamente manejada en apicultura."
-      }
+      "colombia": "presente y ampliamente manejada en apicultura"
     },
 
-    "importancia": {
-
-      "ecologica": "Alta",
-
-      "agricola": "Alta",
-
-      "veterinaria": "Relevante",
-
-      "salud_publica": "Relevante",
-
-      "economica": "Alta",
-
-      "descripcion": "Importante polinizador y especie de interés apícola."
+    "importance": {
+      "ecological": "Importante polinizador",
+      "agricultural": "Importante para la polinización de cultivos",
+      "veterinary": "Interés en medicina veterinaria por picaduras y manejo de animales expuestos",
+      "publicHealth": "Las picaduras pueden producir reacciones locales y, en individuos susceptibles, reacciones graves",
+      "economic": "Producción de miel, cera y otros productos apícolas"
     },
 
-    "riesgos": {
-
-      "veneno": true,
-
-      "puede_picar": true,
-
-      "importancia_medica": "Puede producir reacciones locales o alérgicas en individuos susceptibles."
+    "risks": {
+      "venomOrSting": true,
+      "medicalImportance": "picadura defensiva"
     },
 
-    "identificacion_imagen": {
-
-      "caracteristicas_visuales": [
-        "cuerpo piloso",
-        "bandas abdominales",
-        "alas transparentes",
-        "tres pares de patas",
-        "antenas visibles"
+    "imageRecognition": {
+      "visualFeatures": [
+        "cuerpo robusto",
+        "bandas amarillas y oscuras",
+        "pilosidad",
+        "alas membranosas"
       ],
-
-      "angulo_recomendado": [
-        "vista_dorsal",
-        "vista_lateral",
-        "vista_frontal"
+      "recommendedAngles": [
+        "vista dorsal",
+        "vista lateral"
       ],
-
-      "calidad_minima": "media",
-
-      "requiere_identificacion_experta": true
+      "minimumQuality": "imagen con cuerpo completo y buena iluminación"
     },
 
-    "imagenes": {
-
-      "principal": "images/hymenoptera/apidae/apis_mellifera_01.jpg",
-
-      "galeria": [
-        "images/hymenoptera/apidae/apis_mellifera_01.jpg",
-        "images/hymenoptera/apidae/apis_mellifera_02.jpg",
-        "images/hymenoptera/apidae/apis_mellifera_03.jpg"
+    "images": {
+      "principal": "images/hymenoptera/apis_mellifera.jpg",
+      "gallery": [
+        "images/hymenoptera/apis_mellifera_01.jpg"
       ]
     },
 
-    "metadatos": {
-
-      "fuente": "Base de datos TaxoID",
-
-      "fecha_actualizacion": "2026-09-13",
-
-      "nivel_confiabilidad": "alto",
-
-      "revisado_por_experto": false,
-
-      "notas": "Registro de demostración para el sistema."
+    "metadata": {
+      "recordVersion": "1.0",
+      "sourceType": "educational-demo",
+      "requiresExpertValidation": true
     },
 
-    "referencias": [
-      {
-        "tipo": "bibliografica",
-        "autor": "Linnaeus",
-        "anio": 1758,
-        "titulo": "Systema Naturae"
-      }
+    "references": [
+      "Fuentes taxonómicas especializadas deben consultarse para validar la identificación."
     ]
   },
 
 
   {
-    "id": "ARTH-INSECTA-COLE-CARA-CETON-CETON-001",
+    "id": "ARTH-INSECTA-COLE-SCAR-CETON-001",
 
-    "identificacion": {
-      "nombre_cientifico": "Cetonia aurata",
-      "nombre_autoridad": "Linnaeus, 1758",
-      "nombre_comun": [
-        "Escarabajo verde"
+    "identification": {
+      "scientificName": "Cetonia aurata",
+      "authority": "Linnaeus, 1761",
+      "commonNames": [
+        "Cetonia dorada"
       ],
-      "sinonimos": [],
-      "nivel_identificacion": "especie",
-      "estado_taxonomico": "aceptado"
+      "synonyms": [],
+      "identificationLevel": "species",
+      "taxonomicStatus": "accepted"
     },
 
-    "taxonomia": {
-
-      "dominio": "Eukaryota",
-
-      "reino": "Animalia",
-
-      "filo": "Arthropoda",
-
-      "subfilo": "Hexapoda",
-
-      "clase": "Insecta",
-
-      "orden": "Coleoptera",
-
-      "suborden": "Polyphaga",
-
-      "familia": "Scarabaeidae",
-
-      "subfamilia": "Cetoniinae",
-
-      "genero": "Cetonia",
-
-      "especie": "Cetonia aurata"
+    "taxonomy": {
+      "domain": "Eukaryota",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Scarabaeidae",
+      "genus": "Cetonia",
+      "species": "Cetonia aurata"
     },
 
-    "morfologia": {
-
-      "simetria": "bilateral",
-
-      "segmentacion": "evidente",
-
-      "numero_patas": 6,
-
-      "alas": {
-
-        "presencia": true,
-
-        "numero_pares": 2,
-
-        "tipo": "anteriores_esclerotizadas"
-      },
-
-      "antenas": {
-
-        "presencia": true,
-
-        "tipo": "lameladas"
-      },
-
-      "ojos": {
-
-        "compuestos": true,
-
-        "ocelos": false
-      },
-
-      "aparato_bucal": {
-
-        "tipo": "masticador"
-      },
-
-      "cuerpo": {
-
-        "forma": "ovalada",
-
-        "tegumento": "esclerotizado"
-      },
-
-      "coloracion": [
-        "verde_metalico"
-      ],
-
-      "tamano": {
-
-        "unidad": "mm",
-
-        "longitud_minima": 15,
-
-        "longitud_maxima": 20
-      }
+    "morphology": {
+      "symmetry": "bilateral",
+      "segmentation": "evidente",
+      "legs": 6,
+      "legPairs": 3,
+      "wings": true,
+      "antennae": true,
+      "eyes": "compuestos",
+      "mouthparts": "masticador",
+      "body": "ovalado y esclerotizado",
+      "coloration": "verde metálico",
+      "pubescence": "variable",
+      "size": "15-20 mm"
     },
 
-    "caracteres_diagnosticos": [
-
-      "Élitros endurecidos",
-
-      "Cuerpo ovalado",
-
-      "Coloración verde metálica",
-
+    "diagnosticCharacters": [
       "Tres pares de patas",
-
-      "Antenas lameladas"
+      "Élitros",
+      "Alas posteriores membranosas",
+      "Cuerpo ovalado",
+      "Coloración metálica",
+      "Antenas"
     ],
 
-    "clave_identificacion": {
-
-      "patas": 6,
-
-      "alas": true,
-
-      "antenas": true,
-
-      "tipo_alas": "elitros",
-
-      "aparato_bucal": "masticador",
-
-      "orden_compatible": [
-        "Coleoptera"
-      ],
-
-      "familias_compatibles": [
-        "Scarabaeidae"
-      ]
-    },
-
-    "biologia": {
-
-      "tipo_desarrollo": "holometabolo",
-
-      "etapas": [
+    "biology": {
+      "developmentType": "holometábolo",
+      "metamorphosis": "completa",
+      "stages": [
         "huevo",
         "larva",
         "pupa",
         "adulto"
       ],
-
-      "metamorfosis": true
+      "reproduction": "sexual",
+      "socialOrganization": "solitaria"
     },
 
-    "ecologia": {
-
-      "alimentacion": [
-        "flores",
-        "polen",
-        "frutos"
-      ],
-
-      "habitat": [
-        "praderas",
-        "jardines",
-        "bosques"
-      ],
-
-      "rol_ecologico": [
-        "polinizador",
-        "descomponedor"
-      ]
+    "ecology": {
+      "habitat": "vegetación, jardines y áreas con flores",
+      "diet": "material vegetal, flores y otros recursos vegetales",
+      "ecologicalRole": "consumidor y visitante floral",
+      "trophicLevel": "consumidor primario"
     },
 
-    "identificacion_imagen": {
+    "distribution": {
+      "type": "distribución principalmente paleártica",
+      "regions": [
+        "Europa",
+        "Asia occidental"
+      ],
+      "colombia": "registro no incluido en esta base demostrativa"
+    },
 
-      "caracteristicas_visuales": [
-        "color verde metalico",
+    "importance": {
+      "ecological": "Participa en procesos ecológicos asociados a materia vegetal y flores",
+      "agricultural": "Puede interactuar con plantas cultivadas",
+      "veterinary": "Importancia veterinaria directa limitada",
+      "publicHealth": "No representa un riesgo médico importante conocido",
+      "economic": "Interés principalmente entomológico"
+    },
+
+    "risks": {
+      "venomOrSting": false,
+      "medicalImportance": "baja"
+    },
+
+    "imageRecognition": {
+      "visualFeatures": [
         "cuerpo ovalado",
-        "elitros",
-        "antenas lameladas"
+        "coloración verde metálica",
+        "élitros",
+        "seis patas"
       ],
-
-      "angulo_recomendado": [
-        "vista_dorsal",
-        "vista_lateral"
-      ]
+      "recommendedAngles": [
+        "vista dorsal",
+        "vista lateral"
+      ],
+      "minimumQuality": "imagen nítida del cuerpo completo"
     },
 
-    "imagenes": {
-
-      "principal": "images/coleoptera/scarabaeidae/cetonia_aurata_01.jpg",
-
-      "galeria": [
-        "images/coleoptera/scarabaeidae/cetonia_aurata_01.jpg"
-      ]
+    "images": {
+      "principal": "images/coleoptera/cetonia_aurata.jpg",
+      "gallery": []
     },
 
-    "metadatos": {
-
-      "fuente": "Base de datos TaxoID",
-
-      "fecha_actualizacion": "2026-09-13",
-
-      "nivel_confiabilidad": "medio",
-
-      "revisado_por_experto": false
+    "metadata": {
+      "recordVersion": "1.0",
+      "sourceType": "educational-demo",
+      "requiresExpertValidation": true
     },
 
-    "referencias": []
+    "references": [
+      "Fuentes taxonómicas especializadas deben consultarse para validar la identificación."
+    ]
   },
 
 
   {
-    "id": "ARTH-ARACH-ARAN-THER-LATR-LATR-001",
+    "id": "ARTH-ARACH-ARAN-THER-LATR-001",
 
-    "identificacion": {
-
-      "nombre_cientifico": "Latrodectus sp.",
-
-      "nombre_comun": [
-        "Viuda negra"
+    "identification": {
+      "scientificName": "Latrodectus sp.",
+      "authority": null,
+      "commonNames": [
+        "Viudas negras"
       ],
-
-      "nivel_identificacion": "genero",
-
-      "estado_taxonomico": "valido"
+      "synonyms": [],
+      "identificationLevel": "genus",
+      "taxonomicStatus": "taxon-genus"
     },
 
-    "taxonomia": {
-
-      "dominio": "Eukaryota",
-
-      "reino": "Animalia",
-
-      "filo": "Arthropoda",
-
-      "subfilo": "Chelicerata",
-
-      "clase": "Arachnida",
-
-      "orden": "Araneae",
-
-      "familia": "Theridiidae",
-
-      "genero": "Latrodectus"
+    "taxonomy": {
+      "domain": "Eukaryota",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "subphylum": "Chelicerata",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theridiidae",
+      "genus": "Latrodectus",
+      "species": "Latrodectus sp."
     },
 
-    "morfologia": {
-
-      "simetria": "bilateral",
-
-      "segmentacion": "reducida",
-
-      "numero_patas": 8,
-
-      "alas": {
-
-        "presencia": false,
-
-        "numero_pares": 0
-      },
-
-      "antenas": {
-
-        "presencia": false
-      },
-
-      "ojos": {
-
-        "numero": 8,
-
-        "tipo": "simples"
-      },
-
-      "queliceros": true,
-
-      "pedipalpos": true,
-
-      "cuerpo": {
-
-        "regiones": [
-          "prosoma",
-          "opistosoma"
-        ]
-      }
+    "morphology": {
+      "symmetry": "bilateral",
+      "segmentation": "reducida",
+      "legs": 8,
+      "legPairs": 4,
+      "wings": false,
+      "antennae": false,
+      "eyes": "simples",
+      "mouthparts": "quelíceros",
+      "body": "prosoma y opistosoma",
+      "coloration": "variable según especie",
+      "pubescence": "variable",
+      "size": "variable según especie"
     },
 
-    "caracteres_diagnosticos": [
-
-      "Ocho patas",
-
+    "diagnosticCharacters": [
+      "Cuatro pares de patas",
       "Ausencia de antenas",
-
       "Ausencia de alas",
-
-      "Cuerpo dividido en prosoma y opistosoma",
-
-      "Presencia de quelíceros",
-
-      "Presencia de pedipalpos"
+      "Quelíceros",
+      "Pedipalpos",
+      "Prosoma y opistosoma"
     ],
 
-    "clave_identificacion": {
-
-      "patas": 8,
-
-      "alas": false,
-
-      "antenas": false,
-
-      "queliceros": true,
-
-      "orden_compatible": [
-        "Araneae"
+    "biology": {
+      "developmentType": "desarrollo directo",
+      "metamorphosis": "sin metamorfosis",
+      "stages": [
+        "huevo",
+        "juvenil",
+        "adulto"
       ],
-
-      "familias_compatibles": [
-        "Theridiidae"
-      ]
+      "reproduction": "sexual",
+      "socialOrganization": "solitaria"
     },
 
-    "biologia": {
-
-      "tipo_desarrollo": "ametabolo",
-
-      "metamorfosis": false,
-
-      "reproduccion": "sexual"
+    "ecology": {
+      "habitat": "ambientes terrestres protegidos y estructuras donde puede construir telarañas",
+      "diet": "artrópodos pequeños",
+      "ecologicalRole": "depredador",
+      "trophicLevel": "consumidor secundario"
     },
 
-    "ecologia": {
-
-      "alimentacion": [
-        "artropodos"
+    "distribution": {
+      "type": "amplia distribución según especie",
+      "regions": [
+        "América",
+        "Europa",
+        "Asia",
+        "África",
+        "Oceanía"
       ],
-
-      "tipo_alimentacion": "carnivora",
-
-      "rol_ecologico": [
-        "depredador"
-      ]
+      "colombia": "se requieren registros locales para confirmar especies presentes"
     },
 
-    "importancia": {
-
-      "veterinaria": "Relevante",
-
-      "salud_publica": "Relevante",
-
-      "descripcion": "Algunas especies del género poseen veneno de importancia médica."
+    "importance": {
+      "ecological": "Depredador de otros artrópodos",
+      "agricultural": "Puede contribuir al control natural de pequeños artrópodos",
+      "veterinary": "Interés por posibles accidentes de animales domésticos",
+      "publicHealth": "Algunas especies poseen importancia médica",
+      "economic": "Importancia principalmente científica y médica"
     },
 
-    "riesgos": {
-
-      "veneno": true,
-
-      "importancia_medica": "Alta"
+    "risks": {
+      "venomOrSting": true,
+      "medicalImportance": "potencial importancia médica dependiendo de la especie"
     },
 
-    "identificacion_imagen": {
-
-      "caracteristicas_visuales": [
-
+    "imageRecognition": {
+      "visualFeatures": [
+        "abdomen relativamente globoso",
         "ocho patas",
-
-        "abdomen globoso",
-
-        "coloración variable",
-
         "ausencia de antenas",
-
-        "ausencia de alas"
+        "patrones de coloración variables"
       ],
-
-      "angulo_recomendado": [
-
-        "vista_dorsal",
-
-        "vista_ventral",
-
-        "vista_lateral"
+      "recommendedAngles": [
+        "vista dorsal",
+        "vista lateral",
+        "vista ventral cuando sea seguro y apropiado"
       ],
-
-      "requiere_identificacion_experta": true
+      "minimumQuality": "imagen clara del cuerpo completo"
     },
 
-    "imagenes": {
-
-      "principal": "images/arachnida/theridiidae/latrodectus_01.jpg",
-
-      "galeria": [
-        "images/arachnida/theridiidae/latrodectus_01.jpg"
-      ]
+    "images": {
+      "principal": "images/arachnida/latrodectus_sp.jpg",
+      "gallery": []
     },
 
-    "metadatos": {
-
-      "fuente": "Base de datos TaxoID",
-
-      "fecha_actualizacion": "2026-09-13",
-
-      "nivel_confiabilidad": "medio",
-
-      "revisado_por_experto": false
+    "metadata": {
+      "recordVersion": "1.0",
+      "sourceType": "educational-demo",
+      "requiresExpertValidation": true
     },
 
-    "referencias": []
+    "references": [
+      "La identificación a nivel de especie debe realizarse mediante caracteres diagnósticos y literatura especializada."
+    ]
   }
-
 ]
+```

@@ -1,0 +1,143 @@
+```json
+[
+  {
+    "id": "INSECTA_COLEOPTERA",
+    "nombre": "Coleoptera",
+    "nombreComun": "Escarabajos",
+    "clase": "Insecta",
+    "descripcion": "Orden de insectos caracterizado principalmente por la presencia de élitros que protegen las alas posteriores.",
+    "caracteristicas": [
+      "Seis patas",
+      "Antenas presentes",
+      "Primer par de alas modificado en élitros",
+      "Segundo par de alas generalmente membranoso",
+      "Aparato bucal generalmente masticador"
+    ],
+    "familiasPrincipales": [
+      "Scarabaeidae",
+      "Coccinellidae",
+      "Carabidae",
+      "Curculionidae"
+    ]
+  },
+  {
+    "id": "INSECTA_LEPIDOPTERA",
+    "nombre": "Lepidoptera",
+    "nombreComun": "Mariposas y polillas",
+    "clase": "Insecta",
+    "descripcion": "Orden caracterizado por alas cubiertas de escamas y desarrollo holometábolo.",
+    "caracteristicas": [
+      "Seis patas",
+      "Dos pares de alas",
+      "Alas cubiertas de escamas",
+      "Antenas",
+      "Metamorfosis completa"
+    ],
+    "familiasPrincipales": [
+      "Nymphalidae",
+      "Papilionidae",
+      "Pieridae",
+      "Noctuidae"
+    ]
+  },
+  {
+    "id": "INSECTA_HYMENOPTERA",
+    "nombre": "Hymenoptera",
+    "nombreComun": "Abejas, avispas y hormigas",
+    "clase": "Insecta",
+    "descripcion": "Orden de insectos que incluye abejas, avispas y hormigas.",
+    "caracteristicas": [
+      "Seis patas",
+      "Antenas",
+      "Frecuentemente dos pares de alas",
+      "Metamorfosis completa",
+      "Alta diversidad de formas sociales"
+    ],
+    "familiasPrincipales": [
+      "Apidae",
+      "Formicidae",
+      "Vespidae",
+      "Ichneumonidae"
+    ]
+  },
+  {
+    "id": "INSECTA_DIPTERA",
+    "nombre": "Diptera",
+    "nombreComun": "Moscas y mosquitos",
+    "clase": "Insecta",
+    "descripcion": "Orden caracterizado por un solo par de alas funcionales y halterios derivados del segundo par.",
+    "caracteristicas": [
+      "Seis patas",
+      "Un par de alas funcionales",
+      "Halterios",
+      "Antenas",
+      "Gran diversidad ecológica"
+    ],
+    "familiasPrincipales": [
+      "Culicidae",
+      "Muscidae",
+      "Calliphoridae",
+      "Tabanidae"
+    ]
+  },
+  {
+    "id": "INSECTA_ORTHOPTERA",
+    "nombre": "Orthoptera",
+    "nombreComun": "Saltamontes, grillos y langostas",
+    "clase": "Insecta",
+    "descripcion": "Orden que incluye insectos con patas posteriores frecuentemente adaptadas para el salto.",
+    "caracteristicas": [
+      "Seis patas",
+      "Patas posteriores desarrolladas",
+      "Antenas",
+      "Aparato bucal masticador",
+      "Frecuentemente dos pares de alas"
+    ],
+    "familiasPrincipales": [
+      "Acrididae",
+      "Gryllidae",
+      "Tettigoniidae"
+    ]
+  },
+  {
+    "id": "INSECTA_HEMIPTERA",
+    "nombre": "Hemiptera",
+    "nombreComun": "Chinches, pulgones y cigarras",
+    "clase": "Insecta",
+    "descripcion": "Orden caracterizado por aparatos bucales especializados para perforar y succionar.",
+    "caracteristicas": [
+      "Seis patas",
+      "Antenas",
+      "Aparato bucal picador-chupador",
+      "Diversidad de formas aladas y ápteras"
+    ],
+    "familiasPrincipales": [
+      "Aphididae",
+      "Cicadidae",
+      "Pentatomidae",
+      "Reduviidae"
+    ]
+  },
+  {
+    "id": "ARACHNIDA_ARANEAE",
+    "nombre": "Araneae",
+    "nombreComun": "Arañas",
+    "clase": "Arachnida",
+    "descripcion": "Orden de arácnidos que comprende las arañas.",
+    "caracteristicas": [
+      "Ocho patas",
+      "Sin antenas",
+      "Sin alas",
+      "Quelíceros",
+      "Pedipalpos",
+      "Prosoma y opistosoma"
+    ],
+    "familiasPrincipales": [
+      "Theridiidae",
+      "Araneidae",
+      "Salticidae",
+      "Lycosidae"
+    ]
+  }
+]
+```
