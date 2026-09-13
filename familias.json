@@ -1,80 +1,105 @@
 ```json
 [
     {
-        "name": "Apidae",
+        "family": "Pulicidae",
         "class": "Insecta",
-        "order": "Hymenoptera",
-
-        "description":
-            "Familia de himenópteros que incluye abejas de importancia ecológica, agrícola y veterinaria.",
-
+        "order": "Siphonaptera",
         "genera": [
-            "Apis",
-            "Bombus",
-            "Euglossa"
+            "Ctenocephalides",
+            "Pulex"
         ]
     },
 
-
     {
-        "name": "Scarabaeidae",
-        "class": "Insecta",
-        "order": "Coleoptera",
-
-        "description":
-            "Familia de coleópteros conocidos comúnmente como escarabajos.",
-
+        "family": "Ixodidae",
+        "class": "Arachnida",
+        "order": "Ixodida",
         "genera": [
-            "Cetonia",
-            "Scarabaeus",
-            "Dynastes"
+            "Rhipicephalus",
+            "Amblyomma",
+            "Dermacentor",
+            "Haemaphysalis"
         ]
     },
 
+    {
+        "family": "Culicidae",
+        "class": "Insecta",
+        "order": "Diptera",
+        "genera": [
+            "Aedes",
+            "Culex",
+            "Anopheles"
+        ]
+    },
 
     {
-        "name": "Theridiidae",
+        "family": "Muscidae",
+        "class": "Insecta",
+        "order": "Diptera",
+        "genera": [
+            "Musca",
+            "Stomoxys",
+            "Haematobia"
+        ]
+    },
+
+    {
+        "family": "Calliphoridae",
+        "class": "Insecta",
+        "order": "Diptera",
+        "genera": [
+            "Cochliomyia",
+            "Calliphora"
+        ]
+    },
+
+    {
+        "family": "Sarcoptidae",
+        "class": "Arachnida",
+        "order": "Sarcoptiformes",
+        "genera": [
+            "Sarcoptes"
+        ]
+    },
+
+    {
+        "family": "Psoroptidae",
+        "class": "Arachnida",
+        "order": "Sarcoptiformes",
+        "genera": [
+            "Otodectes",
+            "Psoroptes"
+        ]
+    },
+
+    {
+        "family": "Demodecidae",
+        "class": "Arachnida",
+        "order": "Trombidiformes",
+        "genera": [
+            "Demodex"
+        ]
+    },
+
+    {
+        "family": "Theridiidae",
         "class": "Arachnida",
         "order": "Araneae",
-
-        "description":
-            "Familia de arañas que incluye géneros de importancia médica y veterinaria.",
-
         "genera": [
             "Latrodectus",
             "Steatoda"
         ]
     },
 
-
     {
-        "name": "Formicidae",
+        "family": "Apidae",
         "class": "Insecta",
         "order": "Hymenoptera",
-
-        "description":
-            "Familia de hormigas con gran diversidad ecológica.",
-
         "genera": [
-            "Atta",
-            "Acromyrmex",
-            "Camponotus"
-        ]
-    },
-
-
-    {
-        "name": "Culicidae",
-        "class": "Insecta",
-        "order": "Diptera",
-
-        "description":
-            "Familia de mosquitos de gran importancia sanitaria y veterinaria.",
-
-        "genera": [
-            "Aedes",
-            "Anopheles",
-            "Culex"
+            "Apis",
+            "Bombus",
+            "Euglossa"
         ]
     }
 ]

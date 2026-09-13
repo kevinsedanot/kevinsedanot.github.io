@@ -1,289 +1,716 @@
 ```json
 [
     {
-        "id": "ARTH-INSECTA-HYM-APID-APIS-001",
+        "id": "ARTH-INSECTA-SIPH-PULI-CTEN-001",
 
         "identification": {
-
-            "scientificName": "Apis mellifera",
-
-            "authority": "Linnaeus, 1758",
-
+            "scientificName": "Ctenocephalides felis",
             "commonNames": [
-                "Abeja de la miel",
-                "Abeja melífera"
+                "Pulga del gato",
+                "Pulga común"
             ],
-
-            "synonyms": [],
-
             "identificationLevel": "species",
-
-            "taxonomicStatus": "accepted"
-
+            "taxonomicStatus": "Aceptado"
         },
-
 
         "taxonomy": {
-
-            "domain": "Eukaryota",
-
             "kingdom": "Animalia",
-
             "phylum": "Arthropoda",
-
-            "subphylum": "Hexapoda",
-
             "class": "Insecta",
-
-            "order": "Hymenoptera",
-
-            "family": "Apidae",
-
-            "genus": "Apis",
-
-            "species": "Apis mellifera"
-
+            "order": "Siphonaptera",
+            "family": "Pulicidae",
+            "genus": "Ctenocephalides",
+            "species": "Ctenocephalides felis"
         },
-
 
         "morphology": {
-
-            "symmetry": "bilateral",
-
-            "segmentation": "evidente",
-
             "legs": 6,
-
-            "legPairs": 3,
-
-            "wings": true,
-
+            "wings": false,
             "antennae": true,
-
-            "eyes": "compuestos",
-
-            "mouthparts": "lamedor",
-
-            "body": "segmentado",
-
-            "coloration": "amarillo y negro",
-
-            "pubescence": "presente",
-
-            "size": "10-15 mm"
-
+            "mouthparts": "picador-chupador",
+            "symmetry": "bilateral",
+            "segmentation": "cabeza-torax-abdomen"
         },
-
 
         "diagnosticCharacters": [
-
+            "Cuerpo lateralmente comprimido",
+            "Ausencia de alas",
             "Tres pares de patas",
-
-            "Dos pares de alas membranosas",
-
-            "Antenas articuladas",
-
-            "Cuerpo dividido en cabeza, tórax y abdomen",
-
-            "Aparato bucal lamedor"
-
+            "Patas posteriores adaptadas al salto",
+            "Aparato bucal picador-chupador"
         ],
 
-
-        "biology": {
-
-            "description":
-                "Insecto social que vive en colonias organizadas y presenta castas reproductivas y no reproductivas."
-
-        },
-
-
-        "ecology": {
-
-            "habitat":
-                "Colmenas, áreas agrícolas, jardines y ecosistemas donde existen plantas con flores."
-
-        },
-
-
         "veterinaryImportance": {
+            "description": "Ectoparásito hematófago de importancia veterinaria en perros y gatos.",
+            "category": "Ectoparásito",
+            "importance": "Alta",
 
-            "description":
-                "Puede producir accidentes por picadura en animales domésticos y representa interés para la salud animal y la apicultura."
+            "hosts": [
+                "Gatos",
+                "Perros",
+                "Otros mamíferos"
+            ],
 
+            "diseases": [
+                "Dermatitis alérgica por picadura de pulga",
+                "Dipylidium caninum",
+                "Rickettsia felis",
+                "Otros agentes transmitidos por pulgas"
+            ],
+
+            "diagnosis": [
+                "Examen físico",
+                "Peine para pulgas",
+                "Identificación de pulgas o sus excrementos",
+                "Evaluación dermatológica"
+            ],
+
+            "treatment": "El manejo requiere eliminar las pulgas del animal y controlar la infestación ambiental. Si existe dermatitis o una enfermedad asociada, el tratamiento debe dirigirse también a la condición clínica identificada por el veterinario.",
+
+            "prevention": [
+                "Control antipulgas continuo",
+                "Tratamiento de los animales en contacto",
+                "Control ambiental",
+                "Prevención de reinfestaciones"
+            ],
+
+            "zoonoticRisk": "Algunas especies de pulgas pueden participar en la transmisión de agentes de importancia zoonótica."
         },
 
+        "differentials": [
+            "Ctenocephalides canis",
+            "Pulex irritans"
+        ],
 
-        "imageRecognition": {
-
-            "visualFeatures": [
-                "cuerpo alargado",
-                "bandas abdominales",
-                "alas membranosas",
-                "seis patas"
-            ]
-
+        "distribution": {
+            "description": "Distribución amplia y frecuente en ambientes domésticos."
         },
-
 
         "images": {
-
             "principal": ""
-
-        },
-
-
-        "metadata": {
-
-            "recordType": "demonstration",
-
-            "requiresExpertValidation": true
-
         }
-
     },
 
 
     {
-        "id": "ARTH-INSECTA-COLE-SCAR-CETON-001",
+        "id": "ARTH-ARACH-IXOD-RHIP-SANG-001",
 
         "identification": {
-
-            "scientificName": "Cetonia aurata",
-
-            "authority": "Linnaeus, 1758",
-
+            "scientificName": "Rhipicephalus sanguineus sensu lato",
             "commonNames": [
-                "Escarabajo verde"
+                "Garrapata café del perro",
+                "Garrapata marrón del perro"
             ],
-
-            "synonyms": [],
-
-            "identificationLevel": "species",
-
-            "taxonomicStatus": "accepted"
-
+            "identificationLevel": "species-complex",
+            "taxonomicStatus": "Complejo de especies"
         },
-
 
         "taxonomy": {
-
-            "domain": "Eukaryota",
-
             "kingdom": "Animalia",
-
             "phylum": "Arthropoda",
-
-            "subphylum": "Hexapoda",
-
-            "class": "Insecta",
-
-            "order": "Coleoptera",
-
-            "family": "Scarabaeidae",
-
-            "genus": "Cetonia",
-
-            "species": "Cetonia aurata"
-
+            "class": "Arachnida",
+            "order": "Ixodida",
+            "family": "Ixodidae",
+            "genus": "Rhipicephalus",
+            "species": "Rhipicephalus sanguineus sensu lato"
         },
-
 
         "morphology": {
-
+            "legs": 8,
+            "wings": false,
+            "antennae": false,
+            "mouthparts": "queliceros",
             "symmetry": "bilateral",
-
-            "segmentation": "evidente",
-
-            "legs": 6,
-
-            "legPairs": 3,
-
-            "wings": true,
-
-            "antennae": true,
-
-            "eyes": "compuestos",
-
-            "mouthparts": "masticador",
-
-            "body": "ovalado y endurecido",
-
-            "coloration": "verde metálico",
-
-            "pubescence": "variable",
-
-            "size": "14-20 mm"
-
+            "segmentation": "reducida"
         },
-
 
         "diagnosticCharacters": [
-
-            "Seis patas",
-
-            "Élitros endurecidos",
-
-            "Cuerpo ovalado",
-
-            "Coloración metálica",
-
-            "Antenas"
-
+            "Ocho patas en adultos",
+            "Ausencia de alas",
+            "Cuerpo compacto",
+            "Ectoparásito hematófago",
+            "Capítulo anterior característico de garrapatas duras"
         ],
 
-
-        "biology": {
-
-            "description":
-                "Escarabajo asociado principalmente con flores y materia vegetal."
-
-        },
-
-
-        "ecology": {
-
-            "habitat":
-                "Áreas con vegetación, jardines y ambientes donde existe materia vegetal."
-
-        },
-
-
         "veterinaryImportance": {
+            "description": "Garrapata de gran importancia en medicina veterinaria, especialmente asociada a perros y a enfermedades transmitidas por garrapatas.",
+            "category": "Ectoparásito / vector",
+            "importance": "Alta",
 
-            "description":
-                "La especie no se incorpora aquí como agente veterinario específico; el registro sirve como ejemplo de identificación taxonómica."
+            "hosts": [
+                "Perros",
+                "Otros mamíferos"
+            ],
 
+            "diseases": [
+                "Ehrlichiosis canina",
+                "Babesiosis canina",
+                "Otras enfermedades transmitidas por garrapatas dependiendo de la región"
+            ],
+
+            "diagnosis": [
+                "Inspección física",
+                "Identificación morfológica de la garrapata",
+                "Pruebas hematológicas",
+                "Serología o PCR para agentes específicos cuando estén indicadas"
+            ],
+
+            "treatment": "La infestación requiere control eficaz de las garrapatas sobre el animal y, cuando existe una enfermedad transmitida, tratamiento específico de la infección diagnosticada y soporte clínico según el caso.",
+
+            "prevention": [
+                "Control regular de garrapatas",
+                "Revisión del animal",
+                "Control ambiental cuando existe infestación",
+                "Manejo de animales en contacto"
+            ],
+
+            "zoonoticRisk": "Las garrapatas pueden transmitir agentes de importancia para animales y personas; el riesgo depende de la especie de garrapata y del agente presente."
         },
 
+        "differentials": [
+            "Amblyomma spp.",
+            "Dermacentor spp.",
+            "Haemaphysalis spp."
+        ],
 
-        "imageRecognition": {
-
-            "visualFeatures": [
-                "coloración metálica",
-                "cuerpo ovalado",
-                "élitros",
-                "seis patas"
-            ]
-
+        "distribution": {
+            "description": "Distribución amplia; su presencia está asociada principalmente a perros y ambientes donde pueden establecerse poblaciones de garrapatas."
         },
-
 
         "images": {
-
             "principal": ""
+        }
+    },
 
+
+    {
+        "id": "ARTH-INSECTA-DIP-CULI-AEDES-001",
+
+        "identification": {
+            "scientificName": "Aedes aegypti",
+            "commonNames": [
+                "Mosquito de la fiebre amarilla",
+                "Mosquito"
+            ],
+            "identificationLevel": "species",
+            "taxonomicStatus": "Aceptado"
         },
 
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Insecta",
+            "order": "Diptera",
+            "family": "Culicidae",
+            "genus": "Aedes",
+            "species": "Aedes aegypti"
+        },
 
-        "metadata": {
+        "morphology": {
+            "legs": 6,
+            "wings": true,
+            "antennae": true,
+            "mouthparts": "picador-chupador",
+            "symmetry": "bilateral",
+            "segmentation": "cabeza-torax-abdomen"
+        },
 
-            "recordType": "demonstration",
+        "diagnosticCharacters": [
+            "Cuerpo pequeño y delgado",
+            "Un par de alas",
+            "Tres pares de patas",
+            "Probóscide alargada",
+            "Patrón característico de escamas en el cuerpo y patas"
+        ],
 
-            "requiresExpertValidation": true
+        "veterinaryImportance": {
+            "description": "Mosquito hematófago de importancia veterinaria como vector potencial de agentes infecciosos y por su participación en ciclos de enfermedades transmitidas por mosquitos.",
+            "category": "Vector",
+            "importance": "Alta",
 
+            "hosts": [
+                "Perros",
+                "Otros mamíferos",
+                "Humanos"
+            ],
+
+            "diseases": [
+                "Dirofilariosis canina por Dirofilaria immitis",
+                "Otros agentes transmitidos por mosquitos dependiendo de la región"
+            ],
+
+            "diagnosis": [
+                "Identificación entomológica",
+                "Vigilancia epidemiológica",
+                "Diagnóstico del agente en el hospedador cuando existe sospecha clínica"
+            ],
+
+            "treatment": "El mosquito no constituye por sí mismo una enfermedad que se trate con un medicamento en el hospedador. Cuando existe una enfermedad transmitida, el tratamiento corresponde al agente y al paciente afectados bajo valoración veterinaria.",
+
+            "prevention": [
+                "Reducir criaderos de mosquitos",
+                "Control ambiental",
+                "Reducir exposición del animal",
+                "Programas veterinarios de prevención de enfermedades transmitidas por vectores"
+            ],
+
+            "zoonoticRisk": "El género Aedes posee importancia en salud pública; el riesgo concreto depende del agente circulante y de la región."
+        },
+
+        "differentials": [
+            "Culex spp.",
+            "Anopheles spp."
+        ],
+
+        "distribution": {
+            "description": "Principalmente asociado a regiones tropicales y subtropicales, aunque su distribución puede cambiar según las condiciones ambientales."
+        },
+
+        "images": {
+            "principal": ""
         }
+    },
 
+
+    {
+        "id": "ARTH-INSECTA-DIP-MUSC-MUSCA-001",
+
+        "identification": {
+            "scientificName": "Musca domestica",
+            "commonNames": [
+                "Mosca doméstica"
+            ],
+            "identificationLevel": "species",
+            "taxonomicStatus": "Aceptado"
+        },
+
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Insecta",
+            "order": "Diptera",
+            "family": "Muscidae",
+            "genus": "Musca",
+            "species": "Musca domestica"
+        },
+
+        "morphology": {
+            "legs": 6,
+            "wings": true,
+            "antennae": true,
+            "mouthparts": "chupador",
+            "symmetry": "bilateral",
+            "segmentation": "cabeza-torax-abdomen"
+        },
+
+        "diagnosticCharacters": [
+            "Un solo par de alas funcionales",
+            "Antenas cortas",
+            "Ojos compuestos desarrollados",
+            "Tres pares de patas",
+            "Aparato bucal adaptado a alimentación líquida"
+        ],
+
+        "veterinaryImportance": {
+            "description": "Mosca de importancia veterinaria principalmente por su relación con ambientes pecuarios, materia orgánica y posible transporte mecánico de microorganismos.",
+            "category": "Vector mecánico / plaga",
+            "importance": "Media",
+
+            "hosts": [
+                "Bovinos",
+                "Equinos",
+                "Porcinos",
+                "Perros",
+                "Otros animales domésticos"
+            ],
+
+            "diseases": [
+                "Transporte mecánico de microorganismos",
+                "Contaminación de alimentos y superficies",
+                "Problemas sanitarios asociados a alta carga de moscas"
+            ],
+
+            "diagnosis": [
+                "Identificación entomológica",
+                "Evaluación de la infestación",
+                "Investigación clínica o microbiológica cuando corresponda"
+            ],
+
+            "treatment": "No existe un tratamiento del hospedador dirigido específicamente contra la mosca. El manejo se centra en control integrado de moscas y tratamiento de cualquier enfermedad secundaria identificada.",
+
+            "prevention": [
+                "Higiene de instalaciones",
+                "Manejo adecuado de estiércol",
+                "Reducción de materia orgánica acumulada",
+                "Control integrado de insectos"
+            ],
+
+            "zoonoticRisk": "Puede contribuir a la contaminación mecánica de ambientes y alimentos."
+        },
+
+        "differentials": [
+            "Stomoxys calcitrans",
+            "Haematobia irritans"
+        ],
+
+        "distribution": {
+            "description": "Distribución cosmopolita asociada a ambientes humanos y pecuarios."
+        },
+
+        "images": {
+            "principal": ""
+        }
+    },
+
+
+    {
+        "id": "ARTH-INSECTA-DIP-CALL-COCH-001",
+
+        "identification": {
+            "scientificName": "Cochliomyia hominivorax",
+            "commonNames": [
+                "Mosca del gusano barrenador"
+            ],
+            "identificationLevel": "species",
+            "taxonomicStatus": "Aceptado"
+        },
+
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Insecta",
+            "order": "Diptera",
+            "family": "Calliphoridae",
+            "genus": "Cochliomyia",
+            "species": "Cochliomyia hominivorax"
+        },
+
+        "morphology": {
+            "legs": 6,
+            "wings": true,
+            "antennae": true,
+            "mouthparts": "chupador",
+            "symmetry": "bilateral",
+            "segmentation": "cabeza-torax-abdomen"
+        },
+
+        "diagnosticCharacters": [
+            "Adulto perteneciente a Calliphoridae",
+            "Un par de alas",
+            "Larvas asociadas a heridas",
+            "Larvas con estructuras espinosas características"
+        ],
+
+        "veterinaryImportance": {
+            "description": "Especie de gran importancia veterinaria porque sus larvas pueden producir miasis obligatoria en heridas de animales.",
+            "category": "Miasis / importancia sanitaria",
+            "importance": "Muy alta",
+
+            "hosts": [
+                "Bovinos",
+                "Equinos",
+                "Ovinos",
+                "Caprinos",
+                "Porcinos",
+                "Perros",
+                "Otros mamíferos"
+            ],
+
+            "diseases": [
+                "Miasis por Cochliomyia hominivorax"
+            ],
+
+            "diagnosis": [
+                "Examen directo de la herida",
+                "Identificación de larvas",
+                "Identificación entomológica"
+            ],
+
+            "treatment": "El manejo veterinario incluye retirar las larvas visibles, limpieza completa de la herida y cuidados de la lesión. Según la gravedad pueden requerirse tratamientos adicionales y atención veterinaria intensiva.",
+
+            "prevention": [
+                "Atención rápida de heridas",
+                "Higiene de animales e instalaciones",
+                "Vigilancia de casos",
+                "Control integrado de la mosca"
+            ],
+
+            "zoonoticRisk": "Tiene importancia para la salud animal y puede producir infestaciones en humanos."
+        },
+
+        "differentials": [
+            "Cochliomyia macellaria",
+            "Otros Calliphoridae"
+        ],
+
+        "distribution": {
+            "description": "Su distribución debe interpretarse según vigilancia epidemiológica y situación sanitaria de cada región."
+        },
+
+        "images": {
+            "principal": ""
+        }
+    },
+
+
+    {
+        "id": "ARTH-ARACH-ACAR-SARC-SARC-001",
+
+        "identification": {
+            "scientificName": "Sarcoptes scabiei",
+            "commonNames": [
+                "Ácaro de la sarna sarcóptica"
+            ],
+            "identificationLevel": "species-complex",
+            "taxonomicStatus": "Complejo de hospedadores"
+        },
+
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Arachnida",
+            "order": "Sarcoptiformes",
+            "family": "Sarcoptidae",
+            "genus": "Sarcoptes",
+            "species": "Sarcoptes scabiei"
+        },
+
+        "morphology": {
+            "legs": 8,
+            "wings": false,
+            "antennae": false,
+            "mouthparts": "queliceros",
+            "symmetry": "bilateral",
+            "segmentation": "reducida"
+        },
+
+        "diagnosticCharacters": [
+            "Ácaro microscópico",
+            "Ocho patas",
+            "Cuerpo redondeado",
+            "Vive en túneles del estrato córneo",
+            "Puede producir prurito intenso"
+        ],
+
+        "veterinaryImportance": {
+            "description": "Ácaro de importancia veterinaria asociado a dermatitis pruriginosa y altamente transmisible por contacto.",
+            "category": "Ectoparásito / sarna",
+            "importance": "Alta",
+
+            "hosts": [
+                "Perros",
+                "Cerdos",
+                "Otros mamíferos según la variedad de hospedador"
+            ],
+
+            "diseases": [
+                "Sarna sarcóptica",
+                "Dermatitis pruriginosa"
+            ],
+
+            "diagnosis": [
+                "Raspado cutáneo superficial",
+                "Evaluación dermatológica",
+                "Pruebas complementarias cuando sean necesarias"
+            ],
+
+            "treatment": "El tratamiento requiere un acaricida apropiado para la especie y situación clínica, además del manejo de animales en contacto y del ambiente cuando sea necesario.",
+
+            "prevention": [
+                "Tratamiento de animales afectados",
+                "Manejo de contactos",
+                "Higiene ambiental",
+                "Evitar contacto con animales infestados"
+            ],
+
+            "zoonoticRisk": "Algunas variantes pueden producir dermatitis transitoria en personas."
+        },
+
+        "differentials": [
+            "Demodex canis",
+            "Otodectes cynotis"
+        ],
+
+        "distribution": {
+            "description": "Distribución amplia."
+        },
+
+        "images": {
+            "principal": ""
+        }
+    },
+
+
+    {
+        "id": "ARTH-ARACH-ACAR-PSOR-OTOD-001",
+
+        "identification": {
+            "scientificName": "Otodectes cynotis",
+            "commonNames": [
+                "Ácaro del oído"
+            ],
+            "identificationLevel": "species",
+            "taxonomicStatus": "Aceptado"
+        },
+
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Arachnida",
+            "order": "Sarcoptiformes",
+            "family": "Psoroptidae",
+            "genus": "Otodectes",
+            "species": "Otodectes cynotis"
+        },
+
+        "morphology": {
+            "legs": 8,
+            "wings": false,
+            "antennae": false,
+            "mouthparts": "queliceros",
+            "symmetry": "bilateral",
+            "segmentation": "reducida"
+        },
+
+        "diagnosticCharacters": [
+            "Ácaro del conducto auditivo externo",
+            "Ocho patas",
+            "Puede observarse en cerumen",
+            "Asociado a exudado oscuro del oído"
+        ],
+
+        "veterinaryImportance": {
+            "description": "Ácaro frecuente de perros y especialmente gatos, asociado a otitis externa parasitaria.",
+            "category": "Ectoparásito / otitis parasitaria",
+            "importance": "Alta",
+
+            "hosts": [
+                "Gatos",
+                "Perros",
+                "Hurones"
+            ],
+
+            "diseases": [
+                "Otitis externa parasitaria",
+                "Acariasis ótica"
+            ],
+
+            "diagnosis": [
+                "Otoscopia",
+                "Examen microscópico del cerumen",
+                "Identificación de ácaros, huevos o estadios inmaduros"
+            ],
+
+            "treatment": "El tratamiento requiere un parasiticida adecuado y manejo del conducto auditivo según la evaluación veterinaria. Los animales en contacto también pueden requerir tratamiento.",
+
+            "prevention": [
+                "Tratar animales afectados y contactos",
+                "Higiene adecuada del oído",
+                "Control antiparasitario",
+                "Seguimiento clínico"
+            ],
+
+            "zoonoticRisk": "El riesgo para humanos es generalmente bajo y puede depender de la exposición."
+        },
+
+        "differentials": [
+            "Demodex spp.",
+            "Sarcoptes scabiei"
+        ],
+
+        "distribution": {
+            "description": "Distribución amplia."
+        },
+
+        "images": {
+            "principal": ""
+        }
+    },
+
+
+    {
+        "id": "ARTH-ARACH-ACAR-DEMO-DEMO-001",
+
+        "identification": {
+            "scientificName": "Demodex canis",
+            "commonNames": [
+                "Ácaro demodécico"
+            ],
+            "identificationLevel": "species",
+            "taxonomicStatus": "Aceptado"
+        },
+
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Arachnida",
+            "order": "Trombidiformes",
+            "family": "Demodecidae",
+            "genus": "Demodex",
+            "species": "Demodex canis"
+        },
+
+        "morphology": {
+            "legs": 8,
+            "wings": false,
+            "antennae": false,
+            "mouthparts": "queliceros",
+            "symmetry": "bilateral",
+            "segmentation": "reducida"
+        },
+
+        "diagnosticCharacters": [
+            "Cuerpo alargado",
+            "Ocho patas cortas",
+            "Habita folículos pilosos y glándulas sebáceas",
+            "Se identifica principalmente mediante raspado profundo"
+        ],
+
+        "veterinaryImportance": {
+            "description": "Ácaro asociado a la demodicosis canina. En pequeñas cantidades puede formar parte de la microbiota normal de la piel, pero una proliferación excesiva puede producir enfermedad.",
+            "category": "Ectoparásito / dermatopatía",
+            "importance": "Alta",
+
+            "hosts": [
+                "Perros"
+            ],
+
+            "diseases": [
+                "Demodicosis localizada",
+                "Demodicosis generalizada",
+                "Foliculitis bacteriana secundaria"
+            ],
+
+            "diagnosis": [
+                "Raspado cutáneo profundo",
+                "Tricograma en casos seleccionados",
+                "Citología para investigar infección secundaria"
+            ],
+
+            "treatment": "La demodicosis generalizada requiere tratamiento acaricida veterinario y seguimiento hasta demostrar resolución parasitológica. Las infecciones bacterianas secundarias deben evaluarse y tratarse cuando estén presentes.",
+
+            "prevention": [
+                "Diagnóstico temprano",
+                "Seguimiento veterinario",
+                "Investigación de enfermedades subyacentes en casos de inicio adulto",
+                "Evitar reproducción de animales con demodicosis generalizada juvenil según criterio veterinario"
+            ],
+
+            "zoonoticRisk": "No se considera una zoonosis habitual."
+        },
+
+        "differentials": [
+            "Sarcoptes scabiei",
+            "Otodectes cynotis"
+        ],
+
+        "distribution": {
+            "description": "Distribución amplia en poblaciones caninas."
+        },
+
+        "images": {
+            "principal": ""
+        }
     },
 
 
@@ -291,143 +718,177 @@
         "id": "ARTH-ARACH-ARAN-THER-LATR-001",
 
         "identification": {
-
             "scientificName": "Latrodectus sp.",
-
-            "authority": "",
-
             "commonNames": [
                 "Viuda negra"
             ],
-
-            "synonyms": [],
-
             "identificationLevel": "genus",
-
-            "taxonomicStatus": "genus-level record"
-
+            "taxonomicStatus": "Género"
         },
-
 
         "taxonomy": {
-
-            "domain": "Eukaryota",
-
             "kingdom": "Animalia",
-
             "phylum": "Arthropoda",
-
-            "subphylum": "Chelicerata",
-
             "class": "Arachnida",
-
             "order": "Araneae",
-
             "family": "Theridiidae",
-
             "genus": "Latrodectus",
-
             "species": "Latrodectus sp."
-
         },
-
 
         "morphology": {
-
-            "symmetry": "bilateral",
-
-            "segmentation": "reducida",
-
             "legs": 8,
-
-            "legPairs": 4,
-
             "wings": false,
-
             "antennae": false,
-
-            "eyes": "simples",
-
-            "mouthparts": "quelíceros",
-
-            "body": "prosoma y opistosoma",
-
-            "coloration": "oscura",
-
-            "pubescence": "variable",
-
-            "size": "variable"
-
+            "mouthparts": "queliceros",
+            "symmetry": "bilateral",
+            "segmentation": "cefalotorax-abdomen"
         },
-
 
         "diagnosticCharacters": [
-
             "Ocho patas",
-
             "Ausencia de antenas",
-
-            "Cuerpo dividido en prosoma y opistosoma",
-
-            "Quelíceros",
-
-            "Telaraña irregular en especies del género"
-
+            "Prosoma y opistosoma diferenciados",
+            "Abdomen relativamente desarrollado",
+            "Quelíceros"
         ],
 
-
-        "biology": {
-
-            "description":
-                "Género de arañas que incluye especies de importancia médica y veterinaria."
-
-        },
-
-
-        "ecology": {
-
-            "habitat":
-                "Diversos ambientes terrestres, dependiendo de la especie."
-
-        },
-
-
         "veterinaryImportance": {
+            "description": "Género de arañas de importancia médica y veterinaria debido al veneno de algunas especies.",
+            "category": "Animal ponzoñoso",
+            "importance": "Alta",
 
-            "description":
-                "Algunas especies pueden producir accidentes por mordedura y poseen importancia médica y veterinaria."
+            "hosts": [
+                "Perros",
+                "Gatos",
+                "Otros mamíferos"
+            ],
 
+            "diseases": [
+                "Envenenamiento por mordedura",
+                "Síndrome neurotóxico asociado al veneno"
+            ],
+
+            "diagnosis": [
+                "Historia de exposición",
+                "Evaluación clínica",
+                "Identificación del animal cuando sea posible y segura"
+            ],
+
+            "treatment": "Requiere evaluación veterinaria inmediata, monitorización y tratamiento de soporte según los signos clínicos. En situaciones compatibles con envenenamiento grave se debe considerar atención de urgencia.",
+
+            "prevention": [
+                "Reducir lugares de refugio",
+                "Evitar contacto directo con arañas",
+                "Control ambiental profesional cuando exista infestación"
+            ],
+
+            "zoonoticRisk": "Algunas especies pueden producir accidentes en humanos."
         },
 
+        "differentials": [
+            "Steatoda sp.",
+            "Araneidae",
+            "Lycosidae"
+        ],
 
-        "imageRecognition": {
-
-            "visualFeatures": [
-                "ocho patas",
-                "sin antenas",
-                "abdomen desarrollado",
-                "cuerpo oscuro"
-            ]
-
+        "distribution": {
+            "description": "Distribución variable según la especie."
         },
-
 
         "images": {
-
             "principal": ""
+        }
+    },
 
+
+    {
+        "id": "ARTH-INSECTA-HYM-APID-APIS-001",
+
+        "identification": {
+            "scientificName": "Apis mellifera",
+            "commonNames": [
+                "Abeja de la miel",
+                "Abeja doméstica"
+            ],
+            "identificationLevel": "species",
+            "taxonomicStatus": "Aceptado"
         },
 
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "phylum": "Arthropoda",
+            "class": "Insecta",
+            "order": "Hymenoptera",
+            "family": "Apidae",
+            "genus": "Apis",
+            "species": "Apis mellifera"
+        },
 
-        "metadata": {
+        "morphology": {
+            "legs": 6,
+            "wings": true,
+            "antennae": true,
+            "mouthparts": "lamedor",
+            "symmetry": "bilateral",
+            "segmentation": "cabeza-torax-abdomen"
+        },
 
-            "recordType": "demonstration",
+        "diagnosticCharacters": [
+            "Tres pares de patas",
+            "Dos pares de alas",
+            "Antenas",
+            "Cuerpo dividido en cabeza, tórax y abdomen",
+            "Aparato bucal lamedor"
+        ],
 
-            "requiresExpertValidation": true
+        "veterinaryImportance": {
+            "description": "Tiene importancia veterinaria principalmente por accidentes por picadura y posibles reacciones de hipersensibilidad.",
+            "category": "Animal ponzoñoso / accidente",
+            "importance": "Media",
 
+            "hosts": [
+                "Perros",
+                "Gatos",
+                "Equinos",
+                "Animales de producción"
+            ],
+
+            "diseases": [
+                "Reacciones locales por picadura",
+                "Reacciones de hipersensibilidad",
+                "Anafilaxia en casos graves"
+            ],
+
+            "diagnosis": [
+                "Historia de exposición",
+                "Examen clínico",
+                "Evaluación de signos sistémicos"
+            ],
+
+            "treatment": "El manejo depende de la gravedad de la reacción. Las reacciones sistémicas requieren atención veterinaria inmediata y tratamiento de urgencia según el protocolo clínico.",
+
+            "prevention": [
+                "Evitar exposición a enjambres",
+                "Control seguro de colmenas cercanas",
+                "No manipular individuos vivos directamente"
+            ],
+
+            "zoonoticRisk": "La importancia principal es el riesgo de picadura tanto para animales como para personas."
+        },
+
+        "differentials": [
+            "Bombus spp.",
+            "Vespidae"
+        ],
+
+        "distribution": {
+            "description": "Distribución amplia asociada a poblaciones manejadas y silvestres."
+        },
+
+        "images": {
+            "principal": ""
         }
-
     }
-
 ]
 ```

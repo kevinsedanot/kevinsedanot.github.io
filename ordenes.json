@@ -1,13 +1,36 @@
 ```json
 [
     {
-        "name": "Coleoptera",
-
+        "order": "Siphonaptera",
         "class": "Insecta",
+        "families": [
+            "Pulicidae"
+        ]
+    },
 
-        "description":
-            "Orden de insectos caracterizado por la presencia de élitros que protegen las alas posteriores.",
+    {
+        "order": "Diptera",
+        "class": "Insecta",
+        "families": [
+            "Culicidae",
+            "Muscidae",
+            "Calliphoridae"
+        ]
+    },
 
+    {
+        "order": "Hymenoptera",
+        "class": "Insecta",
+        "families": [
+            "Apidae",
+            "Formicidae",
+            "Vespidae"
+        ]
+    },
+
+    {
+        "order": "Coleoptera",
+        "class": "Insecta",
         "families": [
             "Scarabaeidae",
             "Coccinellidae",
@@ -16,15 +39,9 @@
         ]
     },
 
-
     {
-        "name": "Lepidoptera",
-
+        "order": "Lepidoptera",
         "class": "Insecta",
-
-        "description":
-            "Orden que incluye mariposas y polillas.",
-
         "families": [
             "Nymphalidae",
             "Papilionidae",
@@ -33,49 +50,9 @@
         ]
     },
 
-
     {
-        "name": "Hymenoptera",
-
+        "order": "Orthoptera",
         "class": "Insecta",
-
-        "description":
-            "Orden que incluye abejas, avispas y hormigas.",
-
-        "families": [
-            "Apidae",
-            "Formicidae",
-            "Vespidae",
-            "Ichneumonidae"
-        ]
-    },
-
-
-    {
-        "name": "Diptera",
-
-        "class": "Insecta",
-
-        "description":
-            "Orden caracterizado por poseer un solo par de alas funcionales.",
-
-        "families": [
-            "Culicidae",
-            "Muscidae",
-            "Calliphoridae",
-            "Tabanidae"
-        ]
-    },
-
-
-    {
-        "name": "Orthoptera",
-
-        "class": "Insecta",
-
-        "description":
-            "Orden que incluye saltamontes, grillos y langostas.",
-
         "families": [
             "Acrididae",
             "Gryllidae",
@@ -83,15 +60,9 @@
         ]
     },
 
-
     {
-        "name": "Hemiptera",
-
+        "order": "Hemiptera",
         "class": "Insecta",
-
-        "description":
-            "Orden de insectos con aparato bucal especializado para picar y succionar.",
-
         "families": [
             "Aphididae",
             "Cicadidae",
@@ -100,15 +71,36 @@
         ]
     },
 
+    {
+        "order": "Ixodida",
+        "class": "Arachnida",
+        "families": [
+            "Ixodidae",
+            "Argasidae"
+        ]
+    },
 
     {
-        "name": "Araneae",
-
+        "order": "Sarcoptiformes",
         "class": "Arachnida",
+        "families": [
+            "Sarcoptidae",
+            "Psoroptidae"
+        ]
+    },
 
-        "description":
-            "Orden que comprende las arañas.",
+    {
+        "order": "Trombidiformes",
+        "class": "Arachnida",
+        "families": [
+            "Demodecidae",
+            "Trombiculidae"
+        ]
+    },
 
+    {
+        "order": "Araneae",
+        "class": "Arachnida",
         "families": [
             "Theridiidae",
             "Araneidae",

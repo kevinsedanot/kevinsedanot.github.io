@@ -1,9 +1,4 @@
 ```javascript
-/* =========================================================
-   TAXOID
-   taxonomia.js
-========================================================= */
-
 const Taxonomia = {
 
     database: [],
@@ -15,73 +10,6 @@ const Taxonomia = {
             Array.isArray(database)
                 ? database
                 : [];
-
-    },
-
-
-    obtenerValores(ruta) {
-
-        const valores =
-            new Set();
-
-
-        for (
-            const especie
-            of this.database
-        ) {
-
-            const valor =
-                this.obtenerRuta(
-                    especie,
-                    ruta
-                );
-
-
-            if (
-                valor !== undefined
-                &&
-                valor !== null
-                &&
-                valor !== ""
-            ) {
-
-                valores.add(valor);
-
-            }
-
-        }
-
-
-        return [
-            ...valores
-        ].sort(
-            (a,b) =>
-                String(a)
-                    .localeCompare(
-                        String(b),
-                        "es"
-                    )
-        );
-
-    },
-
-
-    obtenerRuta(
-        objeto,
-        ruta
-    ) {
-
-        return ruta
-            .split(".")
-            .reduce(
-                (
-                    actual,
-                    propiedad
-                ) =>
-                    actual?.[propiedad],
-                objeto
-            );
-
     },
 
 
@@ -92,67 +20,54 @@ const Taxonomia = {
         return this.database.filter(
             especie => {
 
-                const taxonomia =
-                    especie.taxonomy || {};
+                const tax =
+                    especie.taxonomy ||
+                    {};
 
 
                 if (
-                    criterios.clase
-                    &&
-                    taxonomia.class
-                    !==
+                    criterios.clase &&
+                    tax.class !==
                     criterios.clase
                 ) {
 
                     return false;
-
                 }
 
 
                 if (
-                    criterios.orden
-                    &&
-                    taxonomia.order
-                    !==
+                    criterios.orden &&
+                    tax.order !==
                     criterios.orden
                 ) {
 
                     return false;
-
                 }
 
 
                 if (
-                    criterios.familia
-                    &&
-                    taxonomia.family
-                    !==
+                    criterios.familia &&
+                    tax.family !==
                     criterios.familia
                 ) {
 
                     return false;
-
                 }
 
 
                 if (
-                    criterios.genero
-                    &&
-                    taxonomia.genus
-                    !==
+                    criterios.genero &&
+                    tax.genus !==
                     criterios.genero
                 ) {
 
                     return false;
-
                 }
 
 
                 return true;
-
             }
         );
-
     },
 
 
@@ -160,17 +75,14 @@ const Taxonomia = {
         clase = ""
     ) {
 
-        const registros =
-            clase
-                ? this.filtrar({clase})
-                : this.database;
+        return this.obtenerValores(
 
+            this.filtrar({
+                clase
+            }),
 
-        return this.valoresDesdeRegistros(
-            registros,
             "order"
         );
-
     },
 
 
@@ -179,18 +91,15 @@ const Taxonomia = {
         orden = ""
     ) {
 
-        const registros =
+        return this.obtenerValores(
+
             this.filtrar({
                 clase,
                 orden
-            });
+            }),
 
-
-        return this.valoresDesdeRegistros(
-            registros,
             "family"
         );
-
     },
 
 
@@ -200,23 +109,20 @@ const Taxonomia = {
         familia = ""
     ) {
 
-        const registros =
+        return this.obtenerValores(
+
             this.filtrar({
                 clase,
                 orden,
                 familia
-            });
+            }),
 
-
-        return this.valoresDesdeRegistros(
-            registros,
             "genus"
         );
-
     },
 
 
-    valoresDesdeRegistros(
+    obtenerValores(
         registros,
         propiedad
     ) {
@@ -225,37 +131,34 @@ const Taxonomia = {
             new Set();
 
 
-        for (
-            const especie
-            of registros
-        ) {
+        registros.forEach(
+            especie => {
 
-            const valor =
-                especie.taxonomy?.[
-                    propiedad
-                ];
+                const valor =
+                    especie.taxonomy?.[
+                        propiedad
+                    ];
 
 
-            if (valor) {
+                if (valor) {
 
-                valores.add(valor);
-
+                    valores.add(
+                        valor
+                    );
+                }
             }
-
-        }
+        );
 
 
         return [
             ...valores
         ].sort(
-            (a,b) =>
-                String(a)
-                    .localeCompare(
-                        String(b),
-                        "es"
-                    )
+            (a, b) =>
+                a.localeCompare(
+                    b,
+                    "es"
+                )
         );
-
     }
 
 };

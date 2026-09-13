@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,14 +13,17 @@
 
     <meta
         name="description"
-        content="TaxoID - Sistema veterinario de identificación taxonómica de insectos y artrópodos."
+        content="Sistema de identificación taxonómica de artrópodos de importancia veterinaria."
     >
 
-    <meta name="theme-color" content="#06110d">
+    <title>
+        TaxoID Veterinaria
+    </title>
 
-    <title>TaxoID | Identificación Veterinaria</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -32,40 +36,40 @@
     <div class="brand">
 
         <div class="brand-icon">
-            🐾
+            🩺
         </div>
 
         <div>
 
             <h1>
-                Taxo<span>ID</span>
+                TaxoID
             </h1>
 
-            <p>
-                IDENTIFICACIÓN TAXONÓMICA VETERINARIA
-            </p>
+            <span>
+                Identificación Taxonómica Veterinaria
+            </span>
 
         </div>
 
     </div>
 
 
-    <nav class="navigation">
+    <nav>
 
         <a href="#identificacion">
-            🔬 Identificación
+            Identificación
         </a>
 
         <a href="#base-datos">
-            📚 Base de datos
+            Base de datos
         </a>
 
         <a href="#metodologia">
-            🧬 Metodología
+            Metodología
         </a>
 
         <a href="#acerca">
-            🩺 Acerca
+            Acerca
         </a>
 
     </nav>
@@ -74,76 +78,36 @@
 
 
 
-<main class="container">
+<main>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
-    <div class="hero-content">
-
-        <div class="badge">
-
-            <span class="status-dot"></span>
-
-            SISTEMA VETERINARIO · ENTOMOLOGÍA
-
-        </div>
-
-
-        <h2>
-
-            Identificación
-            <span>taxonómica</span>
-            para medicina veterinaria.
-
-        </h2>
-
-
-        <p>
-
-            Herramienta digital para apoyar la identificación
-            de insectos y otros artrópodos mediante caracteres
-            morfológicos y clasificación taxonómica.
-
-        </p>
-
-
-        <div class="hero-features">
-
-            <div>
-                <span>🔬</span>
-                Morfología
-            </div>
-
-            <div>
-                <span>🧬</span>
-                Taxonomía
-            </div>
-
-            <div>
-                <span>🩺</span>
-                Importancia veterinaria
-            </div>
-
-        </div>
-
+    <div class="hero-decoration">
+        🐾
     </div>
 
+    <div class="hero-text">
 
-    <div class="hero-decoration">
+        <span class="badge">
+            🔬 MEDICINA VETERINARIA
+        </span>
 
-        <div class="medical-circle">
+        <h2>
+            Identificación
+            <strong>
+                taxonómica
+            </strong>
+            veterinaria
+        </h2>
 
-            <span>🐕</span>
-            <span>🦟</span>
-            <span>🐈</span>
-            <span>🕷️</span>
-
-            <div class="cross">
-                +
-            </div>
-
-        </div>
+        <p>
+            Identifique insectos, arácnidos y otros artrópodos
+            mediante características morfológicas y consulte
+            su importancia veterinaria.
+        </p>
 
     </div>
 
@@ -154,505 +118,536 @@
 <!-- IDENTIFICACIÓN -->
 
 <section
-    class="panel"
     id="identificacion"
+    class="panel"
 >
 
-    <div class="section-header">
+
+    <div class="section-title">
+
+        <span>
+            🔎
+        </span>
 
         <div>
 
-            <span class="section-number">
-                01 — IDENTIFICACIÓN
-            </span>
-
             <h2>
-                Identificar organismo
+                Identificación del ejemplar
             </h2>
 
             <p>
-                Registra los caracteres observados para
-                obtener los candidatos taxonómicos más
-                compatibles.
+                Seleccione las características observadas.
             </p>
 
         </div>
 
-        <div class="section-icon">
-            🔬
+    </div>
+
+
+
+    <!-- IMAGEN -->
+
+    <div class="upload-area">
+
+        <div
+            id="uploadIcon"
+            class="upload-icon"
+        >
+            📷
+        </div>
+
+        <h3>
+            Fotografía del ejemplar
+        </h3>
+
+        <p>
+            Cargue una imagen como apoyo visual.
+        </p>
+
+        <label class="file-button">
+
+            Seleccionar imagen
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+            >
+
+        </label>
+
+
+        <img
+            id="preview"
+            class="preview"
+            alt="Vista previa del ejemplar"
+        >
+
+    </div>
+
+
+
+    <!-- TAXONOMÍA -->
+
+    <div class="subsection">
+
+        <h3>
+            🧬 Clasificación taxonómica
+        </h3>
+
+
+        <div class="form-grid">
+
+
+            <div class="form-group">
+
+                <label for="reino">
+                    Reino
+                </label>
+
+                <select id="reino">
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="Animalia">
+                        Animalia
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="filo">
+                    Filo
+                </label>
+
+                <select id="filo">
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="Arthropoda">
+                        Arthropoda
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="clase">
+                    Clase
+                </label>
+
+                <select id="clase">
+
+                    <option value="">
+                        Todas
+                    </option>
+
+                    <option value="Insecta">
+                        Insecta
+                    </option>
+
+                    <option value="Arachnida">
+                        Arachnida
+                    </option>
+
+                    <option value="Chilopoda">
+                        Chilopoda
+                    </option>
+
+                    <option value="Diplopoda">
+                        Diplopoda
+                    </option>
+
+                    <option value="Crustacea">
+                        Crustacea
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="orden">
+                    Orden
+                </label>
+
+                <select id="orden">
+
+                    <option value="">
+                        Todos los órdenes
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="familia">
+                    Familia
+                </label>
+
+                <select id="familia">
+
+                    <option value="">
+                        Todas las familias
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="genero">
+                    Género
+                </label>
+
+                <select id="genero">
+
+                    <option value="">
+                        Todos los géneros
+                    </option>
+
+                </select>
+
+            </div>
+
+
         </div>
 
     </div>
 
 
 
-    <div class="identification-grid">
+    <!-- MORFOLOGÍA -->
+
+    <div class="subsection">
+
+        <h3>
+            🧩 Características morfológicas
+        </h3>
 
 
-        <!-- FOTOGRAFÍA -->
-
-        <div class="image-section">
-
-            <div class="subsection-title">
-
-                <span>01</span>
-
-                <h3>
-                    Evidencia fotográfica
-                </h3>
-
-            </div>
+        <div class="form-grid">
 
 
-            <label
-                class="upload-area"
-                id="uploadArea"
-                for="imageInput"
-            >
+            <div class="form-group">
 
-                <input
-                    type="file"
-                    id="imageInput"
-                    accept="image/*"
-                >
+                <label for="patas">
+                    Número de patas
+                </label>
 
+                <select id="patas">
 
-                <div
-                    class="upload-icon"
-                    id="uploadIcon"
-                >
-                    📷
-                </div>
+                    <option value="">
+                        No especificado
+                    </option>
 
+                    <option value="6">
+                        6 patas
+                    </option>
 
-                <strong>
-                    Cargar fotografía
-                </strong>
+                    <option value="8">
+                        8 patas
+                    </option>
 
+                    <option value="10">
+                        10 patas
+                    </option>
 
-                <span>
-                    JPG · PNG · WEBP
-                </span>
+                    <option value="many">
+                        Más de 10
+                    </option>
 
-
-                <small>
-                    Preferiblemente vista dorsal o lateral
-                </small>
-
-
-                <img
-                    id="preview"
-                    class="image-preview"
-                    alt="Vista previa"
-                >
-
-            </label>
-
-
-            <div
-                class="image-info"
-                id="imageInfo"
-            ></div>
-
-
-            <div class="observation-note">
-
-                <span>💡</span>
-
-                <p>
-                    Una fotografía clara facilita observar
-                    patas, antenas, alas, segmentación y
-                    otras estructuras diagnósticas.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- FORMULARIO -->
-
-        <div class="character-section">
-
-
-            <div class="subsection-title">
-
-                <span>02</span>
-
-                <h3>
-                    Clasificación preliminar
-                </h3>
+                </select>
 
             </div>
 
 
-            <div class="form-grid">
 
+            <div class="form-group">
 
-                <div class="form-group">
+                <label for="alas">
+                    Alas
+                </label>
 
-                    <label for="reino">
-                        Reino
-                    </label>
+                <select id="alas">
 
-                    <select id="reino">
+                    <option value="">
+                        No especificado
+                    </option>
 
-                        <option value="Animalia">
-                            Animalia
-                        </option>
+                    <option value="true">
+                        Presentes
+                    </option>
 
-                    </select>
+                    <option value="false">
+                        Ausentes
+                    </option>
 
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="filo">
-                        Filo
-                    </label>
-
-                    <select id="filo">
-
-                        <option value="Arthropoda">
-                            Arthropoda
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="clase">
-                        Clase
-                    </label>
-
-                    <select id="clase">
-
-                        <option value="">
-                            Seleccionar clase
-                        </option>
-
-                        <option value="Insecta">
-                            Insecta
-                        </option>
-
-                        <option value="Arachnida">
-                            Arachnida
-                        </option>
-
-                        <option value="Chilopoda">
-                            Chilopoda
-                        </option>
-
-                        <option value="Diplopoda">
-                            Diplopoda
-                        </option>
-
-                        <option value="Crustacea">
-                            Crustacea
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="orden">
-                        Orden
-                    </label>
-
-                    <select id="orden">
-
-                        <option value="">
-                            Seleccionar orden
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="familia">
-                        Familia
-                    </label>
-
-                    <select id="familia">
-
-                        <option value="">
-                            Seleccionar familia
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="genero">
-                        Género
-                    </label>
-
-                    <select id="genero">
-
-                        <option value="">
-                            Seleccionar género
-                        </option>
-
-                    </select>
-
-                </div>
+                </select>
 
             </div>
 
 
 
-            <div class="subsection-title morphology-title">
+            <div class="form-group">
 
-                <span>03</span>
+                <label for="antenas">
+                    Antenas
+                </label>
 
-                <h3>
-                    Caracteres morfológicos
-                </h3>
+                <select id="antenas">
 
-            </div>
+                    <option value="">
+                        No especificado
+                    </option>
 
+                    <option value="true">
+                        Presentes
+                    </option>
 
-            <div class="form-grid">
+                    <option value="false">
+                        Ausentes
+                    </option>
 
-
-                <div class="form-group">
-
-                    <label for="patas">
-                        🦵 Número de patas
-                    </label>
-
-                    <select id="patas">
-
-                        <option value="">
-                            No especificado
-                        </option>
-
-                        <option value="6">
-                            6 — Insecta
-                        </option>
-
-                        <option value="8">
-                            8 — Arachnida
-                        </option>
-
-                        <option value="many">
-                            Muchas
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="alas">
-                        🪽 Alas
-                    </label>
-
-                    <select id="alas">
-
-                        <option value="">
-                            No especificado
-                        </option>
-
-                        <option value="true">
-                            Presentes
-                        </option>
-
-                        <option value="false">
-                            Ausentes
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="antenas">
-                        📡 Antenas
-                    </label>
-
-                    <select id="antenas">
-
-                        <option value="">
-                            No especificado
-                        </option>
-
-                        <option value="true">
-                            Presentes
-                        </option>
-
-                        <option value="false">
-                            Ausentes
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="aparatoBucal">
-                        🦷 Aparato bucal
-                    </label>
-
-                    <select id="aparatoBucal">
-
-                        <option value="">
-                            No especificado
-                        </option>
-
-                        <option value="masticador">
-                            Masticador
-                        </option>
-
-                        <option value="chupador">
-                            Chupador
-                        </option>
-
-                        <option value="picador-chupador">
-                            Picador-chupador
-                        </option>
-
-                        <option value="lamedor">
-                            Lamedor
-                        </option>
-
-                        <option value="sifonador">
-                            Sifonador
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="simetria">
-                        ⚖️ Simetría
-                    </label>
-
-                    <select id="simetria">
-
-                        <option value="">
-                            No especificado
-                        </option>
-
-                        <option value="bilateral">
-                            Bilateral
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="segmentacion">
-                        🧬 Segmentación
-                    </label>
-
-                    <select id="segmentacion">
-
-                        <option value="">
-                            No especificado
-                        </option>
-
-                        <option value="evidente">
-                            Evidente
-                        </option>
-
-                        <option value="reducida">
-                            Reducida
-                        </option>
-
-                    </select>
-
-                </div>
+                </select>
 
             </div>
 
 
-            <button
-                type="button"
-                class="identify-button"
-                id="identifyButton"
-            >
 
-                <span>🔬</span>
+            <div class="form-group">
 
-                Analizar e identificar
+                <label for="aparatoBucal">
+                    Aparato bucal
+                </label>
 
-                <span class="button-arrow">
-                    →
-                </span>
+                <select id="aparatoBucal">
 
-            </button>
+                    <option value="">
+                        No especificado
+                    </option>
 
+                    <option value="masticador">
+                        Masticador
+                    </option>
 
-            <div
-                class="system-status"
-                id="systemStatus"
-            >
-                Sistema listo para el análisis.
+                    <option value="chupador">
+                        Chupador
+                    </option>
+
+                    <option value="picador-chupador">
+                        Picador-chupador
+                    </option>
+
+                    <option value="lamedor">
+                        Lamedor
+                    </option>
+
+                    <option value="sifonador">
+                        Sifonador
+                    </option>
+
+                    <option value="queliceros">
+                        Quelíceros
+                    </option>
+
+                </select>
+
             </div>
+
+
+
+            <div class="form-group">
+
+                <label for="simetria">
+                    Simetría
+                </label>
+
+                <select id="simetria">
+
+                    <option value="">
+                        No especificado
+                    </option>
+
+                    <option value="bilateral">
+                        Bilateral
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="segmentacion">
+                    Segmentación corporal
+                </label>
+
+                <select id="segmentacion">
+
+                    <option value="">
+                        No especificado
+                    </option>
+
+                    <option value="cabeza-torax-abdomen">
+                        Cabeza + tórax + abdomen
+                    </option>
+
+                    <option value="cefalotorax-abdomen">
+                        Cefalotórax + abdomen
+                    </option>
+
+                    <option value="reducida">
+                        Segmentación reducida
+                    </option>
+
+                    <option value="fusionada">
+                        Segmentos fusionados
+                    </option>
+
+                    <option value="numerosos-segmentos">
+                        Numerosos segmentos
+                    </option>
+
+                    <option value="evidente">
+                        Segmentación evidente
+                    </option>
+
+                </select>
+
+            </div>
+
 
         </div>
 
     </div>
+
+
+
+    <button
+        id="identifyButton"
+        class="identify-button"
+        type="button"
+    >
+        🔬 Identificar ejemplar
+    </button>
+
+
+    <div
+        id="systemStatus"
+        class="system-status"
+    >
+        Sistema listo.
+    </div>
+
 
 </section>
+
+
+
+
+<!-- BUSCADOR DIRECTO -->
+
+<section
+    class="panel search-panel"
+>
+
+    <div class="section-title">
+
+        <span>
+            📚
+        </span>
+
+        <div>
+
+            <h2>
+                Buscar especie
+            </h2>
+
+            <p>
+                Consulte directamente un registro de la base de datos.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="direct-search">
+
+        <input
+            type="search"
+            id="speciesSearch"
+            placeholder="Ejemplo: Ctenocephalides felis"
+            autocomplete="off"
+        >
+
+        <button
+            id="directSearchButton"
+            type="button"
+        >
+            Buscar
+        </button>
+
+    </div>
+
+
+    <div id="directSearchResults"></div>
+
+</section>
+
 
 
 
 <!-- RESULTADOS -->
 
 <section
-    class="panel"
-    id="resultados"
+    id="result"
+    class="panel result-panel"
 >
 
-    <div class="section-header">
+
+    <div class="section-title">
+
+        <span>
+            🩺
+        </span>
 
         <div>
 
-            <span class="section-number">
-                02 — RESULTADO
-            </span>
-
             <h2>
-                Evaluación taxonómica
+                Resultado de identificación
             </h2>
 
             <p>
-                Resultado generado mediante comparación
-                de los caracteres seleccionados.
+                Información taxonómica, biológica y veterinaria.
             </p>
 
-        </div>
-
-        <div class="section-icon">
-            🩺
         </div>
 
     </div>
@@ -660,12 +655,12 @@
 
 
     <div
-        class="empty-result"
         id="emptyResult"
+        class="empty-result"
     >
 
-        <div class="empty-icon">
-            🔎
+        <div>
+            🔬
         </div>
 
         <h3>
@@ -673,8 +668,8 @@
         </h3>
 
         <p>
-            Completa algunos caracteres y ejecuta
-            el análisis para generar una propuesta.
+            Seleccione las características del ejemplar
+            y pulse identificar.
         </p>
 
     </div>
@@ -682,76 +677,46 @@
 
 
     <div
-        id="result"
-        class="hidden"
+        id="resultContent"
+        class="result-content"
     >
 
 
         <div class="result-main">
 
 
-            <div class="result-image-container">
+            <div class="result-header">
 
-                <div class="image-label">
-                    REGISTRO
-                </div>
+                <div>
 
-                <img
-                    id="speciesImage"
-                    src=""
-                    alt="Organismo identificado"
-                >
+                    <span class="result-label">
+                        IDENTIFICACIÓN PRINCIPAL
+                    </span>
 
-            </div>
+                    <h2 id="species">
+                        -
+                    </h2>
 
-
-            <div class="result-information">
-
-                <span
-                    class="result-badge"
-                    id="resultNivel"
-                >
-                    IDENTIFICACIÓN
-                </span>
-
-
-                <h3 id="species">
-                    —
-                </h3>
-
-
-                <p id="commonName">
-                    —
-                </p>
-
-
-                <div class="veterinary-tag">
-
-                    🩺
-                    Información de interés veterinario
+                    <p id="commonName">
+                        -
+                    </p>
 
                 </div>
 
 
                 <div class="confidence">
 
-                    <div class="confidence-header">
+                    <span>
+                        Coincidencia morfológica
+                    </span>
 
-                        <span>
-                            Coincidencia morfológica
-                        </span>
+                    <strong id="confidenceText">
+                        0%
+                    </strong>
 
-                        <strong id="confidenceText">
-                            0%
-                        </strong>
-
-                    </div>
-
-
-                    <div class="confidence-track">
+                    <div class="confidence-bar">
 
                         <div
-                            class="confidence-bar"
                             id="confidenceBar"
                         ></div>
 
@@ -761,123 +726,260 @@
 
             </div>
 
-        </div>
 
 
+            <!-- TAXONOMÍA -->
 
-        <div class="taxonomy-card">
-
-            <div class="card-heading">
-
-                <span>🧬</span>
-
-                <h3>
-                    Clasificación taxonómica
-                </h3>
-
-            </div>
-
-
-            <div class="taxonomy-grid">
+            <div class="taxonomy-result">
 
 
                 <div>
                     <span>Reino</span>
-                    <strong id="resultReino">—</strong>
+                    <strong id="resultReino">-</strong>
                 </div>
 
 
                 <div>
                     <span>Filo</span>
-                    <strong id="resultFilo">—</strong>
+                    <strong id="resultFilo">-</strong>
                 </div>
 
 
                 <div>
                     <span>Clase</span>
-                    <strong id="resultClase">—</strong>
+                    <strong id="resultClase">-</strong>
                 </div>
 
 
                 <div>
                     <span>Orden</span>
-                    <strong id="resultOrden">—</strong>
+                    <strong id="resultOrden">-</strong>
                 </div>
 
 
                 <div>
                     <span>Familia</span>
-                    <strong id="resultFamilia">—</strong>
+                    <strong id="resultFamilia">-</strong>
                 </div>
 
 
                 <div>
                     <span>Género</span>
-                    <strong id="resultGenero">—</strong>
+                    <strong id="resultGenero">-</strong>
                 </div>
 
 
                 <div>
                     <span>Especie</span>
-                    <strong id="resultEspecie">—</strong>
+                    <strong id="resultEspecie">-</strong>
                 </div>
 
+
             </div>
+
+
+
+            <!-- INFORMACIÓN VETERINARIA -->
+
+            <div class="information-grid">
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🔬 Caracteres diagnósticos
+                    </h3>
+
+                    <div id="taxonomicDetails">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card veterinary-card">
+
+                    <h3>
+                        🩺 Importancia veterinaria
+                    </h3>
+
+                    <div id="veterinaryImportance">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🐕 Hospedadores
+                    </h3>
+
+                    <div id="hosts">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🦠 Enfermedades / agentes asociados
+                    </h3>
+
+                    <div id="diseases">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card treatment-card">
+
+                    <h3>
+                        🩺 Manejo / tratamiento
+                    </h3>
+
+                    <div id="treatment">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🛡️ Prevención y control
+                    </h3>
+
+                    <div id="prevention">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🔬 Diagnóstico recomendado
+                    </h3>
+
+                    <div id="diagnosis">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🌎 Distribución
+                    </h3>
+
+                    <div id="distribution">
+                        -
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card risk-card">
+
+                    <h3>
+                        ⚠️ Riesgo zoonótico
+                    </h3>
+
+                    <div id="zoonoticRisk">
+                        -
+                    </div>
+
+                </div>
+
+
+            </div>
+
 
         </div>
 
 
 
-        <div
-            class="details-grid"
-            id="taxonomicDetails"
-        ></div>
+        <div class="result-image">
 
-
-
-        <div class="candidates-section">
-
-            <div class="card-heading">
-
-                <span>📊</span>
-
-                <h3>
-                    Candidatos alternativos
-                </h3>
-
-            </div>
-
-
-            <div
-                class="candidate-list"
-                id="candidateList"
-            ></div>
+            <img
+                id="speciesImage"
+                alt="Ejemplar identificado"
+            >
 
         </div>
+
 
     </div>
 
+
+
+    <!-- DIFERENCIALES -->
+
+    <div class="candidates">
+
+        <div class="candidate-title">
+
+            <div>
+
+                <h3>
+                    🔎 Especies diferenciales
+                </h3>
+
+                <p>
+                    Otros registros que presentan similitud
+                    con las características seleccionadas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="candidateList"></div>
+
+    </div>
+
+
 </section>
+
 
 
 
 <!-- BASE DE DATOS -->
 
 <section
-    class="panel"
     id="base-datos"
+    class="panel"
 >
 
-    <div class="section-header">
+
+    <div class="section-title">
+
+        <span>
+            📊
+        </span>
 
         <div>
 
-            <span class="section-number">
-                03 — BASE DE DATOS
-            </span>
-
             <h2>
-                Base taxonómica veterinaria
+                Base de datos
             </h2>
 
             <p>
@@ -886,116 +988,115 @@
 
         </div>
 
-        <div class="section-icon">
-            📚
-        </div>
-
     </div>
 
 
-    <div class="database-stats">
+
+    <div class="stats-grid">
 
 
         <div class="stat-card">
 
-            <div class="stat-icon">
-                🐜
-            </div>
+            <span>
+                🐛
+            </span>
 
             <strong id="speciesCount">
                 0
             </strong>
 
-            <span>
+            <small>
                 Registros
-            </span>
+            </small>
 
         </div>
 
 
+
         <div class="stat-card">
 
-            <div class="stat-icon">
+            <span>
                 🧬
-            </div>
+            </span>
 
             <strong id="familyCount">
                 0
             </strong>
 
-            <span>
+            <small>
                 Familias
-            </span>
+            </small>
 
         </div>
 
 
+
         <div class="stat-card">
 
-            <div class="stat-icon">
+            <span>
                 🔬
-            </div>
+            </span>
 
             <strong id="orderCount">
                 0
             </strong>
 
-            <span>
+            <small>
                 Órdenes
-            </span>
+            </small>
 
         </div>
 
 
-        <div class="stat-card veterinary-stat">
 
-            <div class="stat-icon">
+        <div class="stat-card">
+
+            <span>
                 🩺
-            </div>
+            </span>
 
-            <strong>
-                VET
+            <strong id="veterinaryCount">
+                0
             </strong>
 
-            <span>
-                Enfoque veterinario
-            </span>
+            <small>
+                Registros veterinarios
+            </small>
 
         </div>
+
 
     </div>
 
+
 </section>
+
 
 
 
 <!-- METODOLOGÍA -->
 
 <section
-    class="panel"
     id="metodologia"
+    class="panel"
 >
 
-    <div class="section-header">
+    <div class="section-title">
+
+        <span>
+            🔬
+        </span>
 
         <div>
 
-            <span class="section-number">
-                04 — METODOLOGÍA
-            </span>
-
             <h2>
-                Proceso de identificación
+                Metodología
             </h2>
 
             <p>
-                Flujo de apoyo al razonamiento taxonómico.
+                Funcionamiento del sistema.
             </p>
 
-        </div>
-
-        <div class="section-icon">
-            🧬
         </div>
 
     </div>
@@ -1004,93 +1105,87 @@
     <div class="method-grid">
 
 
-        <article>
+        <div class="method-card">
 
-            <div class="method-icon">
-                📷
-            </div>
-
-            <span>
-                PASO 01
-            </span>
+            <span>01</span>
 
             <h3>
                 Observación
             </h3>
 
             <p>
-                Se obtiene una fotografía y se observan
-                las estructuras externas.
+                Se registran caracteres externos del ejemplar.
             </p>
 
-        </article>
+        </div>
 
 
-        <article>
 
-            <div class="method-icon">
-                🔬
-            </div>
+        <div class="method-card">
 
-            <span>
-                PASO 02
-            </span>
+            <span>02</span>
 
             <h3>
-                Morfología
+                Filtrado taxonómico
             </h3>
 
             <p>
-                Se registran caracteres como patas,
-                alas, antenas y aparato bucal.
+                La clasificación se reduce mediante Reino,
+                Filo, Clase, Orden, Familia y Género.
             </p>
 
-        </article>
+        </div>
 
 
-        <article>
 
-            <div class="method-icon">
-                🧬
-            </div>
+        <div class="method-card">
 
-            <span>
-                PASO 03
-            </span>
+            <span>03</span>
 
             <h3>
-                Taxonomía
+                Comparación
             </h3>
 
             <p>
-                Los caracteres son comparados con
-                los registros de la base de datos.
+                Los caracteres seleccionados se comparan
+                con los registros de la base de datos.
             </p>
 
-        </article>
+        </div>
 
 
-        <article>
 
-            <div class="method-icon">
-                🩺
-            </div>
+        <div class="method-card">
 
-            <span>
-                PASO 04
-            </span>
+            <span>04</span>
+
+            <h3>
+                Diferenciales
+            </h3>
+
+            <p>
+                Se muestran especies similares para apoyar
+                la identificación.
+            </p>
+
+        </div>
+
+
+
+        <div class="method-card">
+
+            <span>05</span>
 
             <h3>
                 Interpretación veterinaria
             </h3>
 
             <p>
-                La identificación puede relacionarse
-                con hospedadores, enfermedades y
-                relevancia veterinaria.
+                El registro identificado muestra hospedadores,
+                enfermedades asociadas y medidas de control.
             </p>
 
-        </article>
+        </div>
 
 
     </div>
@@ -1099,69 +1194,33 @@
 
 
 
+
 <!-- ACERCA -->
 
 <section
-    class="panel about"
     id="acerca"
+    class="about"
 >
 
-    <div class="section-header">
-
-        <div>
-
-            <span class="section-number">
-                05 — ACERCA
-            </span>
-
-            <h2>
-                Ciencia + veterinaria + tecnología
-            </h2>
-
-        </div>
-
-        <div class="section-icon">
-            🐾
-        </div>
-
+    <div class="about-icon">
+        🩺
     </div>
 
+    <h2>
+        TaxoID Veterinaria
+    </h2>
 
     <p>
-
-        TaxoID es una herramienta educativa orientada
-        al apoyo de la identificación de insectos y
-        artrópodos de interés para medicina veterinaria,
-        entomología y salud animal.
-
+        Herramienta educativa para apoyar la identificación
+        taxonómica y la interpretación veterinaria de artrópodos.
     </p>
 
-
-    <p>
-
-        La plataforma puede ampliarse con nuevas
-        especies, imágenes, caracteres diagnósticos,
-        hospedadores, enfermedades y medidas de control.
-
-    </p>
-
-
-    <div class="warning">
-
-        <strong>
-            ⚠️ Importante
-        </strong>
-
-        <p>
-
-            La coincidencia mostrada representa una
-            comparación con la base de datos disponible.
-            No constituye por sí sola una identificación
-            científica definitiva.
-
-        </p>
-
-    </div>
+    <small>
+        La identificación automática es orientativa.
+        Los diagnósticos y tratamientos deben confirmarse
+        mediante evaluación veterinaria, claves taxonómicas
+        y fuentes científicas actualizadas.
+    </small>
 
 </section>
 
@@ -1170,40 +1229,20 @@
 
 
 
-<footer class="footer">
 
-    <div class="footer-brand">
-
-        <span>🐾</span>
-
-        <strong>
-            TaxoID
-        </strong>
-
-    </div>
-
+<footer>
 
     <p>
-        Sistema de apoyo a la identificación taxonómica veterinaria.
+        TaxoID © 2026 — Identificación Taxonómica Veterinaria
     </p>
-
-
-    <span class="footer-status">
-        ● SISTEMA ACTIVO
-    </span>
 
 </footer>
 
 
 
-<!-- JAVASCRIPT -->
-
 <script src="taxonomia.js"></script>
-
 <script src="reconocimiento.js"></script>
-
-<script src="app.js"></script>
-
+<script src="script.js"></script>
 
 </body>
 

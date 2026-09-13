@@ -1,52 +1,57 @@
 ```javascript
-/* =========================================================
-   TAXOID
-   reconocimiento.js
-========================================================= */
-
 const Reconocimiento = {
 
     imagenActual: null,
 
 
-    cargarImagen(file) {
+    cargarImagen(
+        archivo
+    ) {
 
-        if (!file) {
+        if (!archivo) {
 
             this.imagenActual =
                 null;
 
             return null;
-
         }
 
 
         if (
-            !file.type.startsWith("image/")
+            !archivo.type.startsWith(
+                "image/"
+            )
         ) {
 
             throw new Error(
                 "El archivo seleccionado no es una imagen."
             );
-
         }
 
 
         this.imagenActual =
-            file;
+            archivo;
 
 
-        return file;
+        return archivo;
+    },
 
+
+    tieneImagen() {
+
+        return Boolean(
+            this.imagenActual
+        );
     },
 
 
     obtenerMetadatos() {
 
-        if (!this.imagenActual) {
+        if (
+            !this.imagenActual
+        ) {
 
             return null;
-
         }
 
 
@@ -63,26 +68,18 @@ const Reconocimiento = {
 
             tamañoKB:
                 Math.round(
-                    this.imagenActual.size / 1024
+                    this.imagenActual.size /
+                    1024
                 )
-
         };
-
-    },
-
-
-    tieneImagen() {
-
-        return Boolean(
-            this.imagenActual
-        );
-
     },
 
 
     prepararAnalisisVisual() {
 
-        if (!this.imagenActual) {
+        if (
+            !this.imagenActual
+        ) {
 
             return {
 
@@ -90,9 +87,7 @@ const Reconocimiento = {
 
                 mensaje:
                     "No se ha seleccionado una imagen."
-
             };
-
         }
 
 
@@ -108,9 +103,7 @@ const Reconocimiento = {
 
             estado:
                 "Imagen preparada para análisis visual."
-
         };
-
     },
 
 
@@ -121,11 +114,14 @@ const Reconocimiento = {
             disponible: false,
 
             mensaje:
-                "El modelo de reconocimiento visual todavía no está conectado."
-
+                "El modelo de reconocimiento visual aún no está conectado."
         };
-
     }
 
 };
+
+
+
+window.Reconocimiento =
+    Reconocimiento;
 ```
