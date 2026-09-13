@@ -1,24 +1,24 @@
 ```json
 [
     {
-        "family": "Pulicidae",
+        "family": "Apidae",
         "class": "Insecta",
-        "order": "Siphonaptera",
+        "order": "Hymenoptera",
         "genera": [
-            "Ctenocephalides",
-            "Pulex"
+            "Apis",
+            "Bombus",
+            "Euglossa"
         ]
     },
 
     {
-        "family": "Ixodidae",
-        "class": "Arachnida",
-        "order": "Ixodida",
+        "family": "Scarabaeidae",
+        "class": "Insecta",
+        "order": "Coleoptera",
         "genera": [
-            "Rhipicephalus",
-            "Amblyomma",
-            "Dermacentor",
-            "Haemaphysalis"
+            "Cetonia",
+            "Scarabaeus",
+            "Dynastes"
         ]
     },
 
@@ -34,51 +34,13 @@
     },
 
     {
-        "family": "Muscidae",
+        "family": "Pulicidae",
         "class": "Insecta",
-        "order": "Diptera",
+        "order": "Siphonaptera",
         "genera": [
-            "Musca",
-            "Stomoxys",
-            "Haematobia"
-        ]
-    },
-
-    {
-        "family": "Calliphoridae",
-        "class": "Insecta",
-        "order": "Diptera",
-        "genera": [
-            "Cochliomyia",
-            "Calliphora"
-        ]
-    },
-
-    {
-        "family": "Sarcoptidae",
-        "class": "Arachnida",
-        "order": "Sarcoptiformes",
-        "genera": [
-            "Sarcoptes"
-        ]
-    },
-
-    {
-        "family": "Psoroptidae",
-        "class": "Arachnida",
-        "order": "Sarcoptiformes",
-        "genera": [
-            "Otodectes",
-            "Psoroptes"
-        ]
-    },
-
-    {
-        "family": "Demodecidae",
-        "class": "Arachnida",
-        "order": "Trombidiformes",
-        "genera": [
-            "Demodex"
+            "Ctenocephalides",
+            "Pulex",
+            "Xenopsylla"
         ]
     },
 
@@ -89,17 +51,6 @@
         "genera": [
             "Latrodectus",
             "Steatoda"
-        ]
-    },
-
-    {
-        "family": "Apidae",
-        "class": "Insecta",
-        "order": "Hymenoptera",
-        "genera": [
-            "Apis",
-            "Bombus",
-            "Euglossa"
         ]
     }
 ]

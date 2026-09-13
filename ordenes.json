@@ -1,34 +1,6 @@
 ```json
 [
     {
-        "order": "Siphonaptera",
-        "class": "Insecta",
-        "families": [
-            "Pulicidae"
-        ]
-    },
-
-    {
-        "order": "Diptera",
-        "class": "Insecta",
-        "families": [
-            "Culicidae",
-            "Muscidae",
-            "Calliphoridae"
-        ]
-    },
-
-    {
-        "order": "Hymenoptera",
-        "class": "Insecta",
-        "families": [
-            "Apidae",
-            "Formicidae",
-            "Vespidae"
-        ]
-    },
-
-    {
         "order": "Coleoptera",
         "class": "Insecta",
         "families": [
@@ -51,6 +23,36 @@
     },
 
     {
+        "order": "Hymenoptera",
+        "class": "Insecta",
+        "families": [
+            "Apidae",
+            "Formicidae",
+            "Vespidae",
+            "Ichneumonidae"
+        ]
+    },
+
+    {
+        "order": "Diptera",
+        "class": "Insecta",
+        "families": [
+            "Culicidae",
+            "Muscidae",
+            "Calliphoridae",
+            "Tabanidae"
+        ]
+    },
+
+    {
+        "order": "Siphonaptera",
+        "class": "Insecta",
+        "families": [
+            "Pulicidae"
+        ]
+    },
+
+    {
         "order": "Orthoptera",
         "class": "Insecta",
         "families": [
@@ -68,33 +70,6 @@
             "Cicadidae",
             "Pentatomidae",
             "Reduviidae"
-        ]
-    },
-
-    {
-        "order": "Ixodida",
-        "class": "Arachnida",
-        "families": [
-            "Ixodidae",
-            "Argasidae"
-        ]
-    },
-
-    {
-        "order": "Sarcoptiformes",
-        "class": "Arachnida",
-        "families": [
-            "Sarcoptidae",
-            "Psoroptidae"
-        ]
-    },
-
-    {
-        "order": "Trombidiformes",
-        "class": "Arachnida",
-        "families": [
-            "Demodecidae",
-            "Trombiculidae"
         ]
     },
 

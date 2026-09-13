@@ -4,36 +4,30 @@ const Reconocimiento = {
     imagenActual: null,
 
 
-    cargarImagen(
-        archivo
-    ) {
+    cargarImagen(file) {
 
-        if (!archivo) {
+        if (!file) {
 
-            this.imagenActual =
-                null;
+            this.imagenActual = null;
 
             return null;
+
         }
 
 
-        if (
-            !archivo.type.startsWith(
-                "image/"
-            )
-        ) {
+        if (!file.type.startsWith("image/")) {
 
             throw new Error(
                 "El archivo seleccionado no es una imagen."
             );
+
         }
 
 
-        this.imagenActual =
-            archivo;
+        this.imagenActual = file;
 
+        return file;
 
-        return archivo;
     },
 
 
@@ -42,16 +36,16 @@ const Reconocimiento = {
         return Boolean(
             this.imagenActual
         );
+
     },
 
 
     obtenerMetadatos() {
 
-        if (
-            !this.imagenActual
-        ) {
+        if (!this.imagenActual) {
 
             return null;
+
         }
 
 
@@ -68,18 +62,17 @@ const Reconocimiento = {
 
             tamañoKB:
                 Math.round(
-                    this.imagenActual.size /
-                    1024
+                    this.imagenActual.size / 1024
                 )
+
         };
+
     },
 
 
     prepararAnalisisVisual() {
 
-        if (
-            !this.imagenActual
-        ) {
+        if (!this.imagenActual) {
 
             return {
 
@@ -87,7 +80,9 @@ const Reconocimiento = {
 
                 mensaje:
                     "No se ha seleccionado una imagen."
+
             };
+
         }
 
 
@@ -102,8 +97,10 @@ const Reconocimiento = {
                 this.imagenActual.type,
 
             estado:
-                "Imagen preparada para análisis visual."
+                "Imagen preparada."
+
         };
+
     },
 
 
@@ -114,14 +111,11 @@ const Reconocimiento = {
             disponible: false,
 
             mensaje:
-                "El modelo de reconocimiento visual aún no está conectado."
+                "El modelo de reconocimiento visual todavía no está conectado."
+
         };
+
     }
 
 };
-
-
-
-window.Reconocimiento =
-    Reconocimiento;
 ```

@@ -10,79 +10,71 @@ const Taxonomia = {
             Array.isArray(database)
                 ? database
                 : [];
+
     },
 
 
-    filtrar(
-        criterios = {}
-    ) {
+    obtenerUnicos(registros, propiedad) {
 
-        return this.database.filter(
-            especie => {
+        const valores = new Set();
 
-                const tax =
-                    especie.taxonomy ||
-                    {};
+        registros.forEach(especie => {
 
+            const valor =
+                especie.taxonomy?.[propiedad];
 
-                if (
-                    criterios.clase &&
-                    tax.class !==
-                    criterios.clase
-                ) {
+            if (
+                valor !== undefined &&
+                valor !== null &&
+                valor !== ""
+            ) {
 
-                    return false;
-                }
+                valores.add(valor);
 
-
-                if (
-                    criterios.orden &&
-                    tax.order !==
-                    criterios.orden
-                ) {
-
-                    return false;
-                }
-
-
-                if (
-                    criterios.familia &&
-                    tax.family !==
-                    criterios.familia
-                ) {
-
-                    return false;
-                }
-
-
-                if (
-                    criterios.genero &&
-                    tax.genus !==
-                    criterios.genero
-                ) {
-
-                    return false;
-                }
-
-
-                return true;
             }
+
+        });
+
+        return Array.from(valores).sort(
+            (a, b) =>
+                String(a).localeCompare(
+                    String(b),
+                    "es"
+                )
         );
+
     },
 
 
-    obtenerOrdenes(
-        clase = ""
-    ) {
+    obtenerClases() {
 
-        return this.obtenerValores(
+        return this.obtenerUnicos(
+            this.database,
+            "class"
+        );
 
-            this.filtrar({
-                clase
-            }),
+    },
 
+
+    obtenerOrdenes(clase = "") {
+
+        let registros = this.database;
+
+        if (clase) {
+
+            registros =
+                registros.filter(
+                    especie =>
+                        especie.taxonomy?.class === clase
+                );
+
+        }
+
+        return this.obtenerUnicos(
+            registros,
             "order"
         );
+
     },
 
 
@@ -91,15 +83,33 @@ const Taxonomia = {
         orden = ""
     ) {
 
-        return this.obtenerValores(
+        let registros = this.database;
 
-            this.filtrar({
-                clase,
-                orden
-            }),
+        if (clase) {
 
+            registros =
+                registros.filter(
+                    especie =>
+                        especie.taxonomy?.class === clase
+                );
+
+        }
+
+        if (orden) {
+
+            registros =
+                registros.filter(
+                    especie =>
+                        especie.taxonomy?.order === orden
+                );
+
+        }
+
+        return this.obtenerUnicos(
+            registros,
             "family"
         );
+
     },
 
 
@@ -109,56 +119,87 @@ const Taxonomia = {
         familia = ""
     ) {
 
-        return this.obtenerValores(
+        let registros = this.database;
 
-            this.filtrar({
-                clase,
-                orden,
-                familia
-            }),
+        if (clase) {
 
+            registros =
+                registros.filter(
+                    especie =>
+                        especie.taxonomy?.class === clase
+                );
+
+        }
+
+        if (orden) {
+
+            registros =
+                registros.filter(
+                    especie =>
+                        especie.taxonomy?.order === orden
+                );
+
+        }
+
+        if (familia) {
+
+            registros =
+                registros.filter(
+                    especie =>
+                        especie.taxonomy?.family === familia
+                );
+
+        }
+
+        return this.obtenerUnicos(
+            registros,
             "genus"
         );
+
     },
 
 
-    obtenerValores(
-        registros,
-        propiedad
-    ) {
+    filtrar(criterios = {}) {
 
-        const valores =
-            new Set();
-
-
-        registros.forEach(
+        return this.database.filter(
             especie => {
 
-                const valor =
-                    especie.taxonomy?.[
-                        propiedad
-                    ];
+                const tax =
+                    especie.taxonomy || {};
 
-
-                if (valor) {
-
-                    valores.add(
-                        valor
-                    );
+                if (
+                    criterios.clase &&
+                    tax.class !== criterios.clase
+                ) {
+                    return false;
                 }
+
+                if (
+                    criterios.orden &&
+                    tax.order !== criterios.orden
+                ) {
+                    return false;
+                }
+
+                if (
+                    criterios.familia &&
+                    tax.family !== criterios.familia
+                ) {
+                    return false;
+                }
+
+                if (
+                    criterios.genero &&
+                    tax.genus !== criterios.genero
+                ) {
+                    return false;
+                }
+
+                return true;
+
             }
         );
 
-
-        return [
-            ...valores
-        ].sort(
-            (a, b) =>
-                a.localeCompare(
-                    b,
-                    "es"
-                )
-        );
     }
 
 };
