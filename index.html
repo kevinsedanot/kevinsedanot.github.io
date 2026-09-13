@@ -13,32 +13,20 @@
 
     <meta
         name="description"
-        content="TaxoID — Herramienta veterinaria para identificación taxonómica de insectos y artrópodos."
+        content="TaxoID - Sistema veterinario de identificación taxonómica de insectos y artrópodos."
     >
 
-    <meta
-        name="theme-color"
-        content="#071714"
-    >
+    <meta name="theme-color" content="#06110d">
 
-    <title>
-        TaxoID | Identificación Veterinaria
-    </title>
+    <title>TaxoID | Identificación Veterinaria</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css?v=3"
-    >
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 
 <body>
 
-
-<!-- =====================================================
-     BARRA SUPERIOR
-===================================================== -->
 
 <header class="header">
 
@@ -87,19 +75,10 @@
 
 
 
-<!-- =====================================================
-     CONTENIDO
-===================================================== -->
-
 <main class="container">
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
-
 
     <div class="hero-content">
 
@@ -115,9 +94,7 @@
         <h2>
 
             Identificación
-            <span>
-                taxonómica
-            </span>
+            <span>taxonómica</span>
             para medicina veterinaria.
 
         </h2>
@@ -125,9 +102,8 @@
 
         <p>
 
-            Herramienta digital diseñada para apoyar la
-            identificación de insectos y artrópodos de
-            importancia veterinaria mediante caracteres
+            Herramienta digital para apoyar la identificación
+            de insectos y otros artrópodos mediante caracteres
             morfológicos y clasificación taxonómica.
 
         </p>
@@ -159,21 +135,10 @@
 
         <div class="medical-circle">
 
-            <span>
-                🐕
-            </span>
-
-            <span>
-                🦟
-            </span>
-
-            <span>
-                🐈
-            </span>
-
-            <span>
-                🕷️
-            </span>
+            <span>🐕</span>
+            <span>🦟</span>
+            <span>🐈</span>
+            <span>🕷️</span>
 
             <div class="cross">
                 +
@@ -187,15 +152,12 @@
 
 
 
-<!-- =====================================================
-     IDENTIFICACIÓN
-===================================================== -->
+<!-- IDENTIFICACIÓN -->
 
 <section
-    class="panel identification-panel"
+    class="panel"
     id="identificacion"
 >
-
 
     <div class="section-header">
 
@@ -217,7 +179,6 @@
 
         </div>
 
-
         <div class="section-icon">
             🔬
         </div>
@@ -229,18 +190,13 @@
     <div class="identification-grid">
 
 
-        <!-- =============================================
-             FOTOGRAFÍA
-        ============================================== -->
+        <!-- FOTOGRAFÍA -->
 
         <div class="image-section">
 
-
             <div class="subsection-title">
 
-                <span>
-                    01
-                </span>
+                <span>01</span>
 
                 <h3>
                     Evidencia fotográfica
@@ -251,8 +207,8 @@
 
             <label
                 class="upload-area"
-                for="imageInput"
                 id="uploadArea"
+                for="imageInput"
             >
 
                 <input
@@ -288,7 +244,7 @@
                 <img
                     id="preview"
                     class="image-preview"
-                    alt="Vista previa del organismo"
+                    alt="Vista previa"
                 >
 
             </label>
@@ -302,14 +258,12 @@
 
             <div class="observation-note">
 
-                <span>
-                    💡
-                </span>
+                <span>💡</span>
 
                 <p>
-                    Una fotografía clara permite observar
-                    estructuras útiles para la identificación,
-                    como patas, antenas, alas y segmentación.
+                    Una fotografía clara facilita observar
+                    patas, antenas, alas, segmentación y
+                    otras estructuras diagnósticas.
                 </p>
 
             </div>
@@ -318,18 +272,14 @@
 
 
 
-        <!-- =============================================
-             DATOS TAXONÓMICOS
-        ============================================== -->
+        <!-- FORMULARIO -->
 
         <div class="character-section">
 
 
             <div class="subsection-title">
 
-                <span>
-                    02
-                </span>
+                <span>02</span>
 
                 <h3>
                     Clasificación preliminar
@@ -466,15 +416,9 @@
 
 
 
-            <!-- =========================================
-                 MORFOLOGÍA
-            ========================================== -->
-
             <div class="subsection-title morphology-title">
 
-                <span>
-                    03
-                </span>
+                <span>03</span>
 
                 <h3>
                     Caracteres morfológicos
@@ -650,16 +594,13 @@
             </div>
 
 
-
             <button
                 type="button"
                 class="identify-button"
                 id="identifyButton"
             >
 
-                <span>
-                    🔬
-                </span>
+                <span>🔬</span>
 
                 Analizar e identificar
 
@@ -677,7 +618,6 @@
                 Sistema listo para el análisis.
             </div>
 
-
         </div>
 
     </div>
@@ -686,15 +626,12 @@
 
 
 
-<!-- =====================================================
-     RESULTADO
-===================================================== -->
+<!-- RESULTADOS -->
 
 <section
     class="panel"
     id="resultados"
 >
-
 
     <div class="section-header">
 
@@ -709,12 +646,11 @@
             </h2>
 
             <p>
-                Resultado generado a partir de los
-                caracteres seleccionados.
+                Resultado generado mediante comparación
+                de los caracteres seleccionados.
             </p>
 
         </div>
-
 
         <div class="section-icon">
             🩺
@@ -723,8 +659,6 @@
     </div>
 
 
-
-    <!-- RESULTADO VACÍO -->
 
     <div
         class="empty-result"
@@ -740,16 +674,13 @@
         </h3>
 
         <p>
-            Completa los caracteres observados y ejecuta
-            el análisis para generar una propuesta
-            taxonómica.
+            Completa algunos caracteres y ejecuta
+            el análisis para generar una propuesta.
         </p>
 
     </div>
 
 
-
-    <!-- RESULTADO -->
 
     <div
         id="result"
@@ -769,15 +700,13 @@
                 <img
                     id="speciesImage"
                     src=""
-                    alt="Imagen del organismo identificado"
+                    alt="Organismo identificado"
                 >
 
             </div>
 
 
-
             <div class="result-information">
-
 
                 <span
                     class="result-badge"
@@ -800,13 +729,12 @@
                 <div class="veterinary-tag">
 
                     🩺
-                    Evaluación de importancia veterinaria
+                    Información de interés veterinario
 
                 </div>
 
 
                 <div class="confidence">
-
 
                     <div class="confidence-header">
 
@@ -838,16 +766,11 @@
 
 
 
-        <!-- TAXONOMÍA -->
-
         <div class="taxonomy-card">
-
 
             <div class="card-heading">
 
-                <span>
-                    🧬
-                </span>
+                <span>🧬</span>
 
                 <h3>
                     Clasificación taxonómica
@@ -860,93 +783,44 @@
 
 
                 <div>
-
-                    <span>
-                        Reino
-                    </span>
-
-                    <strong id="resultReino">
-                        —
-                    </strong>
-
+                    <span>Reino</span>
+                    <strong id="resultReino">—</strong>
                 </div>
 
 
                 <div>
-
-                    <span>
-                        Filo
-                    </span>
-
-                    <strong id="resultFilo">
-                        —
-                    </strong>
-
+                    <span>Filo</span>
+                    <strong id="resultFilo">—</strong>
                 </div>
 
 
                 <div>
-
-                    <span>
-                        Clase
-                    </span>
-
-                    <strong id="resultClase">
-                        —
-                    </strong>
-
+                    <span>Clase</span>
+                    <strong id="resultClase">—</strong>
                 </div>
 
 
                 <div>
-
-                    <span>
-                        Orden
-                    </span>
-
-                    <strong id="resultOrden">
-                        —
-                    </strong>
-
+                    <span>Orden</span>
+                    <strong id="resultOrden">—</strong>
                 </div>
 
 
                 <div>
-
-                    <span>
-                        Familia
-                    </span>
-
-                    <strong id="resultFamilia">
-                        —
-                    </strong>
-
+                    <span>Familia</span>
+                    <strong id="resultFamilia">—</strong>
                 </div>
 
 
                 <div>
-
-                    <span>
-                        Género
-                    </span>
-
-                    <strong id="resultGenero">
-                        —
-                    </strong>
-
+                    <span>Género</span>
+                    <strong id="resultGenero">—</strong>
                 </div>
 
 
                 <div>
-
-                    <span>
-                        Especie
-                    </span>
-
-                    <strong id="resultEspecie">
-                        —
-                    </strong>
-
+                    <span>Especie</span>
+                    <strong id="resultEspecie">—</strong>
                 </div>
 
             </div>
@@ -955,8 +829,6 @@
 
 
 
-        <!-- DETALLES -->
-
         <div
             class="details-grid"
             id="taxonomicDetails"
@@ -964,16 +836,11 @@
 
 
 
-        <!-- CANDIDATOS -->
-
         <div class="candidates-section">
-
 
             <div class="card-heading">
 
-                <span>
-                    📊
-                </span>
+                <span>📊</span>
 
                 <h3>
                     Candidatos alternativos
@@ -989,22 +856,18 @@
 
         </div>
 
-
     </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     BASE DE DATOS
-===================================================== -->
+<!-- BASE DE DATOS -->
 
 <section
     class="panel"
     id="base-datos"
 >
-
 
     <div class="section-header">
 
@@ -1019,11 +882,10 @@
             </h2>
 
             <p>
-                Registros disponibles para comparación.
+                Registros disponibles actualmente.
             </p>
 
         </div>
-
 
         <div class="section-icon">
             📚
@@ -1093,7 +955,7 @@
             </div>
 
             <strong>
-                Vet
+                VET
             </strong>
 
             <span>
@@ -1108,15 +970,12 @@
 
 
 
-<!-- =====================================================
-     METODOLOGÍA
-===================================================== -->
+<!-- METODOLOGÍA -->
 
 <section
     class="panel"
     id="metodologia"
 >
-
 
     <div class="section-header">
 
@@ -1131,19 +990,16 @@
             </h2>
 
             <p>
-                Flujo diseñado para apoyar el razonamiento
-                taxonómico.
+                Flujo de apoyo al razonamiento taxonómico.
             </p>
 
         </div>
-
 
         <div class="section-icon">
             🧬
         </div>
 
     </div>
-
 
 
     <div class="method-grid">
@@ -1165,7 +1021,7 @@
 
             <p>
                 Se obtiene una fotografía y se observan
-                estructuras externas del organismo.
+                las estructuras externas.
             </p>
 
         </article>
@@ -1208,8 +1064,8 @@
             </h3>
 
             <p>
-                Los caracteres se comparan con los
-                registros disponibles en la base.
+                Los caracteres son comparados con
+                los registros de la base de datos.
             </p>
 
         </article>
@@ -1230,9 +1086,9 @@
             </h3>
 
             <p>
-                El organismo identificado puede relacionarse
-                posteriormente con hospedadores, enfermedades
-                o importancia zoonótica.
+                La identificación puede relacionarse
+                con hospedadores, enfermedades y
+                relevancia veterinaria.
             </p>
 
         </article>
@@ -1244,22 +1100,19 @@
 
 
 
-<!-- =====================================================
-     ACERCA
-===================================================== -->
+<!-- ACERCA -->
 
 <section
     class="panel about"
     id="acerca"
 >
 
-
     <div class="section-header">
 
         <div>
 
             <span class="section-number">
-                05 — ACERCA DE TAXOID
+                05 — ACERCA
             </span>
 
             <h2>
@@ -1267,7 +1120,6 @@
             </h2>
 
         </div>
-
 
         <div class="section-icon">
             🐾
@@ -1279,8 +1131,8 @@
     <p>
 
         TaxoID es una herramienta educativa orientada
-        a apoyar la identificación de insectos y
-        artrópodos relevantes para la medicina veterinaria,
+        al apoyo de la identificación de insectos y
+        artrópodos de interés para medicina veterinaria,
         entomología y salud animal.
 
     </p>
@@ -1288,10 +1140,9 @@
 
     <p>
 
-        La plataforma puede ampliarse progresivamente
-        con nuevas especies, fotografías, claves
-        taxonómicas, caracteres diagnósticos y datos
-        relacionados con hospedadores y enfermedades.
+        La plataforma puede ampliarse con nuevas
+        especies, imágenes, caracteres diagnósticos,
+        hospedadores, enfermedades y medidas de control.
 
     </p>
 
@@ -1304,13 +1155,10 @@
 
         <p>
 
-            La coincidencia mostrada por el sistema
-            representa una comparación con la base de
-            datos disponible. No constituye por sí sola
-            una identificación científica definitiva.
-            Los resultados deben verificarse mediante
-            claves taxonómicas, literatura especializada
-            y profesionales competentes.
+            La coincidencia mostrada representa una
+            comparación con la base de datos disponible.
+            No constituye por sí sola una identificación
+            científica definitiva.
 
         </p>
 
@@ -1323,18 +1171,11 @@
 
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer class="footer">
-
 
     <div class="footer-brand">
 
-        <span>
-            🐾
-        </span>
+        <span>🐾</span>
 
         <strong>
             TaxoID
@@ -1344,31 +1185,25 @@
 
 
     <p>
-        Sistema de apoyo a la identificación
-        taxonómica veterinaria.
+        Sistema de apoyo a la identificación taxonómica veterinaria.
     </p>
 
 
     <span class="footer-status">
-
         ● SISTEMA ACTIVO
-
     </span>
-
 
 </footer>
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+<!-- JAVASCRIPT -->
 
-<script src="js/taxonomia.js?v=3"></script>
+<script src="taxonomia.js"></script>
 
-<script src="js/reconocimiento.js?v=3"></script>
+<script src="reconocimiento.js"></script>
 
-<script src="js/app.js?v=3"></script>
+<script src="app.js"></script>
 
 
 </body>

@@ -2,54 +2,46 @@
 /* =========================================================
    TAXOID
    taxonomia.js
-
-   Manejo de la jerarquía:
-
-   Clase
-      ↓
-   Orden
-      ↓
-   Familia
-      ↓
-   Género
 ========================================================= */
-
 
 const Taxonomia = {
 
     database: [],
 
 
-    /**
-     * Inicializa la base taxonómica.
-     */
     inicializar(database) {
 
-        this.database = Array.isArray(database)
-            ? database
-            : [];
+        this.database =
+            Array.isArray(database)
+                ? database
+                : [];
 
     },
 
 
-    /**
-     * Obtiene valores únicos de una ruta.
-     *
-     * Ejemplo:
-     * obtenerValores("taxonomy.family")
-     */
     obtenerValores(ruta) {
 
-        const valores = new Set();
+        const valores =
+            new Set();
 
-        for (const especie of this.database) {
+
+        for (
+            const especie
+            of this.database
+        ) {
 
             const valor =
-                this.obtenerRuta(especie, ruta);
+                this.obtenerRuta(
+                    especie,
+                    ruta
+                );
+
 
             if (
-                valor !== undefined &&
-                valor !== null &&
+                valor !== undefined
+                &&
+                valor !== null
+                &&
                 valor !== ""
             ) {
 
@@ -59,26 +51,33 @@ const Taxonomia = {
 
         }
 
-        return [...valores].sort(
-            (a, b) =>
-                String(a).localeCompare(
-                    String(b),
-                    "es"
-                )
+
+        return [
+            ...valores
+        ].sort(
+            (a,b) =>
+                String(a)
+                    .localeCompare(
+                        String(b),
+                        "es"
+                    )
         );
 
     },
 
 
-    /**
-     * Obtiene una propiedad anidada.
-     */
-    obtenerRuta(objeto, ruta) {
+    obtenerRuta(
+        objeto,
+        ruta
+    ) {
 
         return ruta
             .split(".")
             .reduce(
-                (actual, propiedad) =>
+                (
+                    actual,
+                    propiedad
+                ) =>
                     actual?.[propiedad],
                 objeto
             );
@@ -86,60 +85,86 @@ const Taxonomia = {
     },
 
 
-    /**
-     * Filtra registros según criterios taxonómicos.
-     */
-    filtrar(criterios = {}) {
+    filtrar(
+        criterios = {}
+    ) {
 
-        return this.database.filter(especie => {
+        return this.database.filter(
+            especie => {
 
-            const taxonomia =
-                especie.taxonomy || {};
+                const taxonomia =
+                    especie.taxonomy || {};
 
-            if (
-                criterios.clase &&
-                taxonomia.class !== criterios.clase
-            ) {
-                return false;
+
+                if (
+                    criterios.clase
+                    &&
+                    taxonomia.class
+                    !==
+                    criterios.clase
+                ) {
+
+                    return false;
+
+                }
+
+
+                if (
+                    criterios.orden
+                    &&
+                    taxonomia.order
+                    !==
+                    criterios.orden
+                ) {
+
+                    return false;
+
+                }
+
+
+                if (
+                    criterios.familia
+                    &&
+                    taxonomia.family
+                    !==
+                    criterios.familia
+                ) {
+
+                    return false;
+
+                }
+
+
+                if (
+                    criterios.genero
+                    &&
+                    taxonomia.genus
+                    !==
+                    criterios.genero
+                ) {
+
+                    return false;
+
+                }
+
+
+                return true;
+
             }
-
-            if (
-                criterios.orden &&
-                taxonomia.order !== criterios.orden
-            ) {
-                return false;
-            }
-
-            if (
-                criterios.familia &&
-                taxonomia.family !== criterios.familia
-            ) {
-                return false;
-            }
-
-            if (
-                criterios.genero &&
-                taxonomia.genus !== criterios.genero
-            ) {
-                return false;
-            }
-
-            return true;
-
-        });
+        );
 
     },
 
 
-    /**
-     * Devuelve los órdenes compatibles con una clase.
-     */
-    obtenerOrdenes(clase = "") {
+    obtenerOrdenes(
+        clase = ""
+    ) {
 
         const registros =
             clase
-                ? this.filtrar({ clase })
+                ? this.filtrar({clase})
                 : this.database;
+
 
         return this.valoresDesdeRegistros(
             registros,
@@ -149,16 +174,17 @@ const Taxonomia = {
     },
 
 
-    /**
-     * Devuelve familias compatibles.
-     */
-    obtenerFamilias(clase = "", orden = "") {
+    obtenerFamilias(
+        clase = "",
+        orden = ""
+    ) {
 
         const registros =
             this.filtrar({
                 clase,
                 orden
             });
+
 
         return this.valoresDesdeRegistros(
             registros,
@@ -168,9 +194,6 @@ const Taxonomia = {
     },
 
 
-    /**
-     * Devuelve géneros compatibles.
-     */
     obtenerGeneros(
         clase = "",
         orden = "",
@@ -183,6 +206,7 @@ const Taxonomia = {
                 orden,
                 familia
             });
+
 
         return this.valoresDesdeRegistros(
             registros,
@@ -197,25 +221,39 @@ const Taxonomia = {
         propiedad
     ) {
 
-        const valores = new Set();
+        const valores =
+            new Set();
 
-        for (const especie of registros) {
+
+        for (
+            const especie
+            of registros
+        ) {
 
             const valor =
-                especie.taxonomy?.[propiedad];
+                especie.taxonomy?.[
+                    propiedad
+                ];
+
 
             if (valor) {
+
                 valores.add(valor);
+
             }
 
         }
 
-        return [...valores].sort(
-            (a, b) =>
-                String(a).localeCompare(
-                    String(b),
-                    "es"
-                )
+
+        return [
+            ...valores
+        ].sort(
+            (a,b) =>
+                String(a)
+                    .localeCompare(
+                        String(b),
+                        "es"
+                    )
         );
 
     }

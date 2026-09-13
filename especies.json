@@ -1,381 +1,433 @@
 ```json
 [
-  {
-    "id": "ARTH-INSECTA-HYM-APID-APIS-001",
+    {
+        "id": "ARTH-INSECTA-HYM-APID-APIS-001",
 
-    "identification": {
-      "scientificName": "Apis mellifera",
-      "authority": "Linnaeus, 1758",
-      "commonNames": [
-        "Abeja de la miel",
-        "Abeja europea"
-      ],
-      "synonyms": [],
-      "identificationLevel": "species",
-      "taxonomicStatus": "accepted"
+        "identification": {
+
+            "scientificName": "Apis mellifera",
+
+            "authority": "Linnaeus, 1758",
+
+            "commonNames": [
+                "Abeja de la miel",
+                "Abeja melífera"
+            ],
+
+            "synonyms": [],
+
+            "identificationLevel": "species",
+
+            "taxonomicStatus": "accepted"
+
+        },
+
+
+        "taxonomy": {
+
+            "domain": "Eukaryota",
+
+            "kingdom": "Animalia",
+
+            "phylum": "Arthropoda",
+
+            "subphylum": "Hexapoda",
+
+            "class": "Insecta",
+
+            "order": "Hymenoptera",
+
+            "family": "Apidae",
+
+            "genus": "Apis",
+
+            "species": "Apis mellifera"
+
+        },
+
+
+        "morphology": {
+
+            "symmetry": "bilateral",
+
+            "segmentation": "evidente",
+
+            "legs": 6,
+
+            "legPairs": 3,
+
+            "wings": true,
+
+            "antennae": true,
+
+            "eyes": "compuestos",
+
+            "mouthparts": "lamedor",
+
+            "body": "segmentado",
+
+            "coloration": "amarillo y negro",
+
+            "pubescence": "presente",
+
+            "size": "10-15 mm"
+
+        },
+
+
+        "diagnosticCharacters": [
+
+            "Tres pares de patas",
+
+            "Dos pares de alas membranosas",
+
+            "Antenas articuladas",
+
+            "Cuerpo dividido en cabeza, tórax y abdomen",
+
+            "Aparato bucal lamedor"
+
+        ],
+
+
+        "biology": {
+
+            "description":
+                "Insecto social que vive en colonias organizadas y presenta castas reproductivas y no reproductivas."
+
+        },
+
+
+        "ecology": {
+
+            "habitat":
+                "Colmenas, áreas agrícolas, jardines y ecosistemas donde existen plantas con flores."
+
+        },
+
+
+        "veterinaryImportance": {
+
+            "description":
+                "Puede producir accidentes por picadura en animales domésticos y representa interés para la salud animal y la apicultura."
+
+        },
+
+
+        "imageRecognition": {
+
+            "visualFeatures": [
+                "cuerpo alargado",
+                "bandas abdominales",
+                "alas membranosas",
+                "seis patas"
+            ]
+
+        },
+
+
+        "images": {
+
+            "principal": ""
+
+        },
+
+
+        "metadata": {
+
+            "recordType": "demonstration",
+
+            "requiresExpertValidation": true
+
+        }
+
     },
 
-    "taxonomy": {
-      "domain": "Eukaryota",
-      "kingdom": "Animalia",
-      "phylum": "Arthropoda",
-      "subphylum": "Hexapoda",
-      "class": "Insecta",
-      "order": "Hymenoptera",
-      "family": "Apidae",
-      "genus": "Apis",
-      "species": "Apis mellifera"
+
+    {
+        "id": "ARTH-INSECTA-COLE-SCAR-CETON-001",
+
+        "identification": {
+
+            "scientificName": "Cetonia aurata",
+
+            "authority": "Linnaeus, 1758",
+
+            "commonNames": [
+                "Escarabajo verde"
+            ],
+
+            "synonyms": [],
+
+            "identificationLevel": "species",
+
+            "taxonomicStatus": "accepted"
+
+        },
+
+
+        "taxonomy": {
+
+            "domain": "Eukaryota",
+
+            "kingdom": "Animalia",
+
+            "phylum": "Arthropoda",
+
+            "subphylum": "Hexapoda",
+
+            "class": "Insecta",
+
+            "order": "Coleoptera",
+
+            "family": "Scarabaeidae",
+
+            "genus": "Cetonia",
+
+            "species": "Cetonia aurata"
+
+        },
+
+
+        "morphology": {
+
+            "symmetry": "bilateral",
+
+            "segmentation": "evidente",
+
+            "legs": 6,
+
+            "legPairs": 3,
+
+            "wings": true,
+
+            "antennae": true,
+
+            "eyes": "compuestos",
+
+            "mouthparts": "masticador",
+
+            "body": "ovalado y endurecido",
+
+            "coloration": "verde metálico",
+
+            "pubescence": "variable",
+
+            "size": "14-20 mm"
+
+        },
+
+
+        "diagnosticCharacters": [
+
+            "Seis patas",
+
+            "Élitros endurecidos",
+
+            "Cuerpo ovalado",
+
+            "Coloración metálica",
+
+            "Antenas"
+
+        ],
+
+
+        "biology": {
+
+            "description":
+                "Escarabajo asociado principalmente con flores y materia vegetal."
+
+        },
+
+
+        "ecology": {
+
+            "habitat":
+                "Áreas con vegetación, jardines y ambientes donde existe materia vegetal."
+
+        },
+
+
+        "veterinaryImportance": {
+
+            "description":
+                "La especie no se incorpora aquí como agente veterinario específico; el registro sirve como ejemplo de identificación taxonómica."
+
+        },
+
+
+        "imageRecognition": {
+
+            "visualFeatures": [
+                "coloración metálica",
+                "cuerpo ovalado",
+                "élitros",
+                "seis patas"
+            ]
+
+        },
+
+
+        "images": {
+
+            "principal": ""
+
+        },
+
+
+        "metadata": {
+
+            "recordType": "demonstration",
+
+            "requiresExpertValidation": true
+
+        }
+
     },
 
-    "morphology": {
-      "symmetry": "bilateral",
-      "segmentation": "evidente",
-      "legs": 6,
-      "legPairs": 3,
-      "wings": true,
-      "antennae": true,
-      "eyes": "compuestos",
-      "mouthparts": "lamedor",
-      "body": "segmentado",
-      "coloration": "amarillo y negro",
-      "pubescence": "presente",
-      "size": "10-15 mm"
-    },
 
-    "diagnosticCharacters": [
-      "Tres pares de patas",
-      "Dos pares de alas",
-      "Antenas",
-      "Cuerpo con abundante pilosidad",
-      "Patrón de coloración amarillo-negro",
-      "Aparato bucal lamedor"
-    ],
+    {
+        "id": "ARTH-ARACH-ARAN-THER-LATR-001",
 
-    "biology": {
-      "developmentType": "holometábolo",
-      "metamorphosis": "completa",
-      "stages": [
-        "huevo",
-        "larva",
-        "pupa",
-        "adulto"
-      ],
-      "reproduction": "sexual",
-      "socialOrganization": "eusocial",
-      "longevity": "variable según la casta"
-    },
+        "identification": {
 
-    "ecology": {
-      "habitat": "ambientes terrestres con disponibilidad de flores",
-      "diet": "néctar y polen",
-      "ecologicalRole": "polinizador",
-      "trophicLevel": "consumidor primario"
-    },
+            "scientificName": "Latrodectus sp.",
 
-    "distribution": {
-      "type": "ampliamente distribuida",
-      "regions": [
-        "Europa",
-        "África",
-        "Asia",
-        "América",
-        "Oceanía"
-      ],
-      "colombia": "presente y ampliamente manejada en apicultura"
-    },
+            "authority": "",
 
-    "importance": {
-      "ecological": "Importante polinizador",
-      "agricultural": "Importante para la polinización de cultivos",
-      "veterinary": "Interés en medicina veterinaria por picaduras y manejo de animales expuestos",
-      "publicHealth": "Las picaduras pueden producir reacciones locales y, en individuos susceptibles, reacciones graves",
-      "economic": "Producción de miel, cera y otros productos apícolas"
-    },
+            "commonNames": [
+                "Viuda negra"
+            ],
 
-    "risks": {
-      "venomOrSting": true,
-      "medicalImportance": "picadura defensiva"
-    },
+            "synonyms": [],
 
-    "imageRecognition": {
-      "visualFeatures": [
-        "cuerpo robusto",
-        "bandas amarillas y oscuras",
-        "pilosidad",
-        "alas membranosas"
-      ],
-      "recommendedAngles": [
-        "vista dorsal",
-        "vista lateral"
-      ],
-      "minimumQuality": "imagen con cuerpo completo y buena iluminación"
-    },
+            "identificationLevel": "genus",
 
-    "images": {
-      "principal": "images/hymenoptera/apis_mellifera.jpg",
-      "gallery": [
-        "images/hymenoptera/apis_mellifera_01.jpg"
-      ]
-    },
+            "taxonomicStatus": "genus-level record"
 
-    "metadata": {
-      "recordVersion": "1.0",
-      "sourceType": "educational-demo",
-      "requiresExpertValidation": true
-    },
-
-    "references": [
-      "Fuentes taxonómicas especializadas deben consultarse para validar la identificación."
-    ]
-  },
+        },
 
 
-  {
-    "id": "ARTH-INSECTA-COLE-SCAR-CETON-001",
+        "taxonomy": {
 
-    "identification": {
-      "scientificName": "Cetonia aurata",
-      "authority": "Linnaeus, 1761",
-      "commonNames": [
-        "Cetonia dorada"
-      ],
-      "synonyms": [],
-      "identificationLevel": "species",
-      "taxonomicStatus": "accepted"
-    },
+            "domain": "Eukaryota",
 
-    "taxonomy": {
-      "domain": "Eukaryota",
-      "kingdom": "Animalia",
-      "phylum": "Arthropoda",
-      "subphylum": "Hexapoda",
-      "class": "Insecta",
-      "order": "Coleoptera",
-      "family": "Scarabaeidae",
-      "genus": "Cetonia",
-      "species": "Cetonia aurata"
-    },
+            "kingdom": "Animalia",
 
-    "morphology": {
-      "symmetry": "bilateral",
-      "segmentation": "evidente",
-      "legs": 6,
-      "legPairs": 3,
-      "wings": true,
-      "antennae": true,
-      "eyes": "compuestos",
-      "mouthparts": "masticador",
-      "body": "ovalado y esclerotizado",
-      "coloration": "verde metálico",
-      "pubescence": "variable",
-      "size": "15-20 mm"
-    },
+            "phylum": "Arthropoda",
 
-    "diagnosticCharacters": [
-      "Tres pares de patas",
-      "Élitros",
-      "Alas posteriores membranosas",
-      "Cuerpo ovalado",
-      "Coloración metálica",
-      "Antenas"
-    ],
+            "subphylum": "Chelicerata",
 
-    "biology": {
-      "developmentType": "holometábolo",
-      "metamorphosis": "completa",
-      "stages": [
-        "huevo",
-        "larva",
-        "pupa",
-        "adulto"
-      ],
-      "reproduction": "sexual",
-      "socialOrganization": "solitaria"
-    },
+            "class": "Arachnida",
 
-    "ecology": {
-      "habitat": "vegetación, jardines y áreas con flores",
-      "diet": "material vegetal, flores y otros recursos vegetales",
-      "ecologicalRole": "consumidor y visitante floral",
-      "trophicLevel": "consumidor primario"
-    },
+            "order": "Araneae",
 
-    "distribution": {
-      "type": "distribución principalmente paleártica",
-      "regions": [
-        "Europa",
-        "Asia occidental"
-      ],
-      "colombia": "registro no incluido en esta base demostrativa"
-    },
+            "family": "Theridiidae",
 
-    "importance": {
-      "ecological": "Participa en procesos ecológicos asociados a materia vegetal y flores",
-      "agricultural": "Puede interactuar con plantas cultivadas",
-      "veterinary": "Importancia veterinaria directa limitada",
-      "publicHealth": "No representa un riesgo médico importante conocido",
-      "economic": "Interés principalmente entomológico"
-    },
+            "genus": "Latrodectus",
 
-    "risks": {
-      "venomOrSting": false,
-      "medicalImportance": "baja"
-    },
+            "species": "Latrodectus sp."
 
-    "imageRecognition": {
-      "visualFeatures": [
-        "cuerpo ovalado",
-        "coloración verde metálica",
-        "élitros",
-        "seis patas"
-      ],
-      "recommendedAngles": [
-        "vista dorsal",
-        "vista lateral"
-      ],
-      "minimumQuality": "imagen nítida del cuerpo completo"
-    },
-
-    "images": {
-      "principal": "images/coleoptera/cetonia_aurata.jpg",
-      "gallery": []
-    },
-
-    "metadata": {
-      "recordVersion": "1.0",
-      "sourceType": "educational-demo",
-      "requiresExpertValidation": true
-    },
-
-    "references": [
-      "Fuentes taxonómicas especializadas deben consultarse para validar la identificación."
-    ]
-  },
+        },
 
 
-  {
-    "id": "ARTH-ARACH-ARAN-THER-LATR-001",
+        "morphology": {
 
-    "identification": {
-      "scientificName": "Latrodectus sp.",
-      "authority": null,
-      "commonNames": [
-        "Viudas negras"
-      ],
-      "synonyms": [],
-      "identificationLevel": "genus",
-      "taxonomicStatus": "taxon-genus"
-    },
+            "symmetry": "bilateral",
 
-    "taxonomy": {
-      "domain": "Eukaryota",
-      "kingdom": "Animalia",
-      "phylum": "Arthropoda",
-      "subphylum": "Chelicerata",
-      "class": "Arachnida",
-      "order": "Araneae",
-      "family": "Theridiidae",
-      "genus": "Latrodectus",
-      "species": "Latrodectus sp."
-    },
+            "segmentation": "reducida",
 
-    "morphology": {
-      "symmetry": "bilateral",
-      "segmentation": "reducida",
-      "legs": 8,
-      "legPairs": 4,
-      "wings": false,
-      "antennae": false,
-      "eyes": "simples",
-      "mouthparts": "quelíceros",
-      "body": "prosoma y opistosoma",
-      "coloration": "variable según especie",
-      "pubescence": "variable",
-      "size": "variable según especie"
-    },
+            "legs": 8,
 
-    "diagnosticCharacters": [
-      "Cuatro pares de patas",
-      "Ausencia de antenas",
-      "Ausencia de alas",
-      "Quelíceros",
-      "Pedipalpos",
-      "Prosoma y opistosoma"
-    ],
+            "legPairs": 4,
 
-    "biology": {
-      "developmentType": "desarrollo directo",
-      "metamorphosis": "sin metamorfosis",
-      "stages": [
-        "huevo",
-        "juvenil",
-        "adulto"
-      ],
-      "reproduction": "sexual",
-      "socialOrganization": "solitaria"
-    },
+            "wings": false,
 
-    "ecology": {
-      "habitat": "ambientes terrestres protegidos y estructuras donde puede construir telarañas",
-      "diet": "artrópodos pequeños",
-      "ecologicalRole": "depredador",
-      "trophicLevel": "consumidor secundario"
-    },
+            "antennae": false,
 
-    "distribution": {
-      "type": "amplia distribución según especie",
-      "regions": [
-        "América",
-        "Europa",
-        "Asia",
-        "África",
-        "Oceanía"
-      ],
-      "colombia": "se requieren registros locales para confirmar especies presentes"
-    },
+            "eyes": "simples",
 
-    "importance": {
-      "ecological": "Depredador de otros artrópodos",
-      "agricultural": "Puede contribuir al control natural de pequeños artrópodos",
-      "veterinary": "Interés por posibles accidentes de animales domésticos",
-      "publicHealth": "Algunas especies poseen importancia médica",
-      "economic": "Importancia principalmente científica y médica"
-    },
+            "mouthparts": "quelíceros",
 
-    "risks": {
-      "venomOrSting": true,
-      "medicalImportance": "potencial importancia médica dependiendo de la especie"
-    },
+            "body": "prosoma y opistosoma",
 
-    "imageRecognition": {
-      "visualFeatures": [
-        "abdomen relativamente globoso",
-        "ocho patas",
-        "ausencia de antenas",
-        "patrones de coloración variables"
-      ],
-      "recommendedAngles": [
-        "vista dorsal",
-        "vista lateral",
-        "vista ventral cuando sea seguro y apropiado"
-      ],
-      "minimumQuality": "imagen clara del cuerpo completo"
-    },
+            "coloration": "oscura",
 
-    "images": {
-      "principal": "images/arachnida/latrodectus_sp.jpg",
-      "gallery": []
-    },
+            "pubescence": "variable",
 
-    "metadata": {
-      "recordVersion": "1.0",
-      "sourceType": "educational-demo",
-      "requiresExpertValidation": true
-    },
+            "size": "variable"
 
-    "references": [
-      "La identificación a nivel de especie debe realizarse mediante caracteres diagnósticos y literatura especializada."
-    ]
-  }
+        },
+
+
+        "diagnosticCharacters": [
+
+            "Ocho patas",
+
+            "Ausencia de antenas",
+
+            "Cuerpo dividido en prosoma y opistosoma",
+
+            "Quelíceros",
+
+            "Telaraña irregular en especies del género"
+
+        ],
+
+
+        "biology": {
+
+            "description":
+                "Género de arañas que incluye especies de importancia médica y veterinaria."
+
+        },
+
+
+        "ecology": {
+
+            "habitat":
+                "Diversos ambientes terrestres, dependiendo de la especie."
+
+        },
+
+
+        "veterinaryImportance": {
+
+            "description":
+                "Algunas especies pueden producir accidentes por mordedura y poseen importancia médica y veterinaria."
+
+        },
+
+
+        "imageRecognition": {
+
+            "visualFeatures": [
+                "ocho patas",
+                "sin antenas",
+                "abdomen desarrollado",
+                "cuerpo oscuro"
+            ]
+
+        },
+
+
+        "images": {
+
+            "principal": ""
+
+        },
+
+
+        "metadata": {
+
+            "recordType": "demonstration",
+
+            "requiresExpertValidation": true
+
+        }
+
+    }
+
 ]
 ```

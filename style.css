@@ -1,14 +1,4 @@
 ```css
-/* =========================================================
-   TAXOID — DISEÑO VETERINARIO
-   Sistema de identificación taxonómica
-========================================================= */
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
 :root {
 
     --bg: #06110d;
@@ -35,20 +25,13 @@
     --radius: 16px;
 
     --shadow:
-        0 18px 50px
-        rgba(0, 0, 0, .28);
-
+        0 18px 50px rgba(0,0,0,.28);
 }
 
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
 
     box-sizing: border-box;
-
     margin: 0;
     padding: 0;
 
@@ -70,13 +53,13 @@ body {
 
         radial-gradient(
             circle at 85% 5%,
-            rgba(85, 217, 154, .11),
+            rgba(85,217,154,.11),
             transparent 27%
         ),
 
         radial-gradient(
             circle at 5% 40%,
-            rgba(98, 201, 232, .05),
+            rgba(98,201,232,.05),
             transparent 25%
         ),
 
@@ -114,7 +97,6 @@ button {
 a {
 
     color: inherit;
-
     text-decoration: none;
 
 }
@@ -127,9 +109,7 @@ a {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .header {
 
@@ -147,11 +127,10 @@ a {
 
     justify-content: space-between;
 
-    padding:
-        12px 5%;
+    padding: 12px 5%;
 
     background:
-        rgba(6, 17, 13, .94);
+        rgba(6,17,13,.94);
 
     border-bottom:
         1px solid var(--border);
@@ -184,12 +163,12 @@ a {
 
     border:
         1px solid
-        rgba(85, 217, 154, .45);
+        rgba(85,217,154,.45);
 
     border-radius: 13px;
 
     background:
-        rgba(85, 217, 154, .07);
+        rgba(85,217,154,.07);
 
     font-size: 22px;
 
@@ -199,10 +178,7 @@ a {
 .brand h1 {
 
     font-size: 21px;
-
     line-height: 1;
-
-    letter-spacing: -.5px;
 
 }
 
@@ -282,25 +258,18 @@ a {
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+/* CONTAINER */
 
 .container {
 
-    width: min(
-        1240px,
-        92%
-    );
+    width: min(1240px,92%);
 
     margin: auto;
 
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero {
 
@@ -308,16 +277,13 @@ a {
 
     display: grid;
 
-    grid-template-columns:
-        1.35fr
-        .65fr;
+    grid-template-columns: 1.35fr .65fr;
 
     align-items: center;
 
     gap: 50px;
 
-    padding:
-        80px 0 70px;
+    padding: 80px 0 70px;
 
 }
 
@@ -330,17 +296,16 @@ a {
 
     gap: 8px;
 
-    padding:
-        7px 12px;
+    padding: 7px 12px;
 
     border:
         1px solid
-        rgba(85, 217, 154, .3);
+        rgba(85,217,154,.3);
 
     border-radius: 30px;
 
     background:
-        rgba(85, 217, 154, .05);
+        rgba(85,217,154,.05);
 
     color: var(--accent);
 
@@ -363,8 +328,7 @@ a {
     background: var(--accent);
 
     box-shadow:
-        0 0 10px
-        var(--accent);
+        0 0 10px var(--accent);
 
 }
 
@@ -376,11 +340,7 @@ a {
     margin-top: 22px;
 
     font-size:
-        clamp(
-            42px,
-            6vw,
-            72px
-        );
+        clamp(42px,6vw,72px);
 
     line-height: 1.03;
 
@@ -432,15 +392,13 @@ a {
 
     gap: 7px;
 
-    padding:
-        8px 12px;
+    padding: 8px 12px;
 
     background:
         rgba(255,255,255,.025);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 8px;
 
@@ -451,16 +409,7 @@ a {
 }
 
 
-.hero-features span {
-
-    font-size: 15px;
-
-}
-
-
-/* =========================================================
-   DECORACIÓN HERO
-========================================================= */
+/* HERO DECORATION */
 
 .hero-decoration {
 
@@ -491,7 +440,6 @@ a {
     border-radius: 50%;
 
     background:
-
         radial-gradient(
             circle,
             rgba(85,217,154,.08),
@@ -600,17 +548,13 @@ a {
 }
 
 
-/* =========================================================
-   PANELES
-========================================================= */
+/* PANELES */
 
 .panel {
 
-    margin:
-        28px 0;
+    margin: 28px 0;
 
-    padding:
-        38px;
+    padding: 38px;
 
     background:
         linear-gradient(
@@ -620,8 +564,7 @@ a {
         );
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius:
         var(--radius);
@@ -649,8 +592,7 @@ a {
 
 .section-number {
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 9px;
 
@@ -695,8 +637,7 @@ a {
     place-items: center;
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 12px;
 
@@ -708,9 +649,7 @@ a {
 }
 
 
-/* =========================================================
-   SUBSECCIONES
-========================================================= */
+/* SUBSECCIONES */
 
 .subsection-title {
 
@@ -739,8 +678,7 @@ a {
     background:
         rgba(85,217,154,.08);
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 9px;
 
@@ -763,9 +701,7 @@ a {
 }
 
 
-/* =========================================================
-   IDENTIFICACIÓN
-========================================================= */
+/* IDENTIFICACIÓN */
 
 .identification-grid {
 
@@ -780,9 +716,7 @@ a {
 }
 
 
-/* =========================================================
-   UPLOAD
-========================================================= */
+/* UPLOAD */
 
 .upload-area {
 
@@ -810,8 +744,7 @@ a {
         );
 
     border:
-        2px dashed
-        var(--border);
+        2px dashed var(--border);
 
     border-radius:
         var(--radius);
@@ -820,8 +753,7 @@ a {
 
     overflow: hidden;
 
-    transition:
-        .25s ease;
+    transition: .25s ease;
 
 }
 
@@ -890,8 +822,7 @@ a {
 
 .upload-area small {
 
-    color:
-        #698478;
+    color: #698478;
 
     font-size: 9px;
 
@@ -965,37 +896,23 @@ a {
 }
 
 
-.observation-note span {
-
-    font-size: 15px;
-
-}
-
-
 .observation-note p {
 
     color: var(--muted);
 
     font-size: 10px;
 
-    line-height: 1.5;
-
 }
 
 
-/* =========================================================
-   FORMULARIOS
-========================================================= */
+/* FORMULARIOS */
 
 .form-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0,1fr)
-        );
+        repeat(2,minmax(0,1fr));
 
     gap: 14px;
 
@@ -1030,35 +947,20 @@ a {
 
     min-height: 43px;
 
-    padding:
-        9px 11px;
+    padding: 9px 11px;
 
-    background:
-        #081611;
+    background: #081611;
 
-    color:
-        var(--text);
+    color: var(--text);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 8px;
 
     outline: none;
 
     cursor: pointer;
-
-    transition:
-        .2s ease;
-
-}
-
-
-.form-group select:hover {
-
-    border-color:
-        var(--border-light);
 
 }
 
@@ -1086,9 +988,7 @@ a {
 }
 
 
-/* =========================================================
-   BOTÓN
-========================================================= */
+/* BOTÓN */
 
 .identify-button {
 
@@ -1124,12 +1024,7 @@ a {
 
     cursor: pointer;
 
-    box-shadow:
-        0 10px 25px
-        rgba(22,123,78,.17);
-
-    transition:
-        .2s ease;
+    transition: .2s ease;
 
 }
 
@@ -1149,11 +1044,7 @@ a {
 
     opacity: .5;
 
-    cursor:
-        not-allowed;
-
-    transform:
-        none;
+    cursor: not-allowed;
 
 }
 
@@ -1165,9 +1056,7 @@ a {
 }
 
 
-/* =========================================================
-   ESTADO
-========================================================= */
+/* ESTADO */
 
 .system-status {
 
@@ -1175,8 +1064,7 @@ a {
 
     margin-top: 10px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     text-align: center;
 
@@ -1187,31 +1075,26 @@ a {
 
 .system-status[data-status="success"] {
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
 }
 
 
 .system-status[data-status="error"] {
 
-    color:
-        var(--danger);
+    color: var(--danger);
 
 }
 
 
 .system-status[data-status="loading"] {
 
-    color:
-        var(--warning);
+    color: var(--warning);
 
 }
 
 
-/* =========================================================
-   RESULTADO VACÍO
-========================================================= */
+/* RESULTADO VACÍO */
 
 .empty-result {
 
@@ -1242,8 +1125,7 @@ a {
     margin-bottom: 15px;
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 20px;
 
@@ -1275,9 +1157,7 @@ a {
 }
 
 
-/* =========================================================
-   RESULTADO
-========================================================= */
+/* RESULTADO */
 
 .result-main {
 
@@ -1304,12 +1184,10 @@ a {
 
     overflow: hidden;
 
-    background:
-        #06110d;
+    background: #06110d;
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius:
         var(--radius);
@@ -1336,24 +1214,19 @@ a {
 
     z-index: 2;
 
-    padding:
-        4px 7px;
+    padding: 4px 7px;
 
     background:
         rgba(6,17,13,.85);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 5px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 8px;
-
-    letter-spacing: 1px;
 
 }
 
@@ -1369,8 +1242,7 @@ a {
 
     display: inline-block;
 
-    padding:
-        5px 9px;
+    padding: 5px 9px;
 
     border:
         1px solid
@@ -1381,14 +1253,11 @@ a {
     background:
         rgba(85,217,154,.06);
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 8px;
 
     font-weight: 900;
-
-    text-transform: uppercase;
 
 }
 
@@ -1410,8 +1279,7 @@ a {
 
     margin-top: 6px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 14px;
 
@@ -1428,8 +1296,7 @@ a {
 
     margin-top: 20px;
 
-    padding:
-        7px 10px;
+    padding: 7px 10px;
 
     border:
         1px solid
@@ -1440,17 +1307,14 @@ a {
     background:
         rgba(98,201,232,.04);
 
-    color:
-        #86c7d7;
+    color: #86c7d7;
 
     font-size: 9px;
 
 }
 
 
-/* =========================================================
-   COINCIDENCIA
-========================================================= */
+/* COINCIDENCIA */
 
 .confidence {
 
@@ -1476,8 +1340,7 @@ a {
 
 .confidence-header strong {
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 14px;
 
@@ -1490,8 +1353,7 @@ a {
 
     overflow: hidden;
 
-    background:
-        #06110d;
+    background: #06110d;
 
     border-radius: 20px;
 
@@ -1519,9 +1381,7 @@ a {
 }
 
 
-/* =========================================================
-   TARJETA TAXONOMÍA
-========================================================= */
+/* TAXONOMÍA */
 
 .taxonomy-card {
 
@@ -1533,8 +1393,7 @@ a {
         rgba(6,17,13,.6);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius:
         var(--radius);
@@ -1555,13 +1414,6 @@ a {
 }
 
 
-.card-heading > span {
-
-    font-size: 17px;
-
-}
-
-
 .card-heading h3 {
 
     font-size: 15px;
@@ -1574,10 +1426,7 @@ a {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            7,
-            minmax(0,1fr)
-        );
+        repeat(7,minmax(0,1fr));
 
     gap: 9px;
 
@@ -1594,8 +1443,7 @@ a {
         var(--panel);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 8px;
 
@@ -1608,14 +1456,11 @@ a {
 
     margin-bottom: 4px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 8px;
 
     text-transform: uppercase;
-
-    letter-spacing: .5px;
 
 }
 
@@ -1631,19 +1476,14 @@ a {
 }
 
 
-/* =========================================================
-   DETALLES
-========================================================= */
+/* DETALLES */
 
 .details-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(0,1fr)
-        );
+        repeat(4,minmax(0,1fr));
 
     gap: 12px;
 
@@ -1660,8 +1500,7 @@ a {
         var(--panel);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 10px;
 
@@ -1672,8 +1511,7 @@ a {
 
     margin-bottom: 8px;
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 12px;
 
@@ -1683,8 +1521,7 @@ a {
 .detail-card p,
 .detail-card li {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 10px;
 
@@ -1698,9 +1535,7 @@ a {
 }
 
 
-/* =========================================================
-   CANDIDATOS
-========================================================= */
+/* CANDIDATOS */
 
 .candidates-section {
 
@@ -1737,8 +1572,7 @@ a {
         var(--panel);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 8px;
 
@@ -1759,8 +1593,7 @@ a {
     background:
         rgba(85,217,154,.07);
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 10px;
 
@@ -1786,8 +1619,7 @@ a {
 
 .candidate-family {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 8px;
 
@@ -1796,8 +1628,7 @@ a {
 
 .candidate-score {
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     text-align: right;
 
@@ -1808,19 +1639,14 @@ a {
 }
 
 
-/* =========================================================
-   BASE DE DATOS
-========================================================= */
+/* ESTADÍSTICAS */
 
 .database-stats {
 
     display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(0,1fr)
-        );
+        repeat(4,minmax(0,1fr));
 
     gap: 13px;
 
@@ -1835,26 +1661,11 @@ a {
         rgba(6,17,13,.55);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 11px;
 
     text-align: center;
-
-    transition:
-        .2s ease;
-
-}
-
-
-.stat-card:hover {
-
-    transform:
-        translateY(-3px);
-
-    border-color:
-        var(--border-light);
 
 }
 
@@ -1872,8 +1683,7 @@ a {
 
     display: block;
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 23px;
 
@@ -1882,8 +1692,7 @@ a {
 
 .stat-card span {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 9px;
 
@@ -1898,19 +1707,14 @@ a {
 }
 
 
-/* =========================================================
-   METODOLOGÍA
-========================================================= */
+/* METODOLOGÍA */
 
 .method-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(0,1fr)
-        );
+        repeat(4,minmax(0,1fr));
 
     gap: 13px;
 
@@ -1925,13 +1729,11 @@ a {
         rgba(6,17,13,.35);
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     border-radius: 11px;
 
-    transition:
-        .2s ease;
+    transition: .2s ease;
 
 }
 
@@ -1958,22 +1760,18 @@ a {
 
 .method-grid article > span {
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 8px;
 
     font-weight: 900;
-
-    letter-spacing: 1px;
 
 }
 
 
 .method-grid h3 {
 
-    margin:
-        8px 0;
+    margin: 8px 0;
 
     font-size: 15px;
 
@@ -1982,19 +1780,14 @@ a {
 
 .method-grid p {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 10px;
-
-    line-height: 1.6;
 
 }
 
 
-/* =========================================================
-   ACERCA
-========================================================= */
+/* ACERCA */
 
 .about > p {
 
@@ -2002,8 +1795,7 @@ a {
 
     margin-top: 13px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 12px;
 
@@ -2024,8 +1816,7 @@ a {
         rgba(241,199,91,.15);
 
     border-left:
-        3px solid
-        var(--warning);
+        3px solid var(--warning);
 
     border-radius:
         0 9px 9px 0;
@@ -2035,8 +1826,7 @@ a {
 
 .warning strong {
 
-    color:
-        var(--warning);
+    color: var(--warning);
 
     font-size: 12px;
 
@@ -2047,17 +1837,14 @@ a {
 
     margin-top: 5px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 10px;
 
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .footer {
 
@@ -2073,15 +1860,12 @@ a {
 
     margin-top: 70px;
 
-    padding:
-        25px 5%;
+    padding: 25px 5%;
 
     border-top:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 9px;
 
@@ -2096,8 +1880,7 @@ a {
 
     gap: 6px;
 
-    color:
-        var(--text);
+    color: var(--text);
 
     font-size: 13px;
 
@@ -2106,56 +1889,22 @@ a {
 
 .footer-status {
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
     font-size: 8px;
 
 }
 
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
+/* RESPONSIVE */
 
-::-webkit-scrollbar {
-
-    width: 8px;
-
-}
-
-
-::-webkit-scrollbar-track {
-
-    background:
-        var(--bg);
-
-}
-
-
-::-webkit-scrollbar-thumb {
-
-    background:
-        var(--border-light);
-
-    border-radius: 20px;
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1050px) {
+@media (max-width:1050px) {
 
     .hero {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
-
 
     .hero-decoration {
 
@@ -2163,55 +1912,37 @@ a {
 
     }
 
-
     .identification-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
-
 
     .taxonomy-grid {
 
         grid-template-columns:
-            repeat(
-                4,
-                minmax(0,1fr)
-            );
+            repeat(4,minmax(0,1fr));
 
     }
-
 
     .details-grid {
 
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            repeat(2,minmax(0,1fr));
 
     }
-
 
     .method-grid {
 
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            repeat(2,minmax(0,1fr));
 
     }
 
 }
 
 
-/* =========================================================
-   TABLET PEQUEÑA
-========================================================= */
-
-@media (max-width: 800px) {
+@media (max-width:800px) {
 
     .navigation {
 
@@ -2219,68 +1950,29 @@ a {
 
     }
 
+    .result-main {
 
-    .hero {
-
-        padding-top:
-            60px;
+        grid-template-columns: 1fr;
 
     }
-
-
-    .panel {
-
-        padding:
-            27px;
-
-    }
-
-
-    .taxonomy-grid {
-
-        grid-template-columns:
-            repeat(
-                3,
-                minmax(0,1fr)
-            );
-
-    }
-
 
     .database-stats {
 
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
-
-    }
-
-
-    .result-main {
-
-        grid-template-columns:
-            1fr;
+            repeat(2,minmax(0,1fr));
 
     }
 
 }
 
 
-/* =========================================================
-   MÓVIL
-========================================================= */
-
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
     .container {
 
-        width:
-            94%;
+        width: 94%;
 
     }
-
 
     .brand p {
 
@@ -2288,52 +1980,32 @@ a {
 
     }
 
-
     .hero {
-
-        min-height:
-            auto;
 
         padding:
             60px 0 45px;
 
     }
 
-
     .hero h2 {
 
-        font-size:
-            39px;
+        font-size: 39px;
 
-        letter-spacing:
-            -1.5px;
+        letter-spacing: -1.5px;
 
     }
-
-
-    .hero p {
-
-        font-size:
-            13px;
-
-    }
-
 
     .panel {
 
-        padding:
-            20px;
+        padding: 20px;
 
     }
-
 
     .section-header h2 {
 
-        font-size:
-            24px;
+        font-size: 24px;
 
     }
-
 
     .section-icon {
 
@@ -2341,100 +2013,65 @@ a {
 
     }
 
-
     .form-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
-
 
     .upload-area {
 
-        min-height:
-            290px;
+        min-height: 290px;
 
     }
-
 
     .taxonomy-grid {
 
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            repeat(2,minmax(0,1fr));
 
     }
-
 
     .details-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
-
 
     .method-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
-
-
-    .database-stats {
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
-
-    }
-
 
     .footer {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        text-align:
-            center;
+        text-align: center;
 
     }
 
 }
 
 
-/* =========================================================
-   MÓVIL PEQUEÑO
-========================================================= */
-
-@media (max-width: 400px) {
+@media (max-width:400px) {
 
     .hero h2 {
 
-        font-size:
-            34px;
+        font-size: 34px;
 
     }
-
 
     .taxonomy-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
 
-
     .database-stats {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
 

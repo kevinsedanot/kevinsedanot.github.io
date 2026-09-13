@@ -2,33 +2,13 @@
 /* =========================================================
    TAXOID
    app.js
-
-   Motor principal de la aplicación.
-
-   Funciones:
-
-   - carga especies.json
-   - genera filtros
-   - conecta Clase → Orden → Familia → Género
-   - procesa características morfológicas
-   - calcula coincidencias
-   - muestra resultados
-   - muestra candidatos
-   - prepara futuras funciones de IA
+   Aplicación principal
 ========================================================= */
 
-
-"use strict";
-
-
-const DATABASE_URL =
-    "data/especies.json";
-
+const DATABASE_URL = "especies.json";
 
 let database = [];
-
 let resultadosActuales = [];
-
 let especieSeleccionada = null;
 
 
@@ -36,34 +16,69 @@ let especieSeleccionada = null;
    INICIO
 ========================================================= */
 
-
-document.addEventListener(
-    "DOMContentLoaded",
-    iniciarAplicacion
-);
+document.addEventListener("DOMContentLoaded", iniciarAplicacion);
 
 
 async function iniciarAplicacion() {
 
-    try {
+    configurarEventos();
 
-        configurarEventos();
+    configurarImagen();
 
-        configurarImagen();
+    await cargarBaseDatos();
 
-        await cargarBaseDatos();
+}
 
-    }
-    catch (error) {
 
-        console.error(
-            "Error inicializando TaxoID:",
-            error
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+function configurarEventos() {
+
+    const clase = document.getElementById("clase");
+    const orden = document.getElementById("orden");
+    const familia = document.getElementById("familia");
+
+    const boton =
+        document.getElementById("identifyButton");
+
+
+    if (clase) {
+
+        clase.addEventListener(
+            "change",
+            manejarCambioClase
         );
 
-        mostrarEstado(
-            "No se pudo iniciar el sistema.",
-            "error"
+    }
+
+
+    if (orden) {
+
+        orden.addEventListener(
+            "change",
+            manejarCambioOrden
+        );
+
+    }
+
+
+    if (familia) {
+
+        familia.addEventListener(
+            "change",
+            manejarCambioFamilia
+        );
+
+    }
+
+
+    if (boton) {
+
+        boton.addEventListener(
+            "click",
+            identificar
         );
 
     }
@@ -72,9 +87,73 @@ async function iniciarAplicacion() {
 
 
 /* =========================================================
-   CARGAR BASE DE DATOS
+   IMAGEN
 ========================================================= */
 
+function configurarImagen() {
+
+    const input =
+        document.getElementById("imageInput");
+
+    const preview =
+        document.getElementById("preview");
+
+    const uploadArea =
+        document.getElementById("uploadArea");
+
+    const imageInfo =
+        document.getElementById("imageInfo");
+
+
+    if (!input) return;
+
+
+    input.addEventListener("change", () => {
+
+        const file = input.files[0];
+
+        if (!file) return;
+
+
+        try {
+
+            Reconocimiento.cargarImagen(file);
+
+            const url =
+                URL.createObjectURL(file);
+
+            preview.src = url;
+
+            preview.classList.add("visible");
+
+            uploadArea.classList.add("has-image");
+
+
+            imageInfo.textContent =
+                `${file.name} · ${Math.round(file.size / 1024)} KB`;
+
+
+            mostrarEstado(
+                "Imagen cargada correctamente.",
+                "success"
+            );
+
+        }
+
+        catch (error) {
+
+            mostrarError(error.message);
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   BASE DE DATOS
+========================================================= */
 
 async function cargarBaseDatos() {
 
@@ -84,123 +163,70 @@ async function cargarBaseDatos() {
     );
 
 
-    const respuesta =
-        await fetch(DATABASE_URL);
+    try {
+
+        const respuesta =
+            await fetch(DATABASE_URL);
 
 
-    if (!respuesta.ok) {
+        if (!respuesta.ok) {
 
-        throw new Error(
-            `HTTP ${respuesta.status}`
+            throw new Error(
+                `No se pudo cargar especies.json (${respuesta.status}).`
+            );
+
+        }
+
+
+        database =
+            await respuesta.json();
+
+
+        if (!Array.isArray(database)) {
+
+            throw new Error(
+                "especies.json no contiene una lista válida."
+            );
+
+        }
+
+
+        Taxonomia.inicializar(database);
+
+        inicializarFiltros();
+
+        actualizarEstadisticas();
+
+
+        mostrarEstado(
+            `${database.length} registros cargados correctamente.`,
+            "success"
         );
 
     }
 
+    catch (error) {
 
-    const datos =
-        await respuesta.json();
+        console.error(error);
 
-
-    if (!Array.isArray(datos)) {
-
-        throw new Error(
-            "especies.json no contiene un arreglo."
+        mostrarError(
+            "No se pudo cargar la base de datos. Verifica que especies.json esté en la misma carpeta que index.html."
         );
 
     }
-
-
-    database = datos;
-
-
-    Taxonomia.inicializar(
-        database
-    );
-
-
-    inicializarFiltros();
-
-    actualizarEstadisticas();
-
-
-    mostrarEstado(
-        `${database.length} registros cargados.`,
-        "success"
-    );
-
-
-    console.log(
-        "TaxoID:",
-        database.length,
-        "registros cargados."
-    );
 
 }
 
 
 /* =========================================================
-   EVENTOS
+   FILTROS TAXONÓMICOS
 ========================================================= */
 
-
-function configurarEventos() {
+function inicializarFiltros() {
 
     const clase =
         document.getElementById("clase");
 
-    const orden =
-        document.getElementById("orden");
-
-    const familia =
-        document.getElementById("familia");
-
-    const genero =
-        document.getElementById("genero");
-
-    const identifyButton =
-        document.getElementById(
-            "identifyButton"
-        );
-
-
-    clase?.addEventListener(
-        "change",
-        manejarCambioClase
-    );
-
-
-    orden?.addEventListener(
-        "change",
-        manejarCambioOrden
-    );
-
-
-    familia?.addEventListener(
-        "change",
-        manejarCambioFamilia
-    );
-
-
-    genero?.addEventListener(
-        "change",
-        actualizarCandidatosPorTaxonomia
-    );
-
-
-    identifyButton?.addEventListener(
-        "click",
-        identificar
-    );
-
-}
-
-
-/* =========================================================
-   FILTROS
-========================================================= */
-
-
-function inicializarFiltros() {
 
     const clases =
         Taxonomia.obtenerValores(
@@ -209,52 +235,52 @@ function inicializarFiltros() {
 
 
     cargarOpciones(
-        "clase",
+        clase,
         clases,
-        "Seleccionar"
-    );
-
-
-    resetearSelect(
-        "orden"
-    );
-
-    resetearSelect(
-        "familia"
-    );
-
-    resetearSelect(
-        "genero"
+        "Seleccionar clase"
     );
 
 }
 
 
-/* =========================================================
-   CAMBIOS TAXONÓMICOS
-========================================================= */
-
-
 function manejarCambioClase() {
 
     const clase =
-        obtenerValor("clase");
+        document.getElementById("clase").value;
+
+
+    const orden =
+        document.getElementById("orden");
+
+
+    const familia =
+        document.getElementById("familia");
+
+
+    const genero =
+        document.getElementById("genero");
+
+
+    const ordenes =
+        Taxonomia.obtenerOrdenes(clase);
 
 
     cargarOpciones(
-        "orden",
-        Taxonomia.obtenerOrdenes(clase),
-        "Seleccionar"
+        orden,
+        ordenes,
+        "Seleccionar orden"
     );
 
 
     resetearSelect(
-        "familia"
+        familia,
+        "Seleccionar familia"
     );
 
 
     resetearSelect(
-        "genero"
+        genero,
+        "Seleccionar género"
     );
 
 }
@@ -263,24 +289,38 @@ function manejarCambioClase() {
 function manejarCambioOrden() {
 
     const clase =
-        obtenerValor("clase");
+        document.getElementById("clase").value;
+
 
     const orden =
-        obtenerValor("orden");
+        document.getElementById("orden").value;
 
 
-    cargarOpciones(
-        "familia",
+    const familia =
+        document.getElementById("familia");
+
+
+    const genero =
+        document.getElementById("genero");
+
+
+    const familias =
         Taxonomia.obtenerFamilias(
             clase,
             orden
-        ),
-        "Seleccionar"
+        );
+
+
+    cargarOpciones(
+        familia,
+        familias,
+        "Seleccionar familia"
     );
 
 
     resetearSelect(
-        "genero"
+        genero,
+        "Seleccionar género"
     );
 
 }
@@ -289,289 +329,101 @@ function manejarCambioOrden() {
 function manejarCambioFamilia() {
 
     const clase =
-        obtenerValor("clase");
+        document.getElementById("clase").value;
+
 
     const orden =
-        obtenerValor("orden");
+        document.getElementById("orden").value;
+
 
     const familia =
-        obtenerValor("familia");
+        document.getElementById("familia").value;
 
 
-    cargarOpciones(
-        "genero",
+    const genero =
+        document.getElementById("genero");
+
+
+    const generos =
         Taxonomia.obtenerGeneros(
             clase,
             orden,
             familia
-        ),
-        "Seleccionar"
+        );
+
+
+    cargarOpciones(
+        genero,
+        generos,
+        "Seleccionar género"
     );
 
 }
 
 
-/* =========================================================
-   ACTUALIZAR CANDIDATOS
-========================================================= */
-
-
-function actualizarCandidatosPorTaxonomia() {
-
-    const criterios =
-        obtenerCriterios();
-
-
-    resultadosActuales =
-        calcularCoincidencias(
-            criterios
-        );
-
-
-    if (
-        resultadosActuales.length
-    ) {
-
-        mostrarResultados(
-            resultadosActuales
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   SELECTS
-========================================================= */
-
-
 function cargarOpciones(
-    id,
-    opciones,
-    textoInicial = "Seleccionar"
+    select,
+    valores,
+    textoInicial
 ) {
 
-    const select =
-        document.getElementById(id);
-
-
-    if (!select) {
-        return;
-    }
-
-
-    const valorAnterior =
-        select.value;
+    if (!select) return;
 
 
     select.innerHTML = "";
 
 
-    const primeraOpcion =
+    const inicial =
         document.createElement("option");
 
-    primeraOpcion.value = "";
 
-    primeraOpcion.textContent =
+    inicial.value = "";
+
+    inicial.textContent =
         textoInicial;
 
-    select.appendChild(
-        primeraOpcion
-    );
+    select.appendChild(inicial);
 
 
-    for (const opcion of opciones) {
+    valores.forEach(valor => {
 
-        const elemento =
+        const option =
             document.createElement("option");
 
-        elemento.value =
-            opcion;
 
-        elemento.textContent =
-            opcion;
+        option.value = valor;
 
-        select.appendChild(
-            elemento
-        );
-
-    }
+        option.textContent = valor;
 
 
-    if (
-        opciones.includes(
-            valorAnterior
-        )
-    ) {
+        select.appendChild(option);
 
-        select.value =
-            valorAnterior;
-
-    }
+    });
 
 }
 
 
-function resetearSelect(id) {
+function resetearSelect(
+    select,
+    texto
+) {
 
-    const select =
-        document.getElementById(id);
-
-
-    if (!select) {
-        return;
-    }
+    if (!select) return;
 
 
-    select.innerHTML =
-        '<option value="">Seleccionar</option>';
-
-}
+    select.innerHTML = "";
 
 
-/* =========================================================
-   IMAGEN
-========================================================= */
+    const option =
+        document.createElement("option");
 
 
-function configurarImagen() {
+    option.value = "";
 
-    const input =
-        document.getElementById(
-            "imageInput"
-        );
-
-    const preview =
-        document.getElementById(
-            "preview"
-        );
-
-    const uploadArea =
-        document.getElementById(
-            "uploadArea"
-        );
-
-    const imageInfo =
-        document.getElementById(
-            "imageInfo"
-        );
+    option.textContent = texto;
 
 
-    if (!input || !preview) {
-        return;
-    }
-
-
-    input.addEventListener(
-        "change",
-        event => {
-
-            const file =
-                event.target.files?.[0];
-
-
-            if (!file) {
-                return;
-            }
-
-
-            try {
-
-                Reconocimiento.cargarImagen(
-                    file
-                );
-
-            }
-            catch (error) {
-
-                mostrarEstado(
-                    error.message,
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            const url =
-                URL.createObjectURL(
-                    file
-                );
-
-
-            preview.src =
-                url;
-
-
-            preview.classList.add(
-                "visible"
-            );
-
-
-            uploadArea?.classList.add(
-                "has-image"
-            );
-
-
-            const metadata =
-                Reconocimiento.obtenerMetadatos();
-
-
-            if (metadata) {
-
-                imageInfo.textContent =
-                    `${metadata.nombre} • ${metadata.tamañoKB} KB`;
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   OBTENER CRITERIOS
-========================================================= */
-
-
-function obtenerCriterios() {
-
-    return {
-
-        clase:
-            obtenerValor("clase"),
-
-        orden:
-            obtenerValor("orden"),
-
-        familia:
-            obtenerValor("familia"),
-
-        genero:
-            obtenerValor("genero"),
-
-        patas:
-            obtenerValor("patas"),
-
-        alas:
-            obtenerValor("alas"),
-
-        antenas:
-            obtenerValor("antenas"),
-
-        aparatoBucal:
-            obtenerValor("aparatoBucal"),
-
-        simetria:
-            obtenerValor("simetria"),
-
-        segmentacion:
-            obtenerValor("segmentacion")
-
-    };
+    select.appendChild(option);
 
 }
 
@@ -580,87 +432,48 @@ function obtenerCriterios() {
    IDENTIFICACIÓN
 ========================================================= */
 
+function obtenerCriterios() {
 
-function identificar() {
+    return {
 
-    if (!database.length) {
+        clase:
+            document.getElementById("clase").value,
 
-        mostrarError(
-            "La base de datos todavía no está cargada."
-        );
+        orden:
+            document.getElementById("orden").value,
 
-        return;
+        familia:
+            document.getElementById("familia").value,
 
-    }
+        genero:
+            document.getElementById("genero").value,
 
+        patas:
+            document.getElementById("patas").value,
 
-    const criterios =
-        obtenerCriterios();
+        alas:
+            document.getElementById("alas").value,
 
+        antenas:
+            document.getElementById("antenas").value,
 
-    const hayCriterios =
-        Object.values(criterios)
-            .some(Boolean);
+        mouthparts:
+            document.getElementById("aparatoBucal").value,
 
+        symmetry:
+            document.getElementById("simetria").value,
 
-    if (!hayCriterios) {
+        segmentation:
+            document.getElementById("segmentacion").value
 
-        mostrarError(
-            "Selecciona al menos una característica."
-        );
-
-        return;
-
-    }
-
-
-    mostrarEstado(
-        "Comparando características...",
-        "loading"
-    );
-
-
-    resultadosActuales =
-        calcularCoincidencias(
-            criterios
-        );
-
-
-    if (!resultadosActuales.length) {
-
-        mostrarError(
-            "No se encontraron coincidencias."
-        );
-
-        return;
-
-    }
-
-
-    mostrarResultados(
-        resultadosActuales
-    );
-
-
-    mostrarEstado(
-        "Identificación completada.",
-        "success"
-    );
-
-
-    document
-        .getElementById("resultados")
-        ?.scrollIntoView({
-            behavior: "smooth"
-        });
+    };
 
 }
 
 
 /* =========================================================
-   MOTOR DE COINCIDENCIA
+   CALCULAR COINCIDENCIAS
 ========================================================= */
-
 
 function calcularCoincidencias(
     criterios
@@ -682,264 +495,80 @@ function calcularCoincidencias(
 
         antenas: 7,
 
-        aparatoBucal: 5,
+        mouthparts: 5,
 
-        simetria: 3,
+        symmetry: 3,
 
-        segmentacion: 3
+        segmentation: 3
 
     };
 
 
-    const resultados =
-        database.map(especie => {
+    const seleccionados =
+        Object.keys(pesos)
+            .filter(
+                clave =>
+                    criterios[clave] !== ""
+            );
 
-            const morphology =
-                especie.morphology || {};
 
-            const taxonomy =
-                especie.taxonomy || {};
+    if (
+        seleccionados.length === 0
+    ) {
+
+        return [];
+
+    }
+
+
+    const pesoTotal =
+        seleccionados.reduce(
+            (total, clave) =>
+                total + pesos[clave],
+            0
+        );
+
+
+    return database
+        .map(especie => {
 
             let puntos = 0;
 
-            let pesoDisponible = 0;
 
-
-            /* CLASE */
-
-            if (criterios.clase) {
-
-                pesoDisponible +=
-                    pesos.clase;
-
-
-                if (
-                    taxonomy.class ===
-                    criterios.clase
-                ) {
-
-                    puntos +=
-                        pesos.clase;
-
-                }
-
-            }
-
-
-            /* ORDEN */
-
-            if (criterios.orden) {
-
-                pesoDisponible +=
-                    pesos.orden;
-
-
-                if (
-                    taxonomy.order ===
-                    criterios.orden
-                ) {
-
-                    puntos +=
-                        pesos.orden;
-
-                }
-
-            }
-
-
-            /* FAMILIA */
-
-            if (criterios.familia) {
-
-                pesoDisponible +=
-                    pesos.familia;
-
-
-                if (
-                    taxonomy.family ===
-                    criterios.familia
-                ) {
-
-                    puntos +=
-                        pesos.familia;
-
-                }
-
-            }
-
-
-            /* GÉNERO */
-
-            if (criterios.genero) {
-
-                pesoDisponible +=
-                    pesos.genero;
-
-
-                if (
-                    taxonomy.genus ===
-                    criterios.genero
-                ) {
-
-                    puntos +=
-                        pesos.genero;
-
-                }
-
-            }
-
-
-            /* PATAS */
-
-            if (criterios.patas) {
-
-                pesoDisponible +=
-                    pesos.patas;
-
-
-                if (
-                    String(
-                        morphology.legs
-                    ) ===
-                    String(
-                        criterios.patas
-                    )
-                ) {
-
-                    puntos +=
-                        pesos.patas;
-
-                }
-
-            }
-
-
-            /* ALAS */
-
-            if (criterios.alas) {
-
-                pesoDisponible +=
-                    pesos.alas;
-
-
-                if (
-                    Boolean(
-                        morphology.wings
-                    ) ===
-                    (
-                        criterios.alas ===
-                        "true"
-                    )
-                ) {
-
-                    puntos +=
-                        pesos.alas;
-
-                }
-
-            }
-
-
-            /* ANTENAS */
-
-            if (criterios.antenas) {
-
-                pesoDisponible +=
-                    pesos.antenas;
-
-
-                if (
-                    Boolean(
-                        morphology.antennae
-                    ) ===
-                    (
-                        criterios.antenas ===
-                        "true"
-                    )
-                ) {
-
-                    puntos +=
-                        pesos.antenas;
-
-                }
-
-            }
-
-
-            /* APARATO BUCAL */
-
-            if (
-                criterios.aparatoBucal
+            for (
+                const criterio
+                of seleccionados
             ) {
 
-                pesoDisponible +=
-                    pesos.aparatoBucal;
+                const valorBase =
+                    obtenerValor(
+                        especie,
+                        criterio
+                    );
+
+
+                const valorUsuario =
+                    criterios[criterio];
 
 
                 if (
-                    morphology.mouthparts ===
-                    criterios.aparatoBucal
+                    String(valorBase)
+                    ===
+                    String(valorUsuario)
                 ) {
 
                     puntos +=
-                        pesos.aparatoBucal;
+                        pesos[criterio];
 
                 }
 
             }
 
 
-            /* SIMETRÍA */
-
-            if (criterios.simetria) {
-
-                pesoDisponible +=
-                    pesos.simetria;
-
-
-                if (
-                    morphology.symmetry ===
-                    criterios.simetria
-                ) {
-
-                    puntos +=
-                        pesos.simetria;
-
-                }
-
-            }
-
-
-            /* SEGMENTACIÓN */
-
-            if (
-                criterios.segmentacion
-            ) {
-
-                pesoDisponible +=
-                    pesos.segmentacion;
-
-
-                if (
-                    morphology.segmentation ===
-                    criterios.segmentacion
-                ) {
-
-                    puntos +=
-                        pesos.segmentacion;
-
-                }
-
-            }
-
-
-            const score =
-                pesoDisponible > 0
+            const porcentaje =
+                pesoTotal > 0
                     ? Math.round(
-                        (
-                            puntos /
-                            pesoDisponible
-                        ) * 100
+                        (puntos / pesoTotal) * 100
                     )
                     : 0;
 
@@ -947,24 +576,109 @@ function calcularCoincidencias(
             return {
 
                 especie,
-
-                score
+                puntos,
+                porcentaje
 
             };
 
-        });
+        })
 
 
-    return resultados
         .filter(
             resultado =>
-                resultado.score > 0
+                resultado.puntos > 0
         )
+
+
         .sort(
-            (a, b) =>
-                b.score -
-                a.score
+            (a,b) =>
+                b.porcentaje - a.porcentaje
         );
+
+}
+
+
+/* =========================================================
+   IDENTIFICAR
+========================================================= */
+
+function identificar() {
+
+    if (database.length === 0) {
+
+        mostrarError(
+            "La base de datos todavía no está disponible."
+        );
+
+        return;
+
+    }
+
+
+    const criterios =
+        obtenerCriterios();
+
+
+    const hayCriterios =
+        Object.values(criterios)
+            .some(
+                valor => valor !== ""
+            );
+
+
+    if (!hayCriterios) {
+
+        mostrarError(
+            "Selecciona al menos un carácter para realizar la identificación."
+        );
+
+        return;
+
+    }
+
+
+    mostrarEstado(
+        "Analizando caracteres...",
+        "loading"
+    );
+
+
+    resultadosActuales =
+        calcularCoincidencias(
+            criterios
+        );
+
+
+    if (
+        resultadosActuales.length === 0
+    ) {
+
+        mostrarError(
+            "No se encontraron coincidencias con los caracteres seleccionados."
+        );
+
+        return;
+
+    }
+
+
+    mostrarResultados(
+        resultadosActuales
+    );
+
+
+    mostrarEstado(
+        "Análisis completado correctamente.",
+        "success"
+    );
+
+
+    document
+        .getElementById("resultados")
+        ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
 }
 
@@ -973,29 +687,44 @@ function calcularCoincidencias(
    MOSTRAR RESULTADOS
 ========================================================= */
 
-
 function mostrarResultados(
     resultados
 ) {
 
+    const empty =
+        document.getElementById("emptyResult");
+
+
+    const result =
+        document.getElementById("result");
+
+
     if (!resultados.length) {
 
-        mostrarError(
-            "No existen candidatos compatibles."
-        );
+        empty.classList.remove("hidden");
+
+        result.classList.add("hidden");
 
         return;
 
     }
 
 
+    empty.classList.add("hidden");
+
+    result.classList.remove("hidden");
+
+
+    const mejor =
+        resultados[0];
+
+
     especieSeleccionada =
-        resultados[0].especie;
+        mejor.especie;
 
 
     mostrarMejorResultado(
-        especieSeleccionada,
-        resultados[0].score
+        mejor
     );
 
 
@@ -1003,103 +732,86 @@ function mostrarResultados(
         resultados
     );
 
-
-    document
-        .getElementById("emptyResult")
-        ?.classList.add("hidden");
-
-
-    document
-        .getElementById("result")
-        ?.classList.remove("hidden");
-
 }
 
 
-/* =========================================================
-   MEJOR RESULTADO
-========================================================= */
-
-
 function mostrarMejorResultado(
-    especie,
-    score
+    resultado
 ) {
 
-    const identification =
-        especie.identification || {};
+    const especie =
+        resultado.especie;
 
-    const taxonomy =
+
+    const tax =
         especie.taxonomy || {};
 
 
     escribir(
         "species",
-        identification.scientificName ||
-        "Sin nombre científico"
+        especie.identification?.scientificName
+        || "Sin nombre"
     );
 
 
     escribir(
         "commonName",
-        obtenerNombreComun(
-            identification.commonNames
-        )
+        obtenerNombreComun(especie)
     );
 
 
     escribir(
         "resultNivel",
-        identification.identificationLevel ||
-        "Registro taxonómico"
+        especie.identification?.identificationLevel
+        || "Resultado"
     );
 
 
     escribir(
         "resultReino",
-        taxonomy.kingdom || "—"
+        tax.kingdom || "—"
     );
 
 
     escribir(
         "resultFilo",
-        taxonomy.phylum || "—"
+        tax.phylum || "—"
     );
 
 
     escribir(
         "resultClase",
-        taxonomy.class || "—"
+        tax.class || "—"
     );
 
 
     escribir(
         "resultOrden",
-        taxonomy.order || "—"
+        tax.order || "—"
     );
 
 
     escribir(
         "resultFamilia",
-        taxonomy.family || "—"
+        tax.family || "—"
     );
 
 
     escribir(
         "resultGenero",
-        taxonomy.genus || "—"
+        tax.genus || "—"
     );
 
 
     escribir(
         "resultEspecie",
-        taxonomy.species || "—"
+        tax.species || "—"
     );
 
 
     escribir(
         "confidenceText",
-        `${score}%`
+        `${resultado.porcentaje}%`
     );
 
 
@@ -1112,71 +824,54 @@ function mostrarMejorResultado(
     if (bar) {
 
         bar.style.width =
-            `${score}%`;
+            `${resultado.porcentaje}%`;
 
     }
 
 
-    mostrarImagen(
-        especie
-    );
+    mostrarImagen(especie);
 
-
-    mostrarDetalles(
-        especie
-    );
+    mostrarDetalles(especie);
 
 }
 
 
 /* =========================================================
-   IMAGEN DE LA ESPECIE
+   IMAGEN RESULTADO
 ========================================================= */
-
 
 function mostrarImagen(
     especie
 ) {
 
-    const image =
+    const imagen =
         document.getElementById(
             "speciesImage"
         );
 
 
-    if (!image) {
-        return;
-    }
+    if (!imagen) return;
 
 
-    const images =
-        especie.images || {};
+    const ruta =
+        especie.images?.principal;
 
 
-    const source =
-        images.principal ||
-        "";
+    if (ruta) {
 
+        imagen.src = ruta;
 
-    if (source) {
-
-        image.src =
-            source;
-
-        image.alt =
-            especie.identification
-                ?.scientificName ||
-            "Espécimen";
+        imagen.style.display =
+            "block";
 
     }
+
     else {
 
-        image.removeAttribute(
-            "src"
-        );
+        imagen.removeAttribute("src");
 
-        image.alt =
-            "Imagen no disponible";
+        imagen.style.display =
+            "none";
 
     }
 
@@ -1187,136 +882,94 @@ function mostrarImagen(
    DETALLES
 ========================================================= */
 
-
 function mostrarDetalles(
     especie
 ) {
 
-    const container =
+    const contenedor =
         document.getElementById(
             "taxonomicDetails"
         );
 
 
-    if (!container) {
-        return;
-    }
+    if (!contenedor) return;
 
 
-    container.innerHTML =
-        "";
-
-
-    const morphology =
-        especie.morphology || {};
-
-    const biology =
+    const bio =
         especie.biology || {};
 
     const ecology =
         especie.ecology || {};
 
     const importance =
-        especie.importance || {};
+        especie.veterinaryImportance || {};
+
+    const morphology =
+        especie.morphology || {};
 
 
-    agregarTarjetaDetalle(
-        container,
-        "🔬 Morfología",
-        construirLista([
-            `Patas: ${morphology.legs ?? "—"}`,
-            `Alas: ${morphology.wings ? "Presentes" : "Ausentes"}`,
-            `Antenas: ${morphology.antennae ? "Presentes" : "Ausentes"}`,
-            `Simetría: ${morphology.symmetry ?? "—"}`,
-            `Segmentación: ${morphology.segmentation ?? "—"}`,
-            `Aparato bucal: ${morphology.mouthparts ?? "—"}`
-        ])
-    );
+    contenedor.innerHTML = `
+
+        <article class="detail-card">
+
+            <h4>🔬 Morfología</h4>
+
+            <p>
+                Patas:
+                ${morphology.legs ?? "—"}
+            </p>
+
+            <p>
+                Alas:
+                ${morphology.wings ? "Sí" : "No"}
+            </p>
+
+            <p>
+                Antenas:
+                ${morphology.antennae ? "Sí" : "No"}
+            </p>
+
+            <p>
+                Aparato bucal:
+                ${morphology.mouthparts || "—"}
+            </p>
+
+        </article>
 
 
-    agregarTarjetaDetalle(
-        container,
-        "🧬 Biología",
-        construirLista([
-            `Desarrollo: ${biology.developmentType ?? "—"}`,
-            `Metamorfosis: ${biology.metamorphosis ?? "—"}`,
-            `Reproducción: ${biology.reproduction ?? "—"}`,
-            `Organización social: ${biology.socialOrganization ?? "—"}`
-        ])
-    );
+        <article class="detail-card">
+
+            <h4>🧬 Biología</h4>
+
+            <p>
+                ${bio.description || "Información no disponible."}
+            </p>
+
+        </article>
 
 
-    agregarTarjetaDetalle(
-        container,
-        "🌎 Ecología",
-        construirLista([
-            `Hábitat: ${ecology.habitat ?? "—"}`,
-            `Dieta: ${ecology.diet ?? "—"}`,
-            `Rol ecológico: ${ecology.ecologicalRole ?? "—"}`,
-            `Nivel trófico: ${ecology.trophicLevel ?? "—"}`
-        ])
-    );
+        <article class="detail-card">
+
+            <h4>🌿 Ecología</h4>
+
+            <p>
+                ${ecology.habitat || "Información no disponible."}
+            </p>
+
+        </article>
 
 
-    agregarTarjetaDetalle(
-        container,
-        "📚 Importancia",
-        construirLista([
-            `Ecológica: ${importance.ecological ?? "—"}`,
-            `Agrícola: ${importance.agricultural ?? "—"}`,
-            `Veterinaria: ${importance.veterinary ?? "—"}`,
-            `Salud pública: ${importance.publicHealth ?? "—"}`
-        ])
-    );
+        <article class="detail-card">
 
-}
+            <h4>🩺 Veterinaria</h4>
 
+            <p>
+                ${importance.description || "Información veterinaria no registrada."}
+            </p>
 
-function construirLista(
-    elementos
-) {
+        </article>
 
-    return `
-        <ul>
-            ${elementos
-                .map(
-                    elemento =>
-                        `<li>${escaparHTML(
-                            elemento
-                        )}</li>`
-                )
-                .join("")}
-        </ul>
     `;
-
-}
-
-
-function agregarTarjetaDetalle(
-    container,
-    titulo,
-    contenido
-) {
-
-    const article =
-        document.createElement(
-            "article"
-        );
-
-
-    article.className =
-        "detail-card";
-
-
-    article.innerHTML = `
-        <h4>${titulo}</h4>
-        ${contenido}
-    `;
-
-
-    container.appendChild(
-        article
-    );
 
 }
 
@@ -1325,51 +978,52 @@ function agregarTarjetaDetalle(
    CANDIDATOS
 ========================================================= */
 
-
 function mostrarCandidatos(
     resultados
 ) {
 
-    const container =
+    const contenedor =
         document.getElementById(
             "candidateList"
         );
 
 
-    if (!container) {
-        return;
-    }
+    if (!contenedor) return;
 
 
-    container.innerHTML =
-        "";
+    contenedor.innerHTML = "";
 
 
     resultados
-        .slice(0, 5)
+        .slice(0,5)
         .forEach(
-            (resultado, index) => {
+            (resultado,index) => {
 
-                const identification =
-                    resultado.especie
-                        .identification || {};
-
-                const taxonomy =
-                    resultado.especie
-                        .taxonomy || {};
+                const especie =
+                    resultado.especie;
 
 
-                const element =
+                const tax =
+                    especie.taxonomy || {};
+
+
+                const nombre =
+                    especie.identification
+                        ?.scientificName
+                    || "Sin nombre";
+
+
+                const item =
                     document.createElement(
                         "div"
                     );
 
 
-                element.className =
+                item.className =
                     "candidate";
 
 
-                element.innerHTML = `
+                item.innerHTML = `
 
                     <div class="candidate-rank">
                         ${index + 1}
@@ -1378,31 +1032,26 @@ function mostrarCandidatos(
                     <div>
 
                         <div class="candidate-name">
-                            ${escaparHTML(
-                                identification
-                                    .scientificName ||
-                                "Sin identificar"
-                            )}
+                            ${escaparHTML(nombre)}
                         </div>
 
                         <div class="candidate-family">
                             ${escaparHTML(
-                                taxonomy.family ||
-                                "Familia no disponible"
+                                tax.family || "Familia no disponible"
                             )}
                         </div>
 
                     </div>
 
                     <div class="candidate-score">
-                        ${resultado.score}%
+                        ${resultado.porcentaje}%
                     </div>
 
                 `;
 
 
-                container.appendChild(
-                    element
+                contenedor.appendChild(
+                    item
                 );
 
             }
@@ -1415,50 +1064,58 @@ function mostrarCandidatos(
    ESTADÍSTICAS
 ========================================================= */
 
-
 function actualizarEstadisticas() {
 
-    const especies =
-        database.length;
-
-
     const familias =
-        new Set(
-            database
-                .map(
-                    especie =>
-                        especie.taxonomy?.family
-                )
-                .filter(Boolean)
-        ).size;
-
+        new Set();
 
     const ordenes =
-        new Set(
-            database
-                .map(
-                    especie =>
-                        especie.taxonomy?.order
-                )
-                .filter(Boolean)
-        ).size;
+        new Set();
+
+
+    database.forEach(
+        especie => {
+
+            if (
+                especie.taxonomy?.family
+            ) {
+
+                familias.add(
+                    especie.taxonomy.family
+                );
+
+            }
+
+
+            if (
+                especie.taxonomy?.order
+            ) {
+
+                ordenes.add(
+                    especie.taxonomy.order
+                );
+
+            }
+
+        }
+    );
 
 
     escribir(
         "speciesCount",
-        especies
+        database.length
     );
 
 
     escribir(
         "familyCount",
-        familias
+        familias.size
     );
 
 
     escribir(
         "orderCount",
-        ordenes
+        ordenes.size
     );
 
 }
@@ -1468,21 +1125,65 @@ function actualizarEstadisticas() {
    UTILIDADES
 ========================================================= */
 
+function obtenerValor(
+    especie,
+    criterio
+) {
 
-function obtenerValor(id) {
+    const morphology =
+        especie.morphology || {};
 
-    return (
-        document.getElementById(id)
-            ?.value ||
-        ""
-    );
+    const taxonomy =
+        especie.taxonomy || {};
+
+
+    const mapa = {
+
+        clase:
+            taxonomy.class,
+
+        orden:
+            taxonomy.order,
+
+        familia:
+            taxonomy.family,
+
+        genero:
+            taxonomy.genus,
+
+        patas:
+            morphology.legs,
+
+        alas:
+            String(
+                morphology.wings
+            ),
+
+        antenas:
+            String(
+                morphology.antennae
+            ),
+
+        mouthparts:
+            morphology.mouthparts,
+
+        symmetry:
+            morphology.symmetry,
+
+        segmentation:
+            morphology.segmentation
+
+    };
+
+
+    return mapa[criterio];
 
 }
 
 
 function escribir(
     id,
-    valor
+    texto
 ) {
 
     const elemento =
@@ -1492,7 +1193,7 @@ function escribir(
     if (elemento) {
 
         elemento.textContent =
-            valor ?? "—";
+            texto ?? "—";
 
     }
 
@@ -1500,20 +1201,26 @@ function escribir(
 
 
 function obtenerNombreComun(
-    nombres
+    especie
 ) {
 
-    if (Array.isArray(nombres)) {
+    const nombres =
+        especie.identification
+            ?.commonNames;
 
-        return nombres.join(
-            " • "
-        );
+
+    if (
+        Array.isArray(nombres)
+        &&
+        nombres.length
+    ) {
+
+        return nombres.join(", ");
 
     }
 
 
-    return nombres ||
-        "Nombre común no registrado";
+    return "Nombre común no registrado";
 
 }
 
@@ -1523,41 +1230,34 @@ function escaparHTML(
 ) {
 
     return String(texto)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 
 }
 
 
-/* =========================================================
-   ESTADOS
-========================================================= */
-
-
 function mostrarEstado(
     mensaje,
-    tipo = "normal"
+    tipo = ""
 ) {
 
-    const elemento =
+    const estado =
         document.getElementById(
             "systemStatus"
         );
 
 
-    if (!elemento) {
-        return;
-    }
+    if (!estado) return;
 
 
-    elemento.textContent =
+    estado.textContent =
         mensaje;
 
 
-    elemento.dataset.status =
+    estado.dataset.status =
         tipo;
 
 }
@@ -1568,111 +1268,47 @@ function mostrarError(
 ) {
 
     mostrarEstado(
-        `⚠️ ${mensaje}`,
+        mensaje,
         "error"
     );
 
 }
 
 
-/* =========================================================
-   API PÚBLICA
-========================================================= */
-
+/* API */
 
 window.TaxoID = {
 
     identificar,
 
-    buscarEspecie,
+    buscarEspecie(nombre) {
 
-    obtenerEspeciePorID,
+        return database.filter(
+            especie =>
+                especie.identification
+                    ?.scientificName
+                    ?.toLowerCase()
+                    .includes(
+                        nombre.toLowerCase()
+                    )
+        );
+
+    },
+
+    obtenerEspeciePorID(id) {
+
+        return database.find(
+            especie =>
+                especie.id === id
+        );
+
+    },
 
     obtenerBaseDatos() {
 
         return database;
 
-    },
-
-    obtenerResultados() {
-
-        return resultadosActuales;
-
     }
 
 };
-
-
-/* =========================================================
-   BÚSQUEDA
-========================================================= */
-
-
-function buscarEspecie(
-    termino
-) {
-
-    if (!termino) {
-        return [];
-    }
-
-
-    const busqueda =
-        String(termino)
-            .toLowerCase()
-            .trim();
-
-
-    return database.filter(
-        especie => {
-
-            const identification =
-                especie.identification || {};
-
-            const taxonomy =
-                especie.taxonomy || {};
-
-
-            const campos = [
-
-                identification
-                    .scientificName,
-
-                ...(identification
-                    .commonNames || []),
-
-                taxonomy.genus,
-
-                taxonomy.species,
-
-                taxonomy.family,
-
-                taxonomy.order
-
-            ];
-
-
-            return campos.some(
-                campo =>
-                    String(campo || "")
-                        .toLowerCase()
-                        .includes(busqueda)
-            );
-
-        }
-    );
-
-}
-
-
-function obtenerEspeciePorID(
-    id
-) {
-
-    return database.find(
-        especie =>
-            especie.id === id
-    ) || null;
-
-}
 ```

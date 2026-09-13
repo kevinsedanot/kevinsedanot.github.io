@@ -1,64 +1,81 @@
 ```json
 [
-  {
-    "id": "HYM_APIDAE",
-    "nombre": "Apidae",
-    "nombreComun": "Abejas",
-    "orden": "Hymenoptera",
-    "clase": "Insecta",
-    "descripcion": "Familia diversa de himenópteros que incluye abejas con gran diversidad de hábitos y morfologías.",
-    "caracteristicas": [
-      "Seis patas",
-      "Antenas",
-      "Dos pares de alas en las formas aladas",
-      "Frecuente presencia de pilosidad",
-      "Aparato bucal adaptado a diferentes tipos de alimentación"
-    ],
-    "generosImportantes": [
-      "Apis",
-      "Bombus",
-      "Euglossa"
-    ]
-  },
-  {
-    "id": "COL_SCARABAEIDAE",
-    "nombre": "Scarabaeidae",
-    "nombreComun": "Escarabeidos",
-    "orden": "Coleoptera",
-    "clase": "Insecta",
-    "descripcion": "Familia de coleópteros con gran diversidad de especies y adaptaciones ecológicas.",
-    "caracteristicas": [
-      "Seis patas",
-      "Élitros",
-      "Alas posteriores membranosas",
-      "Aparato bucal masticador",
-      "Antenas variables según el grupo"
-    ],
-    "generosImportantes": [
-      "Cetonia",
-      "Scarabaeus",
-      "Dynastes"
-    ]
-  },
-  {
-    "id": "ARA_THERIDIIDAE",
-    "nombre": "Theridiidae",
-    "nombreComun": "Arañas de telaraña irregular",
-    "orden": "Araneae",
-    "clase": "Arachnida",
-    "descripcion": "Familia de arañas que incluye especies que producen telarañas tridimensionales e irregulares.",
-    "caracteristicas": [
-      "Ocho patas",
-      "Sin antenas",
-      "Sin alas",
-      "Quelíceros",
-      "Pedipalpos",
-      "Dos regiones corporales principales"
-    ],
-    "generosImportantes": [
-      "Latrodectus",
-      "Steatoda"
-    ]
-  }
+    {
+        "name": "Apidae",
+        "class": "Insecta",
+        "order": "Hymenoptera",
+
+        "description":
+            "Familia de himenópteros que incluye abejas de importancia ecológica, agrícola y veterinaria.",
+
+        "genera": [
+            "Apis",
+            "Bombus",
+            "Euglossa"
+        ]
+    },
+
+
+    {
+        "name": "Scarabaeidae",
+        "class": "Insecta",
+        "order": "Coleoptera",
+
+        "description":
+            "Familia de coleópteros conocidos comúnmente como escarabajos.",
+
+        "genera": [
+            "Cetonia",
+            "Scarabaeus",
+            "Dynastes"
+        ]
+    },
+
+
+    {
+        "name": "Theridiidae",
+        "class": "Arachnida",
+        "order": "Araneae",
+
+        "description":
+            "Familia de arañas que incluye géneros de importancia médica y veterinaria.",
+
+        "genera": [
+            "Latrodectus",
+            "Steatoda"
+        ]
+    },
+
+
+    {
+        "name": "Formicidae",
+        "class": "Insecta",
+        "order": "Hymenoptera",
+
+        "description":
+            "Familia de hormigas con gran diversidad ecológica.",
+
+        "genera": [
+            "Atta",
+            "Acromyrmex",
+            "Camponotus"
+        ]
+    },
+
+
+    {
+        "name": "Culicidae",
+        "class": "Insecta",
+        "order": "Diptera",
+
+        "description":
+            "Familia de mosquitos de gran importancia sanitaria y veterinaria.",
+
+        "genera": [
+            "Aedes",
+            "Anopheles",
+            "Culex"
+        ]
+    }
 ]
 ```

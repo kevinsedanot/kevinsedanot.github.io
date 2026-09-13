@@ -2,41 +2,28 @@
 /* =========================================================
    TAXOID
    reconocimiento.js
-
-   Módulo de reconocimiento visual.
-
-   Actualmente:
-   - procesa la imagen seleccionada
-   - obtiene información básica
-   - prepara la estructura para conectar
-     posteriormente un modelo de visión artificial
-
-   IMPORTANTE:
-   Este módulo NO afirma reconocer especies
-   únicamente a partir de la fotografía.
 ========================================================= */
 
-
 const Reconocimiento = {
-
 
     imagenActual: null,
 
 
-    /**
-     * Guarda la imagen seleccionada.
-     */
     cargarImagen(file) {
 
         if (!file) {
 
-            this.imagenActual = null;
+            this.imagenActual =
+                null;
 
             return null;
+
         }
 
 
-        if (!file.type.startsWith("image/")) {
+        if (
+            !file.type.startsWith("image/")
+        ) {
 
             throw new Error(
                 "El archivo seleccionado no es una imagen."
@@ -45,16 +32,15 @@ const Reconocimiento = {
         }
 
 
-        this.imagenActual = file;
+        this.imagenActual =
+            file;
+
 
         return file;
 
     },
 
 
-    /**
-     * Devuelve metadatos básicos de la imagen.
-     */
     obtenerMetadatos() {
 
         if (!this.imagenActual) {
@@ -85,9 +71,6 @@ const Reconocimiento = {
     },
 
 
-    /**
-     * Comprueba si hay imagen.
-     */
     tieneImagen() {
 
         return Boolean(
@@ -97,9 +80,6 @@ const Reconocimiento = {
     },
 
 
-    /**
-     * Estructura preparada para una futura IA.
-     */
     prepararAnalisisVisual() {
 
         if (!this.imagenActual) {
@@ -134,17 +114,6 @@ const Reconocimiento = {
     },
 
 
-    /**
-     * Punto de integración futura.
-     *
-     * Aquí posteriormente podremos conectar:
-     *
-     * - TensorFlow.js
-     * - ONNX Runtime
-     * - una API de visión
-     * - un modelo entrenado específicamente
-     *   con insectos y artrópodos.
-     */
     async analizarConModelo() {
 
         return {
